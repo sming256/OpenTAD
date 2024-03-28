@@ -5,8 +5,8 @@
     <!-- <img src="https://img.shields.io/badge/arXiv-xxx.xxx-b31b1b.svg?style=flat" /></a> -->
 <a href="https://github.com/sming256/opentad/blob/main/LICENSE" alt="license">
     <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" /></a>
-<a href="https://github.com/sming256/opentad/issues" alt="docs">
-    <img src="https://img.shields.io/github/issues-raw/sming256/SimVPv2?color=%23FF9600" /></a>
+<a href="https://github.com/sming256/OpenTAD/issues" alt="docs">
+    <img src="https://img.shields.io/github/issues-raw/sming256/OpenTAD?color=%23FF9600" /></a>
 <a href="https://img.shields.io/github/stars/sming256/opentad" alt="arXiv">
     <img src="https://img.shields.io/github/stars/sming256/opentad" /></a>
 </p>
