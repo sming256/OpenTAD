@@ -34,7 +34,7 @@ Self-attention based Transformer models have demonstrated impressive results for
 | Subset | Features | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |                  Config                  |                                                                                          Download                                                                                          |
 | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :--------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |  Noun  | SlowFast |  25.78  |  24.73  |  22.83  |  20.84  |  17.45  |  22.33   | [config](epic_kitchens_slowfast_noun.py) | [model](https://drive.google.com/file/d/1RckzXf5W8oD_ARZw5dyYo03ZKVrU1n9-/view?usp=sharing)   \| [log](https://drive.google.com/file/d/18dVA27hWRBjM8lp4S12DscCkNJBqFrWp/view?usp=sharing) |
-|  Verb  | SlowFast |  27.68  |  26.79  |  25.62  |  24.06  |  20.48  |  25.34   | [config](epic_kitchens_slowfast_verb.py) | [model](https://drive.google.com/file/d/1-RLtnku727Fh39rihyGVxLCU5klTIvbn/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1w18Ccyi22ZHgM0ECx6rAKOXqFoO9L0Iq/view?usp=sharing) |
+|  Verb  | SlowFast |  27.68  |  26.79  |  25.62  |  24.06  |  20.48  |  24.93   | [config](epic_kitchens_slowfast_verb.py) | [model](https://drive.google.com/file/d/1-RLtnku727Fh39rihyGVxLCU5klTIvbn/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1w18Ccyi22ZHgM0ECx6rAKOXqFoO9L0Iq/view?usp=sharing) |
 
 
 **MultiTHUMOS**
