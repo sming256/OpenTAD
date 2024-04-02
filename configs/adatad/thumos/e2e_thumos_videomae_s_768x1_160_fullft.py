@@ -121,7 +121,7 @@ solver = dict(
 
 optimizer = dict(
     type="AdamW",
-    lr=1e-3,
+    lr=1e-4,
     weight_decay=0.05,
     paramwise=True,
     backbone=dict(lr=1e-5, weight_decay=0.05),
