@@ -9,6 +9,69 @@
 
 Recently, temporal action detection (TAD) has seen significant performance improvement with end-to-end training. However, due to the memory bottleneck, only models with limited scales and limited data volumes can afford end-to-end training, which inevitably restricts TAD performance. In this paper, we reduce the memory consumption for end-to-end training, and manage to scale up the TAD backbone to 1 billion parameters and the input video to 1,536 frames, leading to significant detection performance. The key to our approach lies in our proposed temporal-informative adapter (TIA), which is a novel lightweight module that reduces training memory. Using TIA, we free the humongous backbone from learning to adapt to the TAD task by only updating the parameters in TIA. TIA also leads to better TAD representation by temporally aggregating context from adjacent frames throughout the backbone. We evaluate our model across four representative datasets. Owing to our efficient design, we are able to train end-to-end on VideoMAEv2-giant and achieve 75.4% mAP on THUMOS14, being the first end-to-end model to outperform the best feature-based methods.
 
-## Results and Models
+## Prepare the pretrained VideoMAE checkpoints
 
-Code and pretrained models will be released soon!
+Before running the experiments, please download the pretrained VideoMAE model weights (converted from original repo), and put them under the path `./pretrained/`.
+
+|    Model     | Pretrain Dataset | Finetune Dataset |                                           Original Link                                           |                                                                  Converted Checkpoints                                                                   |
+| :----------: | :--------------: | :--------------: | :-----------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  VideoMAE-S  |       K400       |       K400       | [Url](https://github.com/MCG-NJU/VideoMAE/blob/main/MODEL_ZOO.md#:~:text=/log/-,checkpoint,-79.0) |                            [Google Drive](https://drive.google.com/file/d/1xZrJoiYCNO2pxjHo0GezIDoMo1KQPNQN/view?usp=sharing)                            |
+|  VideoMAE-B  |       K400       |       K400       | [Url](https://github.com/MCG-NJU/VideoMAE/blob/main/MODEL_ZOO.md#:~:text=/log/-,checkpoint,-81.5) | [mmaction2](https://download.openmmlab.com/mmaction/v1.0/recognition/videomae/vit-base-p16_videomae-k400-pre_16x4x1_kinetics-400_20221013-860a3cd3.pth)  |
+|  VideoMAE-L  |       K400       |       K400       | [Url](https://github.com/MCG-NJU/VideoMAE/blob/main/MODEL_ZOO.md#:~:text=/log/-,checkpoint,-85.2) | [mmaction2](https://download.openmmlab.com/mmaction/v1.0/recognition/videomae/vit-large-p16_videomae-k400-pre_16x4x1_kinetics-400_20221013-229dbb03.pth) |
+|  VideoMAE-H  |       K400       |       K400       | [Url](https://github.com/MCG-NJU/VideoMAE/blob/main/MODEL_ZOO.md#:~:text=/log/-,checkpoint,-86.6) |                            [Google Drive](https://drive.google.com/file/d/1Zx-U8AZv2-P32iKZCouP4ysOgI4qRMnt/view?usp=sharing)                            |
+| VideoMAEv2-g |      Hybrid      |       K710       |           [Url](https://github.com/OpenGVLab/VideoMAEv2/blob/master/docs/MODEL_ZOO.md)            |                                                                       Not Provided                                                                       |
+
+- Note that we are not allowed to redistribute VideoMAEv2's checkpoints. You can fill out the official [request form](https://github.com/OpenGVLab/VideoMAEv2/blob/master/docs/MODEL_ZOO.md#model-weight-links), then convert the checkpoint by the following command.
+
+```bash
+python tools/model_converters/convert_videomaev2.py \
+    vit_g_hybrid_pt_1200e_k710_ft.pth pretrained/vit-giant-p14_videomaev2-hybrid_pt_1200e_k710_ft_my.pth
+```
+
+## ActivityNet Result
+
+
+|   Backbone   | GPUs  | Setting | Frames | Img Size | Classifier  | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |   Config   |        Download        |
+| :----------: | :---: | :-----: | :----: | :------: | :---------: | :-----: | :------: | :------: | :------: | :--------: | :--------------------: |
+|  VideoMAE-S  |   4   | AdaTAD  |  768   |   160    |    CUHK     |         |          |          |          | [config]() | [model]()   \| [log]() |
+|  VideoMAE-B  |   4   | AdaTAD  |  768   |   160    |    CUHK     |         |          |          |          | [config]() | [model]()   \| [log]() |
+|  VideoMAE-L  |   4   | AdaTAD  |  768   |   160    |    CUHK     |         |          |          |          | [config]() | [model]()   \| [log]() |
+|  VideoMAE-H  |   4   | AdaTAD  |  768   |   160    |    CUHK     |         |          |          |          | [config]() | [model]()   \| [log]() |
+| VideoMAEV2-g |   4   | AdaTAD  |  768   |   160    |    CUHK     |         |          |          |          | [config]() | [model]()   \| [log]() |
+| VideoMAEV2-g |   4   | AdaTAD  |  768   |   224    |    CUHK     |         |          |          |          | [config]() | [model]()   \| [log]() |
+| VideoMAEV2-g |   4   | AdaTAD  |  768   |   224    | InterVideo  |         |          |          |          | [config]() | [model]()   \| [log]() |
+| VideoMAEV2-g |   4   | AdaTAD  |  768   |   224    | InterVideo2 |         |          |          |          | [config]() | [model]()   \| [log]() |
+
+- To train the model on ActivityNet, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/anet/e2e_anet_videomae_s_192x4_160_adapter.py
+```
+
+## THUMOS-14 Results
+
+|   Backbone   | GPUs  | Setting | Frames | Img Size | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |                           Config                            |                                                                                          Download                                                                                          |
+| :----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  VideoMAE-S  |   2   | AdaTAD  |  768   |   160    |  83.90  |  79.01  |  72.38  |  61.57  |  48.27  |  69.03   | [config](thumos/e2e_thumos_videomae_s_768x1_160_adapter.py) | [model](https://drive.google.com/file/d/1HGUBroK90KBAkFqQreAVtHCIclJh7DmM/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1sqLsgkZsPReusv1lNUOg_nqE4nJX-YnD/view?usp=sharing) |
+|  VideoMAE-B  |   2   | AdaTAD  |  768   |   160    |  85.95  |  81.86  |  75.02  |  63.29  |  49.56  |  71.14   | [config](thumos/e2e_thumos_videomae_b_768x1_160_adapter.py) | [model](https://drive.google.com/file/d/1PFqXL4HcRv4cwqrZnhSwKjG53kEFByLs/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1uRY53OHcsxREVNHR-O-mcJyZde1XDUhe/view?usp=sharing) |
+|  VideoMAE-L  |   2   | AdaTAD  |  768   |   160    |  87.17  |  83.58  |  76.88  |  66.81  |  53.13  |  73.51   | [config](thumos/e2e_thumos_videomae_l_768x1_160_adapter.py) | [model](https://drive.google.com/file/d/1vCbNU82TFjh0b6BRP566Jj1JHC-3qcum/view?usp=sharing)   \| [log](https://drive.google.com/file/d/147aU9TNEjxSxoVJ0S7lsYQ-mTsYHsvHK/view?usp=sharing) |
+|  VideoMAE-H  |   2   | AdaTAD  |  768   |   160    |         |         |         |         |         |          |                         [config]()                          |                                                                                   [model]()   \| [log]()                                                                                   |
+| VideoMAEV2-g |   2   | AdaTAD  |  768   |   160    |         |         |         |         |         |          |                         [config]()                          |                                                                                   [model]()   \| [log]()                                                                                   |
+| VideoMAEV2-g |   2   | AdaTAD  |  1536  |   224    |         |         |         |         |         |          |                         [config]()                          |                                                                                   [model]()   \| [log]()                                                                                   |
+
+- To train the model on THUMOS, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/thumos/e2e_thumos_videomae_s_768x1_160_adapter.py
+```
+
+## Citation
+
+```latex
+@inproceedings{liu2023end,
+  title={End-to-End Temporal Action Detection with 1B Parameters Across 1000 Frames},
+  author={Liu, Shuming and Zhang, Chen-Lin and Zhao, Chen and Ghanem, Bernard},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+```
