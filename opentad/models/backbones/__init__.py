@@ -4,7 +4,6 @@ from .re2tal_swin import SwinTransformer3D_inv
 from .re2tal_slowfast import ResNet3dSlowFast_inv
 from .vit import VisionTransformerCP
 from .vit_adapter import VisionTransformerAdapter
-from .vit_ladder import VisionTransformerLadder
 
 __all__ = [
     "BackboneWrapper",
@@ -13,5 +12,4 @@ __all__ = [
     "ResNet3dSlowFast_inv",
     "VisionTransformerCP",
     "VisionTransformerAdapter",
-    "VisionTransformerLadder",
 ]
