@@ -30,7 +30,7 @@ python tools/model_converters/convert_videomaev2.py \
 
 ## ActivityNet Result
 
-Please refer to [README.md](../../tools/prepare_data/activitynet/README.md) to prepare the raw video of ActivityNet.
+Please refer to [README.md](../../tools/prepare_data/activitynet/README.md#download-raw-videos) to prepare the raw video of ActivityNet.
 
 |   Backbone   | GPUs  | Setting | Frames | Img Size | Classifier  | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |   Config   |        Download        |
 | :----------: | :---: | :-----: | :----: | :------: | :---------: | :-----: | :------: | :------: | :------: | :--------: | :--------------------: |
@@ -51,7 +51,7 @@ torchrun --nnodes=1 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=local
 
 ## THUMOS-14 Results
 
-Please refer to [README.md](../../tools/prepare_data/thumos/README.md) to prepare the raw video of THUMOS.
+Please refer to [README.md](../../tools/prepare_data/thumos/README.md#download-raw-videos) to prepare the raw video of THUMOS.
 
 |   Backbone   | GPUs  | Setting | Frames | Img Size | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |                            Config                             |                                                                                          Download                                                                                          |
 | :----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-----------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
