@@ -30,6 +30,7 @@ python tools/model_converters/convert_videomaev2.py \
 
 ## ActivityNet Result
 
+Please refer to [README.md](../../tools/prepare_data/activitynet/README.md) to prepare the raw video of ActivityNet.
 
 |   Backbone   | GPUs  | Setting | Frames | Img Size | Classifier  | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |   Config   |        Download        |
 | :----------: | :---: | :-----: | :----: | :------: | :---------: | :-----: | :------: | :------: | :------: | :--------: | :--------------------: |
@@ -50,14 +51,16 @@ torchrun --nnodes=1 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=local
 
 ## THUMOS-14 Results
 
-|   Backbone   | GPUs  | Setting | Frames | Img Size | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |                           Config                            |                                                                                          Download                                                                                          |
-| :----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  VideoMAE-S  |   2   | AdaTAD  |  768   |   160    |  83.90  |  79.01  |  72.38  |  61.57  |  48.27  |  69.03   | [config](thumos/e2e_thumos_videomae_s_768x1_160_adapter.py) | [model](https://drive.google.com/file/d/1HGUBroK90KBAkFqQreAVtHCIclJh7DmM/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1sqLsgkZsPReusv1lNUOg_nqE4nJX-YnD/view?usp=sharing) |
-|  VideoMAE-B  |   2   | AdaTAD  |  768   |   160    |  85.95  |  81.86  |  75.02  |  63.29  |  49.56  |  71.14   | [config](thumos/e2e_thumos_videomae_b_768x1_160_adapter.py) | [model](https://drive.google.com/file/d/1PFqXL4HcRv4cwqrZnhSwKjG53kEFByLs/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1uRY53OHcsxREVNHR-O-mcJyZde1XDUhe/view?usp=sharing) |
-|  VideoMAE-L  |   2   | AdaTAD  |  768   |   160    |  87.17  |  83.58  |  76.88  |  66.81  |  53.13  |  73.51   | [config](thumos/e2e_thumos_videomae_l_768x1_160_adapter.py) | [model](https://drive.google.com/file/d/1vCbNU82TFjh0b6BRP566Jj1JHC-3qcum/view?usp=sharing)   \| [log](https://drive.google.com/file/d/147aU9TNEjxSxoVJ0S7lsYQ-mTsYHsvHK/view?usp=sharing) |
-|  VideoMAE-H  |   2   | AdaTAD  |  768   |   160    |         |         |         |         |         |          |                         [config]()                          |                                                                                   [model]()   \| [log]()                                                                                   |
-| VideoMAEV2-g |   2   | AdaTAD  |  768   |   160    |         |         |         |         |         |          |                         [config]()                          |                                                                                   [model]()   \| [log]()                                                                                   |
-| VideoMAEV2-g |   2   | AdaTAD  |  1536  |   224    |         |         |         |         |         |          |                         [config]()                          |                                                                                   [model]()   \| [log]()                                                                                   |
+Please refer to [README.md](../../tools/prepare_data/thumos/README.md) to prepare the raw video of THUMOS.
+
+|   Backbone   | GPUs  | Setting | Frames | Img Size | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |                            Config                             |                                                                                          Download                                                                                          |
+| :----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-----------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  VideoMAE-S  |   2   | AdaTAD  |  768   |   160    |  83.90  |  79.01  |  72.38  |  61.57  |  48.27  |  69.03   |  [config](thumos/e2e_thumos_videomae_s_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1HGUBroK90KBAkFqQreAVtHCIclJh7DmM/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1sqLsgkZsPReusv1lNUOg_nqE4nJX-YnD/view?usp=sharing) |
+|  VideoMAE-B  |   2   | AdaTAD  |  768   |   160    |  85.95  |  81.86  |  75.02  |  63.29  |  49.56  |  71.14   |  [config](thumos/e2e_thumos_videomae_b_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1PFqXL4HcRv4cwqrZnhSwKjG53kEFByLs/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1uRY53OHcsxREVNHR-O-mcJyZde1XDUhe/view?usp=sharing) |
+|  VideoMAE-L  |   2   | AdaTAD  |  768   |   160    |  87.17  |  83.58  |  76.88  |  66.81  |  53.13  |  73.51   |  [config](thumos/e2e_thumos_videomae_l_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1vCbNU82TFjh0b6BRP566Jj1JHC-3qcum/view?usp=sharing)   \| [log](https://drive.google.com/file/d/147aU9TNEjxSxoVJ0S7lsYQ-mTsYHsvHK/view?usp=sharing) |
+|  VideoMAE-H  |   2   | AdaTAD  |  768   |   160    |  88.42  |  84.63  |  78.72  |  69.04  |  53.95  |  74.95   |  [config](thumos/e2e_thumos_videomae_h_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1egFK_6bLiyj1Doo0kZ3wTR5XE9JYyn1e/view?usp=sharing)   \| [log](https://drive.google.com/file/d/19cFQm4RDxGly9pWFbz1Yfxoqix-y-Stw/view?usp=sharing) |
+| VideoMAEV2-g |   2   | AdaTAD  |  768   |   160    |  88.63  |  85.39  |  79.17  |  68.34  |  53.79  |  75.06   | [config](thumos/e2e_thumos_videomaev2_g_768x1_160_adapter.py) | [model](https://drive.google.com/file/d/1QV4a_8ulkSnf4-rQbzw58flgFGCwUT_6/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1x7giiYmP-95eXUpwpYd70TTtcttBrh-Q/view?usp=sharing) |
+| VideoMAEV2-g |   2   | AdaTAD  |  1536  |   224    |  89.93  |  86.83  |  81.24  |  69.97  |  57.36  |  77.07   | [config](thumos/e2e_thumos_videomaev2_g_768x2_224_adapter.py) | [model](https://drive.google.com/file/d/1sANYRJE0lfbOTZJKj-1jj4S53jVLW3Wf/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1QncfW_dxJRE2nhNGL6JmRB3-SBBuv2NJ/view?usp=sharing) |
 
 - To train the model on THUMOS, you can run the following command.
 
@@ -65,6 +68,12 @@ torchrun --nnodes=1 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=local
 torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/thumos/e2e_thumos_videomae_s_768x1_160_adapter.py
 ```
 
+- To search the adapter's learning rate, or change other hyper-parameters, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/thumos/e2e_thumos_videomae_s_768x1_160_adapter.py \ 
+  --cfg-options optimizer.backbone.custom.0.lr=1e-4 --id 1
+```
 ## Citation
 
 ```latex
