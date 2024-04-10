@@ -81,6 +81,7 @@ model = dict(
                 pool1_stride_t=1,
                 inflate=(0, 0, 1, 1),
                 norm_eval=True,
+                with_cp=True,
             ),
             fast_pathway=dict(
                 type="resnet3d",
@@ -92,6 +93,7 @@ model = dict(
                 conv1_stride_t=1,
                 pool1_stride_t=1,
                 norm_eval=True,
+                with_cp=True,
             ),
         ),
         data_preprocessor=dict(

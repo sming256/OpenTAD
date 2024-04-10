@@ -77,6 +77,7 @@ model = dict(
             attn_drop_rate=0.0,
             drop_path_rate=0.1,
             patch_norm=True,
+            with_cp=True,
         ),
         data_preprocessor=dict(
             type="mmaction.ActionDataPreprocessor",
