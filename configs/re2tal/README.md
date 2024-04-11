@@ -17,16 +17,23 @@ To run the experiments, please download the K400-pretrained model weights of [Re
 
 |    Backbone     | GPUs  | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |                        Config                         |                                                                                          Download                                                                                          |
 | :-------------: | :---: | :-----: | :------: | :------: | :------: | :---------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|     Swin-T      |   4   |  55.34  |  37.68   |   9.12   |  36.89   |     [config](e2e_anet_actionformer_swin_tiny.py)      | [model](https://drive.google.com/file/d/1_wHUIWXcxmK8ler7Evh_c8oaDILAp4CL/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1RaQeWTcbbbjLy_Vvfg8uRpiwiA1SJIsO/view?usp=sharing) |
+|  SlowFast-101   |   4   |  55.48  |  38.32   |   9.34   |  37.35   |    [config](e2e_anet_actionformer_slowfast101.py)     | [model](https://drive.google.com/file/d/1a5RS0qlGwPItTtz3vRuEXv2YycsnrR-1/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1bMS6iT76kyTHxUOpwH47HMan67rqXs_-/view?usp=sharing) |
 |    Re2Swin-T    |   4   |  55.08  |  37.05   |   8.29   |  36.47   |  [config](e2e_anet_re2tal_actionformer_swin_tiny.py)  | [model](https://drive.google.com/file/d/1XSZ2AICZTIds_aRnuzleEh3jqPkzLAO4/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1__vYHlCBeJ6SvPRWhEbK9LYj_7kZXk9N/view?usp=sharing) |
 | Re2SlowFast-101 |   4   |  55.81  |  38.49   |   9.36   |  37.55   | [config](e2e_anet_re2tal_actionformer_slowfast101.py) | [model](https://drive.google.com/file/d/1yuo2t1sgXlRD7wqFZxwntlrpe9pv6oqz/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1TnpqjP5VBre0NyxTWC40tJLrlYChfIDO/view?usp=sharing) |
+
+- We use activation checkpointing to save the memory in non-reversible models.
 
 **THUMOS-14**
 
 |    Backbone     | GPUs  | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |                         Config                          |                                                                                          Download                                                                                          |
 | :-------------: | :---: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-----------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|     Swin-T      |   2   |  82.83  |  78.70  |  71.33  |  58.79  |  43.85  |  67.10   |     [config](e2e_thumos_actionformer_swin_tiny.py)      | [model](https://drive.google.com/file/d/1DM5ughwutfhCM7st4pka-41ITsxOAn4z/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1b8gO_uFMU2KA4EzYZ2s60svOi3IsObsw/view?usp=sharing) |
+|  SlowFast-101   |   2   |  83.99  |  80.38  |  75.29  |  62.13  |  48.08  |  69.97   |    [config](e2e_thumos_actionformer_slowfast101.py)     | [model](https://drive.google.com/file/d/1oyQHMTlU2SVaaVQ1DjcUjNVvjDYMcAa3/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1VY3Cko7_8VgoGmoFb8_O7531tBvyYDA7/view?usp=sharing) |
 |    Re2Swin-T    |   2   |  82.12  |  78.09  |  70.06  |  59.81  |  44.35  |  66.89   |  [config](e2e_thumos_re2tal_actionformer_swin_tiny.py)  | [model](https://drive.google.com/file/d/1zcATsfhR2GSNGz_91ASJLR7vr0j227Th/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1gAVTN47EryzmJtycDP-8CUP9rP0F3qx_/view?usp=sharing) |
 | Re2SlowFast-101 |   2   |  84.16  |  80.26  |  74.27  |  62.66  |  49.60  |  70.19   | [config](e2e_thumos_re2tal_actionformer_slowfast101.py) | [model](https://drive.google.com/file/d/1k1VHvKx72flKNtaCYp-Ttu39ylAttPT3/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Om5ILgKayOTbLf8PjB_uYfxgdGVW59tn/view?usp=sharing) |
 
+- We use activation checkpointing to save the memory in non-reversible models.
 
 ## Train
 
