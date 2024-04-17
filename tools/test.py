@@ -110,6 +110,7 @@ def main():
         world_size=args.world_size,
         not_eval=args.not_eval,
     )
+    logger.info("Testing Over...\n")
 
 
 if __name__ == "__main__":
