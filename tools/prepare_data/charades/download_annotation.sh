@@ -5,5 +5,5 @@ if [[ ! -d "${DATA_DIR}" ]]; then
     mkdir -p ${DATA_DIR}
 fi
 
-# download annotations for THUMOS-14
+# download annotations for Charades
 gdown --folder https://drive.google.com/drive/folders/1oON5K5hSa5jexnB4IGdsW6qDB3w1I_QG -O $DATA_DIR --folder
