@@ -28,25 +28,31 @@ python tools/model_converters/convert_videomaev2.py \
     vit_g_hybrid_pt_1200e_k710_ft.pth pretrained/vit-giant-p14_videomaev2-hybrid_pt_1200e_k710_ft_my.pth
 ```
 
-## ActivityNet Result
+## ActivityNet Results
 
 Please refer to [README.md](../../tools/prepare_data/activitynet/README.md#download-raw-videos) to prepare the raw video of ActivityNet.
 
-|   Backbone   | GPUs  | Setting | Frames | Img Size | Classifier  | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |                          Config                           |                                                                                          Download                                                                                          |
-| :----------: | :---: | :-----: | :----: | :------: | :---------: | :-----: | :------: | :------: | :------: | :-------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  VideoMAE-S  |   4   | AdaTAD  |  768   |   160    |    CUHK     |  56.23  |  38.90   |   8.88   |  37.81   |  [config](anet/e2e_anet_videomae_s_192x4_160_adapter.py)  | [model](https://drive.google.com/file/d/1SjYsk1bPvBVvnPSy15OodnzJ45VkGWP6/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Qv7soBzgfyEcyXNRgOxv3IHc-kVE7W2x/view?usp=sharing) |
-|  VideoMAE-B  |   4   | AdaTAD  |  768   |   160    |    CUHK     |  56.72  |  39.44   |   9.54   |  38.35   |  [config](anet/e2e_anet_videomae_b_192x4_160_adapter.py)  | [model](https://drive.google.com/file/d/1_qYleQ-BC1FAjcFPBkot4Y03b04xUUtX/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1xsa34gdu-YMNAjBtqAAsaZE8gtDchRLK/view?usp=sharing) |
-|  VideoMAE-L  |   4   | AdaTAD  |  768   |   160    |    CUHK     |  57.73  |  40.53   |   9.96   |  39.21   |  [config](anet/e2e_anet_videomae_l_192x4_160_adapter.py)  | [model](https://drive.google.com/file/d/1H2Wj8TTA0og1TaQtBkThYujP6daW5-Wy/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NHC9bct2JSS2goY2pKCutsxH17g0ZoFp/view?usp=sharing) |
-|  VideoMAE-H  |   4   | AdaTAD  |  768   |   160    |    CUHK     |  57.77  |  40.60   |   9.78   |  39.31   |  [config](anet/e2e_anet_videomae_h_192x4_160_adapter.py)  | [model](https://drive.google.com/file/d/1IDrkC4rIZvvk2KGht_zn_NFHZdHn9M0d/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NYGe7TV9IMzN5SmsE9sFrrKmGGkkHUyM/view?usp=sharing) |
-| VideoMAEV2-g |   4   | AdaTAD  |  768   |   160    |    CUHK     |  58.42  |  40.89   |  10.01   |  39.77   | [config](anet/e2e_anet_videomaev2_g_192x4_160_adapter.py) | [model](https://drive.google.com/file/d/1JLCMY14QPG98aDw0tjU83i07SvkZobDi/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NTB59Wzxr8HpdBJPPnvOpGO0oItIbWet/view?usp=sharing) |
-| VideoMAEV2-g |   8   | AdaTAD  |  768   |   224    |    CUHK     |         |          |          |          |                        [config]()                         |                                                                                   [model]()   \| [log]()                                                                                   |
-| VideoMAEV2-g |   8   | AdaTAD  |  768   |   224    | InterVideo  |         |          |          |          |                        [config]()                         |                                                                                   [model]()   \| [log]()                                                                                   |
-| VideoMAEV2-g |   8   | AdaTAD  |  768   |   224    | InterVideo2 |         |          |          |          |                        [config]()                         |                                                                                   [model]()   \| [log]()                                                                                   |
+|   Backbone   | GPUs  | Setting | Frames | Img Size | Classifier  | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |                             Config                             |                                                                                          Download                                                                                          |
+| :----------: | :---: | :-----: | :----: | :------: | :---------: | :-----: | :------: | :------: | :------: | :------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  VideoMAE-S  |   4   | AdaTAD  |  768   |   160    |    CUHK     |  56.23  |  38.90   |   8.88   |  37.81   |    [config](anet/e2e_anet_videomae_s_192x4_160_adapter.py)     | [model](https://drive.google.com/file/d/1SjYsk1bPvBVvnPSy15OodnzJ45VkGWP6/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Qv7soBzgfyEcyXNRgOxv3IHc-kVE7W2x/view?usp=sharing) |
+|  VideoMAE-B  |   4   | AdaTAD  |  768   |   160    |    CUHK     |  56.72  |  39.44   |   9.54   |  38.35   |    [config](anet/e2e_anet_videomae_b_192x4_160_adapter.py)     | [model](https://drive.google.com/file/d/1_qYleQ-BC1FAjcFPBkot4Y03b04xUUtX/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1xsa34gdu-YMNAjBtqAAsaZE8gtDchRLK/view?usp=sharing) |
+|  VideoMAE-L  |   4   | AdaTAD  |  768   |   160    |    CUHK     |  57.73  |  40.53   |   9.96   |  39.21   |    [config](anet/e2e_anet_videomae_l_192x4_160_adapter.py)     | [model](https://drive.google.com/file/d/1H2Wj8TTA0og1TaQtBkThYujP6daW5-Wy/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NHC9bct2JSS2goY2pKCutsxH17g0ZoFp/view?usp=sharing) |
+|  VideoMAE-H  |   4   | AdaTAD  |  768   |   160    |    CUHK     |  57.77  |  40.60   |   9.78   |  39.31   |    [config](anet/e2e_anet_videomae_h_192x4_160_adapter.py)     | [model](https://drive.google.com/file/d/1IDrkC4rIZvvk2KGht_zn_NFHZdHn9M0d/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NYGe7TV9IMzN5SmsE9sFrrKmGGkkHUyM/view?usp=sharing) |
+| VideoMAEV2-g |   4   | AdaTAD  |  768   |   160    |    CUHK     |  58.42  |  40.89   |  10.01   |  39.77   |   [config](anet/e2e_anet_videomaev2_g_192x4_160_adapter.py)    | [model](https://drive.google.com/file/d/1JLCMY14QPG98aDw0tjU83i07SvkZobDi/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NTB59Wzxr8HpdBJPPnvOpGO0oItIbWet/view?usp=sharing) |
+| VideoMAEV2-g |   8   | AdaTAD  |  768   |   224    |    CUHK     |  58.57  |  41.19   |  10.27   |  39.86   |       [config](e2e_anet_videomaev2_g_192x4_224_adapter)        | [model](https://drive.google.com/file/d/1tlv5hlAzUNHgqvq9DzAWOv3fQj6Z2ZJs/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1QTV9JzCA_wFmPvsyzzwSQ5CT3B8dIVAt/view?usp=sharing) |
+| VideoMAEV2-g |   8   | AdaTAD  |  768   |   224    | InterVideo  |  61.74  |  43.17   |  10.68   |  41.85   | [config](e2e_anet_videomaev2_g_192x4_224_adapter_internvideo)  |                                                 [log](https://drive.google.com/file/d/16MpHecosa_4QkNvqjUaU07So0z374m5f/view?usp=sharing)                                                  |
+| VideoMAEV2-g |   8   | AdaTAD  |  768   |   224    | InterVideo2 |  63.59  |  44.31   |  10.66   |  42.90   | [config](e2e_anet_videomaev2_g_192x4_224_adapter_internvideo2) |                                                 [log](https://drive.google.com/file/d/1uGKwVnPhIoA3zl9ZEdvT86kRnUtXt6oW/view?usp=sharing)                                                  |
 
 - To train the model on ActivityNet, you can run the following command.
 
 ```bash
 torchrun --nnodes=1 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/anet/e2e_anet_videomae_s_192x4_160_adapter.py
+```
+
+- To use the same checkpoint but test with another classifier, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/test.py configs/adatad/anet/e2e_anet_videomaev2_g_192x4_224_adapter_internvideo2.py --checkpoint epoch_10_cba1017a.pth
 ```
 
 ## THUMOS-14 Results
@@ -74,6 +80,11 @@ torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=local
 torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/thumos/e2e_thumos_videomae_s_768x1_160_adapter.py \ 
   --cfg-options optimizer.backbone.custom.0.lr=1e-4 --id 1
 ```
+
+## More results
+
+More results on Epic-Kitchens, Ego4D, Charades, HACS, MultiThumos are coming soon!
+
 ## Citation
 
 ```latex
