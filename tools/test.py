@@ -63,13 +63,14 @@ def main():
         drop_last=False,
         **cfg.solver.test,
     )
+
     # build model
     model = build_detector(cfg.model)
 
     # DDP
     model = model.to(args.local_rank)
-    model = DistributedDataParallel(model, device_ids=[args.local_rank])
-    logger.info(f"Using DDP with {torch.cuda.device_count()} GPUS...")
+    model = DistributedDataParallel(model, device_ids=[args.local_rank], output_device=args.local_rank)
+    logger.info(f"Using DDP with total {args.world_size} GPUS...")
 
     # load checkpoint: args -> config -> best
     if args.checkpoint != "none":
@@ -104,11 +105,12 @@ def main():
         cfg,
         logger,
         args.rank,
-        model_ema=None,  # since we have load the ema in the model
+        model_ema=None,  # since we have loaded the ema model above
         use_amp=use_amp,
         world_size=args.world_size,
         not_eval=args.not_eval,
     )
+    logger.info("Testing Over...\n")
 
 
 if __name__ == "__main__":

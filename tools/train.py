@@ -158,6 +158,7 @@ def main():
             model_ema.module.load_state_dict(checkpoint["state_dict_ema"])
 
         del checkpoint  #  save memory if the model is very large such as ViT-g
+        torch.cuda.empty_cache()
     else:
         resume_epoch = -1
 
