@@ -17,8 +17,8 @@ OpenTAD is an open-source temporal action detection (TAD) toolbox based on PyTor
 ## 🥳 What's New
 
 - A technical report of this library will be provided soon.
-- **[2024/04/17]**: We release the AdaTAD, which can achieve average mAP of 42.90% on ActivityNet and 77.07% on THUMOS14.
-- **[2024/03/28]**: The beta version v0.1.0 of OpenTAD is released. Any feedbacks and suggestions are welcome!
+- **[2024/04/17]** We release the AdaTAD, which can achieve average mAP of 42.90% on ActivityNet and 77.07% on THUMOS14.
+- **[2024/03/28]** The beta version v0.1.0 of OpenTAD is released. Any feedbacks and suggestions are welcome!
 
 
 ## 📖 Major Features
