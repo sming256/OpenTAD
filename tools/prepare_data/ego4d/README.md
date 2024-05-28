@@ -26,8 +26,6 @@ We provide the following pre-extracted features for Ego4d-MQ:
 
 ## Download Raw Videos
 
-Please put the downloaded video under the path: `data/ego4d/raw_data/`.
-
 Note that we are not allowed to distribute the Ego4D videos due to the license. You can download the videos from [Ego4D website](https://ego4d-data.org/). Then, you can use the following command to trim the raw videos into MQ-clips.
 ```
 python tools/prepare_data/ego4d/accurate_trim_MQ.py ego4d_data/v2/annotations/ ego4d_data/v1/full_scale data/ego4d/raw_data/MQ_data/mq_videos_short320/
