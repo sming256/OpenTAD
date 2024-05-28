@@ -14,6 +14,7 @@ class mAP:
         prediction_filename,
         subset,
         tiou_thresholds,
+        top_k=None,
         blocked_videos=None,
         thread=16,
     ):
@@ -26,6 +27,7 @@ class mAP:
 
         self.subset = subset
         self.tiou_thresholds = tiou_thresholds
+        self.top_k = top_k
         self.gt_fields = ["database"]
         self.pred_fields = ["results"]
         self.thread = thread  # multi-process workers
@@ -155,14 +157,26 @@ class mAP:
         for cidx in cidx_list:
             gt_idx = self.ground_truth["label"] == cidx
             pred_idx = self.prediction["label"] == cidx
-            self.result_dict[cidx] = compute_average_precision_detection(
+            self.mAP_result_dict[cidx] = compute_average_precision_detection(
                 self.ground_truth.loc[gt_idx].reset_index(drop=True),
                 self.prediction.loc[pred_idx].reset_index(drop=True),
                 tiou_thresholds=self.tiou_thresholds,
             )
 
+    def wrapper_compute_topkx_recall(self, cidx_list):
+        """Computes Top-kx recall for a sub class list."""
+        for cidx in cidx_list:
+            gt_idx = self.ground_truth["label"] == cidx
+            pred_idx = self.prediction["label"] == cidx
+            self.recall_result_dict[cidx] = compute_topkx_recall_detection(
+                self.ground_truth.loc[gt_idx].reset_index(drop=True),
+                self.prediction.loc[pred_idx].reset_index(drop=True),
+                tiou_thresholds=self.tiou_thresholds,
+                top_k=self.top_k,
+            )
+
     def multi_thread_compute_average_precision(self):
-        self.result_dict = mp.Manager().dict()
+        self.mAP_result_dict = mp.Manager().dict()
 
         num_total = len(self.activity_index.values())
         num_activity_per_thread = num_total // self.thread + 1
@@ -184,8 +198,34 @@ class mAP:
 
         ap = np.zeros((len(self.tiou_thresholds), len(self.activity_index.items())))
         for i, cidx in enumerate(self.activity_index.values()):
-            ap[:, cidx] = self.result_dict[i]
+            ap[:, cidx] = self.mAP_result_dict[i]
         return ap
+
+    def multi_thread_compute_topkx_recall(self):
+        self.recall_result_dict = mp.Manager().dict()
+
+        num_total = len(self.activity_index.values())
+        num_activity_per_thread = num_total // self.thread + 1
+
+        processes = []
+        for tid in range(self.thread):
+            num_start = int(tid * num_activity_per_thread)
+            num_end = min(num_start + num_activity_per_thread, num_total)
+
+            p = mp.Process(
+                target=self.wrapper_compute_topkx_recall,
+                args=(list(self.activity_index.values())[num_start:num_end],),
+            )
+            p.start()
+            processes.append(p)
+
+        for p in processes:
+            p.join()
+
+        recall = np.zeros((len(self.tiou_thresholds), len(self.top_k), len(self.activity_index.items())))
+        for i, cidx in enumerate(self.activity_index.values()):
+            recall[..., cidx] = self.recall_result_dict[i]
+        return recall
 
     def evaluate(self):
         """Evaluates a prediction file. For the detection task we measure the
@@ -193,14 +233,22 @@ class mAP:
         method.
         """
         self.ap = self.multi_thread_compute_average_precision()
-
         self.mAPs = self.ap.mean(axis=1)
-
         self.average_mAP = self.mAPs.mean()
 
         metric_dict = dict(average_mAP=self.average_mAP)
         for tiou, mAP in zip(self.tiou_thresholds, self.mAPs):
             metric_dict[f"mAP@{tiou}"] = mAP
+
+        # if top_k is not None, we will compute top-kx recall
+        if self.top_k is not None:
+            self.recall = self.multi_thread_compute_topkx_recall()
+            self.mRecall = self.recall.mean(axis=2)
+
+            for tiou, mRecall in zip(self.tiou_thresholds, self.mRecall):
+                for k, recall in zip(self.top_k, mRecall):
+                    metric_dict[f"recall@{tiou}@{k}"] = recall
+
         return metric_dict
 
     def logging(self, logger=None):
@@ -216,6 +264,13 @@ class mAP:
         pprint("Average-mAP: {:>4.2f} (%)".format(self.average_mAP * 100))
         for tiou, mAP in zip(self.tiou_thresholds, self.mAPs):
             pprint("mAP at tIoU {:.2f} is {:>4.2f}%".format(tiou, mAP * 100))
+
+        # if top_k is not None, print top-kx recall
+        if self.top_k is not None:
+            pprint("Fixed top-kx results: {}".format(self.top_k))
+            for tiou, recall in zip(self.tiou_thresholds, self.mRecall):
+                recall_string = ["R{:d} is {:>4.2f}%".format(k, r * 100) for k, r in zip(self.top_k, recall)]
+                pprint("Recall at tIoU {:.2f}: {}".format(tiou, ", ".join(recall_string)))
 
 
 def compute_average_precision_detection(ground_truth, prediction, tiou_thresholds=np.linspace(0.5, 0.95, 10)):
@@ -293,6 +348,73 @@ def compute_average_precision_detection(ground_truth, prediction, tiou_threshold
     return ap
 
 
+def compute_topkx_recall_detection(
+    ground_truth,
+    prediction,
+    tiou_thresholds=np.linspace(0.1, 0.5, 5),
+    top_k=(1, 5),
+):
+    """Compute recall (detection task) between ground truth and
+    predictions data frames. If multiple predictions occurs for the same
+    predicted segment, only the one with highest score is matches as
+    true positive. This code is greatly inspired by Pascal VOC devkit.
+    Parameters
+    ----------
+    ground_truth : df
+        Data frame containing the ground truth instances.
+        Required fields: ['video-id', 't-start', 't-end']
+    prediction : df
+        Data frame containing the prediction instances.
+        Required fields: ['video-id, 't-start', 't-end', 'score']
+    tiou_thresholds : 1darray, optional
+        Temporal intersection over union threshold.
+    top_k: tuple, optional
+        Top-kx results of a action category where x stands for the number of
+        instances for the action category in the video.
+    Outputs
+    -------
+    recall : float
+        Recall score.
+    """
+    if prediction.empty:
+        return np.zeros((len(tiou_thresholds), len(top_k)))
+
+    # Initialize true positive vectors.
+    tp = np.zeros((len(tiou_thresholds), len(top_k)))
+    n_gts = 0
+
+    # Adaptation to query faster
+    ground_truth_gbvn = ground_truth.groupby("video-id")
+    prediction_gbvn = prediction.groupby("video-id")
+
+    for videoid, _ in ground_truth_gbvn.groups.items():
+        ground_truth_videoid = ground_truth_gbvn.get_group(videoid)
+        n_gts += len(ground_truth_videoid)
+        try:
+            prediction_videoid = prediction_gbvn.get_group(videoid)
+        except Exception as e:
+            continue
+
+        this_gt = ground_truth_videoid.reset_index()
+        this_pred = prediction_videoid.reset_index()
+
+        # Sort predictions by decreasing score order.
+        score_sort_idx = this_pred["score"].values.argsort()[::-1]
+        top_kx_idx = score_sort_idx[: max(top_k) * len(this_gt)]
+        tiou_arr = k_segment_iou(
+            this_pred[["t-start", "t-end"]].values[top_kx_idx], this_gt[["t-start", "t-end"]].values
+        )
+
+        for tidx, tiou_thr in enumerate(tiou_thresholds):
+            for kidx, k in enumerate(top_k):
+                tiou = tiou_arr[: k * len(this_gt)]
+                tp[tidx, kidx] += ((tiou >= tiou_thr).sum(axis=0) > 0).sum()
+
+    recall = tp / n_gts
+
+    return recall
+
+
 def segment_iou(target_segment, candidate_segments):
     """Compute the temporal intersection over union between a
     target segment and all the test segments.
@@ -323,6 +445,10 @@ def segment_iou(target_segment, candidate_segments):
     # over union of two segments.
     tIoU = segments_intersection.astype(float) / segments_union.clip(1e-8)
     return tIoU
+
+
+def k_segment_iou(target_segments, candidate_segments):
+    return np.stack([segment_iou(target_segment, candidate_segments) for target_segment in target_segments])
 
 
 def interpolated_prec_rec(prec, rec):

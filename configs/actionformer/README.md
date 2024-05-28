@@ -36,6 +36,14 @@ Self-attention based Transformer models have demonstrated impressive results for
 |  Noun  | SlowFast |  25.78  |  24.73  |  22.83  |  20.84  |  17.45  |  22.33   | [config](epic_kitchens_slowfast_noun.py) | [model](https://drive.google.com/file/d/1RckzXf5W8oD_ARZw5dyYo03ZKVrU1n9-/view?usp=sharing)   \| [log](https://drive.google.com/file/d/18dVA27hWRBjM8lp4S12DscCkNJBqFrWp/view?usp=sharing) |
 |  Verb  | SlowFast |  27.68  |  26.79  |  25.62  |  24.06  |  20.48  |  24.93   | [config](epic_kitchens_slowfast_verb.py) | [model](https://drive.google.com/file/d/1-RLtnku727Fh39rihyGVxLCU5klTIvbn/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1w18Ccyi22ZHgM0ECx6rAKOXqFoO9L0Iq/view?usp=sharing) |
 
+**Ego4D-MQ**
+
+|  Features   | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |             Config             |                                                                                          Download                                                                                          |
+| :---------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :----------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  SlowFast   |  20.90  |  18.12  |  15.81  |  14.25  |  12.21  |  16.26   |  [config](ego4d_slowfast.py)   | [model](https://drive.google.com/file/d/1QMzpP281_XAz5woGmiLercBaUGVrdrv0/view?usp=sharing)   \| [log](https://drive.google.com/file/d/16oRGGq7LiiYCv7yeqG9TR2f6bS-3Fi6r/view?usp=sharing) |
+|   EgoVLP    |  27.79  |  24.97  |  22.37  |  19.25  |  16.25  |  22.13   |   [config](ego4d_egovlp.py)    | [model](https://drive.google.com/file/d/1c23BHCCuy7bOlyRkwXMSnTyeA3jRedGt/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Gu0uaW6ICcarL_wLcwiQTTSf6NqyQMjQ/view?usp=sharing) |
+| InternVideo |  32.59  |  30.28  |  27.53  |  25.09  |  22.13  |  27.52   | [config](ego4d_internvideo.py) | [model](https://drive.google.com/file/d/1Q25ZxXIlSi6vr5T4EX4Z75_Iq1uU8Pdi/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1_7Xm3_1Qg0MLXGW5Wx6XyfTTc0Pnn0dt/view?usp=sharing) |
+
 
 **MultiTHUMOS**
 

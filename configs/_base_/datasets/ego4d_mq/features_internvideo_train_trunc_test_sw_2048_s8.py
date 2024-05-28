@@ -1,23 +1,21 @@
 annotation_path = "data/ego4d/annotations/ego4d_v2_220429.json"
 class_map = "data/ego4d/annotations/category_idx.txt"
-data_path = "data/ego4d/features/zoo_project/videomae_large_internvideo_img224_stride16_len16_interval1_ego4d/"
-block_list = None
+data_path = "data/ego4d/features/videomae_large_internvideo_img256_stride8_len16_interval1_ego4d/"
 
-window_size = 900
-# size 900 is enough for all ego4d mq videos
+window_size = 2048
 dataset = dict(
     train=dict(
         type="Ego4DPaddingDataset",
         ann_file=annotation_path,
         subset_name="train",
-        block_list=block_list,
+        block_list=None,
         class_map=class_map,
         data_path=data_path,
-        filter_gt=True,
+        filter_gt=False,
         # dataloader setting
-        feature_stride=16,
+        feature_stride=8,
         sample_stride=1,
-        offset_frames=8,
+        offset_frames=4,
         pipeline=[
             dict(type="LoadFeats", feat_format="npy"),
             dict(type="ConvertToTensor", keys=["feats", "gt_segments", "gt_labels"]),
@@ -30,15 +28,15 @@ dataset = dict(
         type="Ego4DSlidingDataset",
         ann_file=annotation_path,
         subset_name="val",
-        block_list=block_list,
+        block_list=None,
         class_map=class_map,
         data_path=data_path,
         filter_gt=False,
         # dataloader setting
         window_size=window_size,
-        feature_stride=16,
+        feature_stride=8,
         sample_stride=1,
-        offset_frames=8,
+        offset_frames=4,
         window_overlap_ratio=0,
         pipeline=[
             dict(type="LoadFeats", feat_format="npy"),
@@ -52,16 +50,16 @@ dataset = dict(
         type="Ego4DSlidingDataset",
         ann_file=annotation_path,
         subset_name="val",
-        block_list=block_list,
+        block_list=None,
         class_map=class_map,
         data_path=data_path,
         filter_gt=False,
         test_mode=True,
         # dataloader setting
         window_size=window_size,
-        feature_stride=16,
+        feature_stride=8,
         sample_stride=1,
-        offset_frames=8,
+        offset_frames=4,
         window_overlap_ratio=0,
         pipeline=[
             dict(type="LoadFeats", feat_format="npy"),
@@ -79,4 +77,5 @@ evaluation = dict(
     subset="val",
     tiou_thresholds=[0.1, 0.2, 0.3, 0.4, 0.5],
     ground_truth_filename=annotation_path,
+    top_k=[1, 5],
 )
