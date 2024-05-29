@@ -81,6 +81,30 @@ torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=local
   --cfg-options optimizer.backbone.custom.0.lr=1e-4 --id 1
 ```
 
+## EPIC-KITCHENS Results
+
+
+Before running the experiments, please download the pretrained VideoMAE model weights, and put them under the path `./pretrained/`.
+
+|   Model    | Pretrain Dataset | Finetune Dataset |                                            Checkpoints                                             |
+| :--------: | :--------------: | :--------------: | :------------------------------------------------------------------------------------------------: |
+| VideoMAE-L |   InternVideo1   |    EPIC-Noun     | [Google Drive](https://drive.google.com/file/d/1_GpDIVFb4Aj-EPBEU9ekK_pMc0NVWvN2/view?usp=sharing) |
+| VideoMAE-L |   InternVideo1   |    EPIC-Verb     | [Google Drive](https://drive.google.com/file/d/1W-gg0aX1OQVbPU3U7AZJcP2bSikPUEVA/view?usp=sharing) |
+|            |
+
+Please refer to [README.md](../../tools/prepare_data/epic/README.md#download-raw-videos) to prepare the raw video of THUMOS.
+
+| Subset |   Backbone    | GPUs  | Setting | Frames | Img Size | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |                             Config                              |                                                                                          Download                                                                                          |
+| :----: | :-----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  Noun  | VideoMAE-Noun |   2   | AdaTAD  | 1800x4 |   160    |  33.88  |  32.41  |  30.58  |  27.66  |  22.67  |  29.44   | [config](epic/e2e_epic_videomae_l_ft_768x8_160_adapter_noun.py) | [model](https://drive.google.com/file/d/1IENRReN02NOnm_RJBVO1bPU5Nce3Hyyh/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1bQbrCh5_0O6hLljCc8QQ4N8UW6tRIKIz/view?usp=sharing) |
+|  Verb  | VideoMAE-Verb |   2   | AdaTAD  | 1800x4 |   160    |  33.02  |  32.43  |  30.51  |  27.80  |  24.69  |  29.69   | [config](epic/e2e_epic_videomae_l_ft_768x8_160_adapter_verb.py) | [model](https://drive.google.com/file/d/123ENCu0A677rT1izN-GaWlNAqte1i-gt/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NLpMXon9EGgOnaVOgba3Wxogn9TT8-ar/view?usp=sharing) |
+
+- To train the model on EPIC-Kitchens, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/epic/e2e_epic_videomae_l_ft_768x8_160_adapter_noun.p
+```
+
 ## More results
 
 More results on Epic-Kitchens, Ego4D, Charades, HACS, MultiThumos are coming soon!

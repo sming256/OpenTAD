@@ -26,7 +26,9 @@ We provide the following pre-extracted features for EPIC-KITCHENS-100:
 
 Please put the downloaded video under the path: `data/epic_kitchens-100/raw_data/`.
 
-You can download the raw video from [official website](https://github.com/epic-kitchens/epic-kitchens-download-scripts).
+You can download the raw video from [official website](https://github.com/epic-kitchens/epic-kitchens-download-scripts), then convert the videos into 30 FPS.
+
+You can also directly download the converted videos from [Google Drive](https://drive.google.com/file/d/1LKPKcsIqMe10cmC2O_zlzaHMJzk5him_/view?usp=sharing). In this codebase, all end-to-end EPIC-Kitchens experiments are based on this data.
 
 ## Citation
 

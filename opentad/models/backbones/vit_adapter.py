@@ -227,6 +227,7 @@ class Block(BaseModule):
         init_cfg: OptConfigType = None,
         with_cp: bool = False,
         use_adapter: bool = False,
+        adapter_mlp_ratio: float = 0.25,
         temporal_size: int = 384,
         **kwargs,
     ) -> None:
@@ -265,6 +266,7 @@ class Block(BaseModule):
                 kernel_size=3,
                 dilation=1,
                 temporal_size=temporal_size,
+                mlp_ratio=adapter_mlp_ratio,
             )
 
     def forward(self, x: Tensor, h, w) -> Tensor:
@@ -359,6 +361,7 @@ class VisionTransformerAdapter(BaseModule):
         pretrained: Optional[str] = None,
         return_feat_map: bool = False,
         with_cp: bool = False,
+        adapter_mlp_ratio: float = 0.25,
         total_frames: int = 768,
         adapter_index: list = [3, 5, 7, 11],
         init_cfg: Optional[Union[Dict, List[Dict]]] = [
@@ -414,6 +417,7 @@ class VisionTransformerAdapter(BaseModule):
                     with_cp=with_cp,
                     init_cfg=init_cfg,
                     use_adapter=i in adapter_index,
+                    adapter_mlp_ratio=adapter_mlp_ratio,
                     temporal_size=total_frames // tubelet_size,
                 )
                 for i in range(depth)
