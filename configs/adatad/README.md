@@ -90,7 +90,6 @@ Before running the experiments, please download the EPIC-pretrained VideoMAE's w
 | :--------: | :--------------: | :--------------: | :------------------------------------------------------------------------------------------------: |
 | VideoMAE-L |   InternVideo1   |    EPIC-Noun     | [Google Drive](https://drive.google.com/file/d/1_GpDIVFb4Aj-EPBEU9ekK_pMc0NVWvN2/view?usp=sharing) |
 | VideoMAE-L |   InternVideo1   |    EPIC-Verb     | [Google Drive](https://drive.google.com/file/d/1W-gg0aX1OQVbPU3U7AZJcP2bSikPUEVA/view?usp=sharing) |
-|            |
 
 Please refer to [README.md](../../tools/prepare_data/epic/README.md#download-raw-videos) to prepare the raw video of EPIC-Kitchens.
 
@@ -102,12 +101,30 @@ Please refer to [README.md](../../tools/prepare_data/epic/README.md#download-raw
 - To train the model on EPIC-Kitchens, you can run the following command.
 
 ```bash
-torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/epic/e2e_epic_videomae_l_ft_768x8_160_adapter_noun.p
+torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/epic/e2e_epic_videomae_l_ft_768x8_160_adapter_noun.py
 ```
 
-## More results
+## Ego4D-MQ Results
 
-More results on Epic-Kitchens, Ego4D, Charades, HACS, MultiThumos are coming soon!
+
+Before running the experiments, please download the InternVideo1-MQ weights, and put them under the path `./pretrained/`.
+
+|      Model      | Pretrain Dataset  |   Finetune Dataset    |                                                Original Link                                                |                                       Converted Checkpoints                                        |
+| :-------------: | :---------------: | :-------------------: | :---------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
+| InternVideo1-MQ | InternVideo1-K700 | Ego4D-Verb + Ego4D-MQ | [Url](https://github.com/OpenGVLab/ego4d-eccv2022-solutions/tree/main#:~:text=%2D-,Download,-UniFormer%2DB) | [Google Drive](https://drive.google.com/file/d/1r4e6GDLg0F8VVGPwYUiijO6ECH63t02z/view?usp=sharing) |
+
+Please refer to [README.md](../../tools/prepare_data/ego4d/README.md#download-raw-videos) to prepare the raw video of Ego4D-MQ.
+
+|    Backbone     | GPUs  | Setting | Frames | Img Size | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |                              Config                               |                                                                                          Download                                                                                          |
+| :-------------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| InternVideo1-MQ |   2   | AdaTAD  | 1800x4 |   192    |  33.69  |  31.19  |  28.37  |  26.12  |  22.67  |  28.41   | [config](epic/e2e_ego4d_internvideo_1800x4_192_adapter_lr4e-4.py) | [model](https://drive.google.com/file/d/16MkRDEFLVo4xs0N0yEpw7TPB_h5ZlGXL/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1u62mkktrsZee88fzJ7h4gbSuoQuJ-5aa/view?usp=sharing) |
+
+- To train the model on Ego4D-MQ, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/ego4d/e2e_ego4d_internvideo_1800x4_192_adapter_lr4e-4.py
+```
+
 
 ## Citation
 
