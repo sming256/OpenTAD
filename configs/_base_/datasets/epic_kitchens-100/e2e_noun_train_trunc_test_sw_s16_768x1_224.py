@@ -18,7 +18,6 @@ dataset = dict(
         fps=30,
         feature_stride=16,
         sample_stride=1,
-        offset_frames=8,
         pipeline=[
             dict(type="PrepareVideoInfo", format="mp4"),
             dict(type="mmaction.DecordInit", num_threads=4),
@@ -53,7 +52,6 @@ dataset = dict(
         fps=30,
         feature_stride=16,
         sample_stride=1,
-        offset_frames=8,
         window_overlap_ratio=0.25,
         pipeline=[
             dict(type="PrepareVideoInfo", format="mp4"),
@@ -80,7 +78,6 @@ dataset = dict(
         fps=30,
         feature_stride=16,
         sample_stride=1,
-        offset_frames=8,
         window_overlap_ratio=0.5,
         pipeline=[
             dict(type="PrepareVideoInfo", format="mp4"),
