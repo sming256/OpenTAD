@@ -189,7 +189,7 @@ def compute_gt_completeness(gt_boxes, anchors):
     valid_gt_boxes = gt_boxes[valid_idx]
 
     truncated_valid_gt_len = np.minimum(valid_gt_boxes[:, 1], anchors[1]) - np.maximum(valid_gt_boxes[:, 0], anchors[0])
-    original_valid_gt_len = valid_gt_boxes[:, 1] - valid_gt_boxes[:, 0]
+    original_valid_gt_len = np.maximum(valid_gt_boxes[:, 1] - valid_gt_boxes[:, 0], 1e-6)
     scores[valid_idx] = truncated_valid_gt_len / original_valid_gt_len
 
     # also truncated gt
