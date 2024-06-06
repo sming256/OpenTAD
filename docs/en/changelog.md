@@ -10,7 +10,7 @@ New features
 Improvements
 - VSGN now supports THUMOS dataset.
 - ETAD now supports end-to-end training.
-- The side-tuning of AdaTAD is supported now..
+- The side-tuning of AdaTAD is supported now. Please check [here](https://github.com/sming256/OpenTAD/tree/main/configs/adatad#:~:text=2-,AdaTAD%E2%80%A0,-1536).
 
 
 ### v0.1.1 (2024/04/17)
