@@ -53,7 +53,7 @@ class LoadFeats:
         try:
             if feat_format == "npy":
                 feats = self.read_from_npy(file_path)
-            elif self.feat_format == "npz":
+            elif feat_format == "npz":
                 feats = self.read_from_npz(file_path)
             elif feat_format == "pt":
                 feats = self.read_from_tensor(file_path)

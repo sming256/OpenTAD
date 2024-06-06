@@ -12,6 +12,9 @@ def build_optimizer(cfg, model, logger):
     # set the backbone's optim_groups: SHOULD ONLY CONTAIN BACKBONE PARAMS
     if hasattr(model.module, "backbone"):  # if backbone exists
         if model.module.backbone.freeze_backbone == False:  # not frozen
+            assert (
+                "backbone" in cfg.keys()
+            ), "Freeze_backbone is set to False, but backbone parameters is not provided in the optimizer config."
             backbone_cfg = cfg["backbone"]
             cfg.pop("backbone")
             backbone_optim_groups = get_backbone_optim_groups(backbone_cfg, model, logger)

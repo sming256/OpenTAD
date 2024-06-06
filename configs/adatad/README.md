@@ -59,14 +59,15 @@ torchrun --nnodes=1 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=local
 
 Please refer to [README.md](../../tools/prepare_data/thumos/README.md#download-raw-videos) to prepare the raw video of THUMOS.
 
-|   Backbone   | GPUs  | Setting | Frames | Img Size | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |                            Config                             |                                                                                          Download                                                                                          |
-| :----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-----------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  VideoMAE-S  |   2   | AdaTAD  |  768   |   160    |  83.90  |  79.01  |  72.38  |  61.57  |  48.27  |  69.03   |  [config](thumos/e2e_thumos_videomae_s_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1HGUBroK90KBAkFqQreAVtHCIclJh7DmM/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1sqLsgkZsPReusv1lNUOg_nqE4nJX-YnD/view?usp=sharing) |
-|  VideoMAE-B  |   2   | AdaTAD  |  768   |   160    |  85.95  |  81.86  |  75.02  |  63.29  |  49.56  |  71.14   |  [config](thumos/e2e_thumos_videomae_b_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1PFqXL4HcRv4cwqrZnhSwKjG53kEFByLs/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1uRY53OHcsxREVNHR-O-mcJyZde1XDUhe/view?usp=sharing) |
-|  VideoMAE-L  |   2   | AdaTAD  |  768   |   160    |  87.17  |  83.58  |  76.88  |  66.81  |  53.13  |  73.51   |  [config](thumos/e2e_thumos_videomae_l_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1vCbNU82TFjh0b6BRP566Jj1JHC-3qcum/view?usp=sharing)   \| [log](https://drive.google.com/file/d/147aU9TNEjxSxoVJ0S7lsYQ-mTsYHsvHK/view?usp=sharing) |
-|  VideoMAE-H  |   2   | AdaTAD  |  768   |   160    |  88.42  |  84.63  |  78.72  |  69.04  |  53.95  |  74.95   |  [config](thumos/e2e_thumos_videomae_h_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1egFK_6bLiyj1Doo0kZ3wTR5XE9JYyn1e/view?usp=sharing)   \| [log](https://drive.google.com/file/d/19cFQm4RDxGly9pWFbz1Yfxoqix-y-Stw/view?usp=sharing) |
-| VideoMAEV2-g |   2   | AdaTAD  |  768   |   160    |  88.63  |  85.39  |  79.17  |  68.34  |  53.79  |  75.06   | [config](thumos/e2e_thumos_videomaev2_g_768x1_160_adapter.py) | [model](https://drive.google.com/file/d/1QV4a_8ulkSnf4-rQbzw58flgFGCwUT_6/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1x7giiYmP-95eXUpwpYd70TTtcttBrh-Q/view?usp=sharing) |
-| VideoMAEV2-g |   2   | AdaTAD  |  1536  |   224    |  89.93  |  86.83  |  81.24  |  69.97  |  57.36  |  77.07   | [config](thumos/e2e_thumos_videomaev2_g_768x2_224_adapter.py) | [model](https://drive.google.com/file/d/1sANYRJE0lfbOTZJKj-1jj4S53jVLW3Wf/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1QncfW_dxJRE2nhNGL6JmRB3-SBBuv2NJ/view?usp=sharing) |
+|   Backbone   | GPUs  | Setting | Frames | Img Size | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |                             Config                              |                                                                                          Download                                                                                          |
+| :----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  VideoMAE-S  |   2   | AdaTAD  |  768   |   160    |  83.90  |  79.01  |  72.38  |  61.57  |  48.27  |  69.03   |   [config](thumos/e2e_thumos_videomae_s_768x1_160_adapter.py)   | [model](https://drive.google.com/file/d/1HGUBroK90KBAkFqQreAVtHCIclJh7DmM/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1sqLsgkZsPReusv1lNUOg_nqE4nJX-YnD/view?usp=sharing) |
+|  VideoMAE-B  |   2   | AdaTAD  |  768   |   160    |  85.95  |  81.86  |  75.02  |  63.29  |  49.56  |  71.14   |   [config](thumos/e2e_thumos_videomae_b_768x1_160_adapter.py)   | [model](https://drive.google.com/file/d/1PFqXL4HcRv4cwqrZnhSwKjG53kEFByLs/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1uRY53OHcsxREVNHR-O-mcJyZde1XDUhe/view?usp=sharing) |
+|  VideoMAE-L  |   2   | AdaTAD  |  768   |   160    |  87.17  |  83.58  |  76.88  |  66.81  |  53.13  |  73.51   |   [config](thumos/e2e_thumos_videomae_l_768x1_160_adapter.py)   | [model](https://drive.google.com/file/d/1vCbNU82TFjh0b6BRP566Jj1JHC-3qcum/view?usp=sharing)   \| [log](https://drive.google.com/file/d/147aU9TNEjxSxoVJ0S7lsYQ-mTsYHsvHK/view?usp=sharing) |
+|  VideoMAE-H  |   2   | AdaTAD  |  768   |   160    |  88.42  |  84.63  |  78.72  |  69.04  |  53.95  |  74.95   |   [config](thumos/e2e_thumos_videomae_h_768x1_160_adapter.py)   | [model](https://drive.google.com/file/d/1egFK_6bLiyj1Doo0kZ3wTR5XE9JYyn1e/view?usp=sharing)   \| [log](https://drive.google.com/file/d/19cFQm4RDxGly9pWFbz1Yfxoqix-y-Stw/view?usp=sharing) |
+| VideoMAEV2-g |   2   | AdaTAD  |  768   |   160    |  88.63  |  85.39  |  79.17  |  68.34  |  53.79  |  75.06   |  [config](thumos/e2e_thumos_videomaev2_g_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1QV4a_8ulkSnf4-rQbzw58flgFGCwUT_6/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1x7giiYmP-95eXUpwpYd70TTtcttBrh-Q/view?usp=sharing) |
+| VideoMAEV2-g |   2   | AdaTAD  |  1536  |   224    |  89.93  |  86.83  |  81.24  |  69.97  |  57.36  |  77.07   |  [config](thumos/e2e_thumos_videomaev2_g_768x2_224_adapter.py)  | [model](https://drive.google.com/file/d/1sANYRJE0lfbOTZJKj-1jj4S53jVLW3Wf/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1QncfW_dxJRE2nhNGL6JmRB3-SBBuv2NJ/view?usp=sharing) |
+| VideoMAEV2-g |   2   | AdaTAD† |  1536  |   224    |  88.43  |  84.72  |  77.88  |  68.51  |  53.72  |  74.65   | [config](thumos/e2e_thumos_videomaev2_g_768x2_224_side_2e-4.py) | [model](https://drive.google.com/file/d/13o1d6FxEngkAMs1NpFAIpQxtchflW0Bw/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1tJEeDL7yq_pFw6YDFqLKf1eVLTokMQlq/view?usp=sharing) |
 
 - To train the model on THUMOS, you can run the following command.
 
@@ -81,9 +82,50 @@ torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=local
   --cfg-options optimizer.backbone.custom.0.lr=1e-4 --id 1
 ```
 
-## More results
+## EPIC-KITCHENS Results
 
-More results on Epic-Kitchens, Ego4D, Charades, HACS, MultiThumos are coming soon!
+
+Before running the experiments, please download the EPIC-pretrained VideoMAE's weights, and put them under the path `./pretrained/`.
+
+|   Model    | Pretrain Dataset | Finetune Dataset |                                            Checkpoints                                             |
+| :--------: | :--------------: | :--------------: | :------------------------------------------------------------------------------------------------: |
+| VideoMAE-L |   InternVideo1   |    EPIC-Noun     | [Google Drive](https://drive.google.com/file/d/1_GpDIVFb4Aj-EPBEU9ekK_pMc0NVWvN2/view?usp=sharing) |
+| VideoMAE-L |   InternVideo1   |    EPIC-Verb     | [Google Drive](https://drive.google.com/file/d/1W-gg0aX1OQVbPU3U7AZJcP2bSikPUEVA/view?usp=sharing) |
+
+Please refer to [README.md](../../tools/prepare_data/epic/README.md#download-raw-videos) to prepare the raw video of EPIC-Kitchens.
+
+| Subset |   Backbone    | GPUs  | Setting | Frames | Img Size | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |                             Config                              |                                                                                          Download                                                                                          |
+| :----: | :-----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  Noun  | VideoMAE-Noun |   2   | AdaTAD  | 768x8  |   160    |  33.88  |  32.41  |  30.58  |  27.66  |  22.67  |  29.44   | [config](epic/e2e_epic_videomae_l_ft_768x8_160_adapter_noun.py) | [model](https://drive.google.com/file/d/1IENRReN02NOnm_RJBVO1bPU5Nce3Hyyh/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1bQbrCh5_0O6hLljCc8QQ4N8UW6tRIKIz/view?usp=sharing) |
+|  Verb  | VideoMAE-Verb |   2   | AdaTAD  | 768x8  |   160    |  33.02  |  32.43  |  30.51  |  27.80  |  24.69  |  29.69   | [config](epic/e2e_epic_videomae_l_ft_768x8_160_adapter_verb.py) | [model](https://drive.google.com/file/d/123ENCu0A677rT1izN-GaWlNAqte1i-gt/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NLpMXon9EGgOnaVOgba3Wxogn9TT8-ar/view?usp=sharing) |
+
+- To train the model on EPIC-Kitchens, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/epic/e2e_epic_videomae_l_ft_768x8_160_adapter_noun.py
+```
+
+## Ego4D-MQ Results
+
+
+Before running the experiments, please download the InternVideo1-MQ weights, and put them under the path `./pretrained/`.
+
+|      Model      | Pretrain Dataset  |   Finetune Dataset    |                                                Original Link                                                |                                       Converted Checkpoints                                        |
+| :-------------: | :---------------: | :-------------------: | :---------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
+| InternVideo1-MQ | InternVideo1-K700 | Ego4D-Verb + Ego4D-MQ | [Url](https://github.com/OpenGVLab/ego4d-eccv2022-solutions/tree/main#:~:text=%2D-,Download,-UniFormer%2DB) | [Google Drive](https://drive.google.com/file/d/1r4e6GDLg0F8VVGPwYUiijO6ECH63t02z/view?usp=sharing) |
+
+Please refer to [README.md](../../tools/prepare_data/ego4d/README.md#download-raw-videos) to prepare the raw video of Ego4D-MQ.
+
+|    Backbone     | GPUs  | Setting | Frames | Img Size | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |                              Config                               |                                                                                          Download                                                                                          |
+| :-------------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| InternVideo1-MQ |   2   | AdaTAD  | 1800x4 |   192    |  33.69  |  31.19  |  28.37  |  26.12  |  22.67  |  28.41   | [config](epic/e2e_ego4d_internvideo_1800x4_192_adapter_lr4e-4.py) | [model](https://drive.google.com/file/d/16MkRDEFLVo4xs0N0yEpw7TPB_h5ZlGXL/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1u62mkktrsZee88fzJ7h4gbSuoQuJ-5aa/view?usp=sharing) |
+
+- To train the model on Ego4D-MQ, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/ego4d/e2e_ego4d_internvideo_1800x4_192_adapter_lr4e-4.py
+```
+
 
 ## Citation
 

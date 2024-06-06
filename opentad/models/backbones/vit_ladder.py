@@ -24,8 +24,10 @@ class Adapter(BaseModule):
         kernel_size: int = 3,
         dilation: int = 1,
         temporal_size: int = 384,
+        with_cp: bool = False,
     ) -> None:
         super().__init__()
+        self.with_cp = with_cp
 
         hidden_dims = int(embed_dims * mlp_ratio)
 
@@ -55,53 +57,61 @@ class Adapter(BaseModule):
         constant_init(self.up_proj, 0)  # the last projection layer is initialized to 0
 
     def forward(self, x: Tensor, h: int, w: int) -> Tensor:
-        inputs = x
+        def _inner_forward(x):
+            # down and up projection
+            x = self.down_proj(x)
+            x = self.act(x)
 
-        # down and up projection
-        x = self.down_proj(x)
-        x = self.act(x)
+            # temporal depth-wise convolution
+            B, N, C = x.shape  # 48, 8*10*10, 384
+            attn = x.reshape(-1, self.temporal_size, h, w, x.shape[-1])  # [b,t,h,w,c]  [1,384,10,10,384]
+            attn = attn.permute(0, 2, 3, 4, 1).flatten(0, 2)  # [b*h*w,c,t] [1*10*10,384,384]
+            attn = self.dwconv(attn)  # [b*h*w,c,t] [1*10*10,384,384]
+            attn = self.conv(attn)  # [b*h*w,c,t] [1*10*10,384,384]
+            attn = attn.unflatten(0, (-1, h, w)).permute(0, 4, 1, 2, 3)  # [b,t,h,w,c] [1,384,10,10,384]
+            attn = attn.reshape(B, N, C)
+            x = x + attn
 
-        # temporal depth-wise convolution
-        B, N, C = x.shape  # 48, 8*10*10, 384
-        attn = x.reshape(-1, self.temporal_size, h, w, x.shape[-1])  # [b,t,h,w,c]  [1,384,10,10,384]
-        attn = attn.permute(0, 2, 3, 4, 1).flatten(0, 2)  # [b*h*w,c,t] [1*10*10,384,384]
-        attn = self.dwconv(attn)  # [b*h*w,c,t] [1*10*10,384,384]
-        attn = self.conv(attn)  # [b*h*w,c,t] [1*10*10,384,384]
-        attn = attn.unflatten(0, (-1, h, w)).permute(0, 4, 1, 2, 3)  # [b,t,h,w,c] [1,384,10,10,384]
-        attn = attn.reshape(B, N, C)
-        x = x + attn
+            x = self.up_proj(x) * self.gamma
+            return x
 
-        x = self.up_proj(x)
-        return x * self.gamma + inputs
+        if self.with_cp:
+            x = cp.checkpoint(_inner_forward, x, use_reentrant=False)
+        else:
+            x = _inner_forward(x)
+        return x
 
 
-class PlainAdapter(BaseModule):
+class LadderNetwork(BaseModule):
     def __init__(
         self,
-        embed_dims: int,
+        depth,
+        embed_dims,
+        temporal_size: int = 384,
+        with_cp: bool = False,
         mlp_ratio: float = 0.25,
-        **kwargs,
-    ) -> None:
+    ):
         super().__init__()
+        self.depth = depth
 
-        hidden_dims = int(embed_dims * mlp_ratio)
+        self.adapters = ModuleList([])
+        for i in range(depth):
+            self.adapters.append(
+                Adapter(
+                    embed_dims=embed_dims,
+                    mlp_ratio=mlp_ratio,
+                    kernel_size=3,
+                    temporal_size=temporal_size,
+                    with_cp=with_cp,
+                )
+            )
 
-        # adapter projection
-        self.down_proj = nn.Linear(embed_dims, hidden_dims)
-        self.act = nn.GELU()
-        self.up_proj = nn.Linear(hidden_dims, embed_dims)
-        self.gamma = nn.Parameter(torch.ones(1))
-        trunc_normal_init(self.down_proj, std=0.02, bias=0)
-        constant_init(self.up_proj, 0)  # the last projection layer is initialized to 0
-
-    def forward(self, x: Tensor, h: int, w: int) -> Tensor:
-        inputs = x
-
-        # down and up projection
-        x = self.down_proj(x)
-        x = self.act(x)
-        x = self.up_proj(x)
-        return x * self.gamma + inputs
+    def forward(self, feat_list: List[Tensor], h, w) -> Tensor:
+        # the last feature map is the original output of the backbone
+        output = feat_list[-1]
+        for i in range(self.depth):
+            output = output + self.adapters[i](feat_list[i], h, w)
+        return output
 
 
 class Attention(BaseModule):
@@ -225,16 +235,9 @@ class Block(BaseModule):
         act_cfg: ConfigType = dict(type="GELU"),
         norm_cfg: ConfigType = dict(type="LN", eps=1e-6),
         init_cfg: OptConfigType = None,
-        with_cp: bool = False,
-        use_adapter: bool = False,
-        adapter_mlp_ratio: float = 0.25,
-        temporal_size: int = 384,
         **kwargs,
     ) -> None:
         super().__init__(init_cfg=init_cfg)
-
-        self.with_cp = with_cp
-        self.use_adapter = use_adapter
 
         self.norm1 = build_norm_layer(norm_cfg, embed_dims)[1]
         self.attn = Attention(
@@ -260,16 +263,7 @@ class Block(BaseModule):
             add_identity=False,
         )
 
-        if self.use_adapter:
-            self.adapter = Adapter(
-                embed_dims=embed_dims,
-                kernel_size=3,
-                dilation=1,
-                temporal_size=temporal_size,
-                mlp_ratio=adapter_mlp_ratio,
-            )
-
-    def forward(self, x: Tensor, h, w) -> Tensor:
+    def forward(self, x: Tensor) -> Tensor:
         """Defines the computation performed at every call.
 
         Args:
@@ -277,25 +271,13 @@ class Block(BaseModule):
         Returns:
             Tensor: The output of the transformer block, same size as inputs.
         """
-
-        def _inner_forward(x):
-            """Forward wrapper for utilizing checkpoint."""
-            x = x + self.drop_path(self.attn(self.norm1(x)))
-            x = x + self.drop_path(self.mlp(self.norm2(x)))
-
-            if self.use_adapter:
-                x = self.adapter(x, h, w)
-            return x
-
-        if self.with_cp and x.requires_grad:
-            x = cp.checkpoint(_inner_forward, x)
-        else:
-            x = _inner_forward(x)
+        x = x + self.drop_path(self.attn(self.norm1(x)))
+        x = x + self.drop_path(self.mlp(self.norm2(x)))
         return x
 
 
 @MODELS.register_module()
-class VisionTransformerAdapter(BaseModule):
+class VisionTransformerLadder(BaseModule):
     """Vision Transformer with support for patch or hybrid CNN input stage. An
     impl of `VideoMAE: Masked Autoencoders are Data-Efficient Learners for
     Self-Supervised Video Pre-Training <https://arxiv.org/pdf/2203.12602.pdf>`_
@@ -357,13 +339,11 @@ class VisionTransformerAdapter(BaseModule):
         norm_cfg: ConfigType = dict(type="LN", eps=1e-6),
         num_frames: int = 16,  # frames per attention
         tubelet_size: int = 2,
-        use_mean_pooling: int = True,
         pretrained: Optional[str] = None,
-        return_feat_map: bool = False,
         with_cp: bool = False,
         adapter_mlp_ratio: float = 0.25,
         total_frames: int = 768,
-        adapter_index: list = [3, 5, 7, 11],
+        adapter_index: Optional[List[int]] = list(range(6, 12)),
         init_cfg: Optional[Union[Dict, List[Dict]]] = [
             dict(type="TruncNormal", layer="Linear", std=0.02, bias=0.0),
             dict(type="Constant", layer="LayerNorm", val=1.0, bias=0.0),
@@ -373,8 +353,6 @@ class VisionTransformerAdapter(BaseModule):
         if pretrained:
             self.init_cfg = dict(type="Pretrained", checkpoint=pretrained)
         super().__init__(init_cfg=init_cfg)
-
-        self.with_cp = with_cp
 
         self.embed_dims = embed_dims
         self.patch_size = patch_size
@@ -414,25 +392,21 @@ class VisionTransformerAdapter(BaseModule):
                     attn_drop_rate=attn_drop_rate,
                     drop_path_rate=dpr[i],
                     norm_cfg=norm_cfg,
-                    with_cp=with_cp,
                     init_cfg=init_cfg,
-                    use_adapter=i in adapter_index,
-                    adapter_mlp_ratio=adapter_mlp_ratio,
-                    temporal_size=total_frames // tubelet_size,
                 )
                 for i in range(depth)
             ]
         )
 
-        if use_mean_pooling:
-            self.norm = nn.Identity()
-            self.fc_norm = build_norm_layer(norm_cfg, embed_dims)[1]
-        else:
-            self.norm = build_norm_layer(norm_cfg, embed_dims)[1]
-            self.fc_norm = None
-
-        self.return_feat_map = return_feat_map
-
+        # build the ladder network
+        self.adapter_index = adapter_index
+        self.ladders = LadderNetwork(
+            depth=len(adapter_index),
+            embed_dims=embed_dims,
+            temporal_size=total_frames // tubelet_size,
+            with_cp=with_cp,
+            mlp_ratio=adapter_mlp_ratio,
+        )
         # count the number of parameters in the backbone
         num_vit_param = sum(p.numel() for name, p in self.named_parameters() if "adapter" not in name)
         num_adapter_param = sum(p.numel() for name, p in self.named_parameters() if "adapter" in name)
@@ -440,17 +414,23 @@ class VisionTransformerAdapter(BaseModule):
         print("ViT's param: {}, Adapter's params: {}, ratio: {:2.1f}%".format(num_vit_param, num_adapter_param, ratio))
 
     def forward(self, x: Tensor) -> Tensor:
-        """Defines the computation performed at every call.
+        b, _, _, h, w = x.shape
+        h //= self.patch_size
+        w //= self.patch_size
 
-        Args:
-            x (Tensor): The input data.
-        Returns:
-            Tensor: The feature of the input
-                samples extracted by the backbone.
-        """
+        feat_list = self.forward_vit(x)
+
+        # ladder network
+        out = self.ladders(feat_list, h, w)
+        out = out.reshape(b, -1, h, w, self.embed_dims)
+        out = out.permute(0, 4, 1, 2, 3)
+        return out
+
+    @torch.no_grad()
+    def forward_vit(self, x: Tensor) -> Tensor:
         self._freeze_layers()
 
-        b, _, _, h, w = x.shape
+        _, _, _, h, w = x.shape
         h //= self.patch_size
         w //= self.patch_size
         x = self.patch_embed(x)[0]
@@ -466,23 +446,15 @@ class VisionTransformerAdapter(BaseModule):
         x = x + pos_embed
         x = self.pos_drop(x)
 
-        for blk in self.blocks:
-            x = blk(x, h, w)
-
-        x = self.norm(x)
-
-        if self.return_feat_map:
-            x = x.reshape(b, -1, h, w, self.embed_dims)
-            x = x.permute(0, 4, 1, 2, 3)
-            return x
-
-        if self.fc_norm is not None:
-            return self.fc_norm(x.mean(1))
-
-        return x[:, 0]
+        feat_list = []  # append the patch embedding features
+        for i, blk in enumerate(self.blocks):
+            x = blk(x)
+            if i in self.adapter_index:
+                feat_list.append(x.detach())
+        return feat_list
 
     def _freeze_layers(self):
-        """Prevent all the parameters not in the adapters"""
+        """Prevent all the parameters in the original ViT"""
 
         # freeze patch_embed
         self.patch_embed.eval()
@@ -493,7 +465,6 @@ class VisionTransformerAdapter(BaseModule):
         # freeze blocks except the adapter's parameters
         for block in self.blocks:
             for m, n in block.named_children():
-                if "adapter" not in m and m != "drop_path":
-                    n.eval()
-                    for param in n.parameters():
-                        param.requires_grad = False
+                n.eval()
+                for param in n.parameters():
+                    param.requires_grad = False

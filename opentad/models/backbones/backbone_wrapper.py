@@ -2,6 +2,7 @@ import copy
 import torch
 import torch.nn as nn
 from torch.nn.modules.batchnorm import _BatchNorm
+import torch.utils.checkpoint as cp
 
 from mmengine.dataset import Compose
 from mmengine.registry import MODELS as MM_BACKBONES
@@ -26,8 +27,8 @@ class BackboneWrapper(nn.Module):
             load_checkpoint(self.model, custom_cfg.pretrain, map_location="cpu")
         else:
             print(
-                "Warning: no pretrain path is provided, the backbone will be randomly initialized,\
-                      unless you have initialized the weights in the model.py."
+                "Warning: no pretrain path is provided, the backbone will be randomly initialized, "
+                "unless you have initialized the weights in the model.py."
             )
 
         # 2. pre_processing_pipeline
@@ -49,6 +50,18 @@ class BackboneWrapper(nn.Module):
         self.freeze_backbone = getattr(custom_cfg, "freeze_backbone", False)
 
         print("freeze_backbone: {}, norm_eval: {}".format(self.freeze_backbone, self.norm_eval))
+
+        # 6. whether to use temporal activation checkpointing
+        self.use_temporal_checkpointing = getattr(custom_cfg, "temporal_checkpointing", False)
+        if self.use_temporal_checkpointing:
+            assert hasattr(
+                custom_cfg, "temporal_checkpointing_chunk_num"
+            ), "temporal_checkpointing_chunk_num should be provided when using temporal checkpointing"
+            assert hasattr(
+                custom_cfg, "temporal_checkpointing_chunk_dim"
+            ), "temporal_checkpointing_chunk_dim should be provided when using temporal checkpointing"
+            self.temporal_checkpointing_chunk_num = custom_cfg.temporal_checkpointing_chunk_num
+            self.temporal_checkpointing_chunk_dim = custom_cfg.temporal_checkpointing_chunk_dim
 
     def forward(self, frames, masks=None):
         # two types: snippet or frame
@@ -72,15 +85,29 @@ class BackboneWrapper(nn.Module):
 
         # flatten the batch dimension and num_segs dimension
         batches, num_segs = frames.shape[0:2]
-        frames = frames.flatten(0, 1)  # [bs*num_seg, ...]
+        frames = frames.flatten(0, 1).contiguous()  # [bs*num_seg, ...]
 
         # go through the video backbone
         if self.freeze_backbone:  # freeze everything even in training
             with torch.no_grad():
-                features = self.model.backbone(frames)
+                if self.use_temporal_checkpointing:
+                    features = self.temporal_checkpointing(
+                        frames,
+                        self.temporal_checkpointing_chunk_num,
+                        self.temporal_checkpointing_chunk_dim,
+                    )
+                else:
+                    features = self.model.backbone(frames)
 
         else:  # let the model.train() or model.eval() decide whether to freeze
-            features = self.model.backbone(frames)
+            if self.use_temporal_checkpointing:
+                features = self.temporal_checkpointing(
+                    frames,
+                    self.temporal_checkpointing_chunk_num,
+                    self.temporal_checkpointing_chunk_dim,
+                )
+            else:
+                features = self.model.backbone(frames)
 
         # unflatten and pool the features
         if isinstance(features, (tuple, list)):
@@ -116,3 +143,35 @@ class BackboneWrapper(nn.Module):
 
                     for param in m.parameters():
                         param.requires_grad = False
+
+    def temporal_checkpointing(self, frames, chunk_num, chunk_dim):
+        """Temporal Checkpointing for Video Backbone.
+
+        Temporal checkpointing will 1) split the video frames along the temporal dimension and sequentially forward each chunk with
+        no gradients. 2) The backward pass will recompute the intermediate activations and compute each chunk's gradient. 3) Backbone's
+        gradients will be accumulated along different chunks.
+
+        Args:
+            frames (Tensor): input frames, [B*N,3,T,H,W]
+            chunk_num (int): number of chunks to split the temporal dimension
+            chunk_dim (int): input shape is [B*N,3,T,H,W], so either dim=0 or 2 is fine
+        """
+
+        def _inner_forward(frames):
+            return self.model.backbone(frames)
+
+        video_feat = []
+        for mini_frames in torch.chunk(frames, chunk_num, dim=chunk_dim):  # B*N is chunked
+            # we can use torch.cp.checkpoint to implement an efficient temporal checkpointing mechanism
+            mini_feat = cp.checkpoint(
+                _inner_forward,
+                mini_frames,
+                use_reentrant=False,
+            )
+            video_feat.append(mini_feat)
+
+        if isinstance(video_feat[0], (tuple, list)):
+            video_feat = [torch.cat([f[idx] for f in video_feat], dim=chunk_dim) for idx in range(len(video_feat[0]))]
+        else:
+            video_feat = torch.cat(video_feat, dim=chunk_dim)
+        return video_feat

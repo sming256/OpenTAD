@@ -33,7 +33,9 @@ class ActionFormer(SingleStageDetector):
         max_div_factor = 1
         for s, w in zip(rpn_head.prior_generator.strides, self.mha_win_size):
             stride = s * (w // 2) * 2 if w > 1 else s
-            assert self.max_seq_len % stride == 0, "max_seq_len must be divisible by fpn stride and window size"
+            assert (
+                self.max_seq_len % stride == 0
+            ), f"max_seq_len {self.max_seq_len} must be divisible by fpn stride and window size {stride}"
             if max_div_factor < stride:
                 max_div_factor = stride
         self.max_div_factor = max_div_factor

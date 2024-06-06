@@ -18,6 +18,15 @@ Temporal action localization (TAL) in videos is a challenging task, especially d
 |   False   | Fasle |   TSP    |  54.40  |  36.88   |   9.15   |  36.27   |   [config](anet_tsp.py)   | [model](https://drive.google.com/file/d/1E85NhJyyO_6qfnucfVg5mEyW9t6UJH7v/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1g1UVUtd-6UnNVawist6cvHaGEsnlZHxP/view?usp=sharing) |
 |   False   | True  |   TSP    |  54.80  |  37.35   |   9.80   |  36.89   | [config](anet_tsp_gcn.py) | [model](https://drive.google.com/file/d/1y7PqP1TiNkGNxx-WLBccZvuTUo2mfbOD/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1krOBqbYNI9moRbIhbYpOT6RUphXIQDD9/view?usp=sharing) |
 
+**THUMOS-14**
+
+| Stitching |  GCN  | Features | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |           Config            |                                                                                          Download                                                                                          |
+| :-------: | :---: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|   False   | False |   TSN    |  59.14  |  53.18  |  45.49  |  35.11  |  24.69  |  43.52   |   [config](thumos_tsn.py)   | [model](https://drive.google.com/file/d/1zNW8TDTA1C3BDR1Fu81XFg-q0iqxneKR/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1X1IEsQq4IEGTDt_ISJpY9elxqxiRZTT9/view?usp=sharing) |
+|   False   | True  |   TSN    |  61.75  |  56.69  |  47.62  |  37.16  |  26.70  |  45.98   | [config](thumos_tsn_gcn.py) | [model](https://drive.google.com/file/d/1itc8CuYhuk4Ja8T_rl4vATqbI-xOVZPz/view?usp=sharing)   \| [log](https://drive.google.com/file/d/10Q_B7k_fQ-7U1_xvnbzP0u1jhnuSypMK/view?usp=sharing) |
+|   False   | False |   I3D    |  66.78  |  61.68  |  53.09  |  43.08  |  30.63  |  51.05   |   [config](thumos_i3d.py)   | [model](https://drive.google.com/file/d/1qW2QvF9WIpbPZtySqoMwpdRXnAIiZKew/view?usp=sharing)   \| [log](https://drive.google.com/file/d/18kjVV-dcU0sAsrI99g7gpo5n-eyUqbgk/view?usp=sharing) |
+|   False   | True  |   I3D    |  68.64  |  63.39  |  55.21  |  44.74  |  33.13  |  53.02   | [config](thumos_i3d_gcn.py) | [model](https://drive.google.com/file/d/1TvXF_jc4KHzlkwaRKFNZ0NuzXz7EioMo/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1nm0-y0c7_RS4MyVZbhrjtbS_MAUjhOx6/view?usp=sharing) |
+
 
 ## Train
 

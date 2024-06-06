@@ -13,9 +13,12 @@ Temporal action detection (TAD) with end-to-end training often suffers from the 
 
 **ActivityNet-1.3** with CUHK classifier.
 
-|  E2E  | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |        Config         |                                                                                          Download                                                                                          |
-| :---: | :------: | :-----: | :------: | :------: | :------: | :-------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| False |   TSP    |  54.91  |  38.90   |   9.09   |  37.73   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1r7zLfIaLPHb_7ba6tPzjKE3_WpGtrnge/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1wc27fX4qWUBarzeXR2aDfQjvN25G72Uu/view?usp=sharing) |
+|  E2E  | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |          Config           |                                                                                          Download                                                                                          |
+| :---: | :------: | :-----: | :------: | :------: | :------: | :-----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| False |   TSP    |  54.91  |  38.90   |   9.09   |  37.73   |   [config](anet_tsp.py)   | [model](https://drive.google.com/file/d/1r7zLfIaLPHb_7ba6tPzjKE3_WpGtrnge/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1wc27fX4qWUBarzeXR2aDfQjvN25G72Uu/view?usp=sharing) |
+| True  |   TSP    |  55.82  |  40.12   |  10.30   |  38.76   | [config](e2e_anet_tsp.py) | [model](https://drive.google.com/file/d/1SJObHl-vB_0MSJCzRLWN_xJxF2aUnhSu/view?usp=sharing)   \| [log](https://drive.google.com/file/d/16t8A3doleSsTtZeJ4rc-hUML9_8gltT_/view?usp=sharing) |
+- To run the end-to-end experiments, please download the converted TSP-R(2+1d) model (ActivityNet pretrained) from [here](https://drive.google.com/file/d/1vFnMwl3tAiPtmYFWzHxP07q1AQsCzPPN/view?usp=sharing) and put it in the `./pretrained/` folder.
+
 
 **THUMOS-14** with UtrimmedNet classifier
 

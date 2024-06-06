@@ -1,24 +1,20 @@
-annotation_path = "data/epic_kitchens-100/annotations/epic_kitchens_verb.json"
-class_map = "data/epic_kitchens-100/annotations/category_idx_verb.txt"
-data_path = "data/epic_kitchens-100/raw_data/epic_kitchens_100_30fps_512x288/"
-block_list = None
+annotation_path = "data/ego4d/annotations/ego4d_v2_220429.json"
+class_map = "data/ego4d/annotations/category_idx.txt"
+data_path = "data/ego4d/raw_data/MQ_data/mq_videos_short320/"
 
-window_size = 768
-
+window_size = 1800
 dataset = dict(
     train=dict(
-        type="EpicKitchensPaddingDataset",
+        type="Ego4DPaddingDataset",
         ann_file=annotation_path,
         subset_name="train",
-        block_list=block_list,
+        block_list=None,
         class_map=class_map,
         data_path=data_path,
-        filter_gt=True,
-        # epic-kitchens dataloader setting
-        fps=30,
-        feature_stride=16,
+        filter_gt=False,
+        # dataloader setting
+        feature_stride=8,
         sample_stride=1,
-        offset_frames=8,
         pipeline=[
             dict(type="PrepareVideoInfo", format="mp4"),
             dict(type="mmaction.DecordInit", num_threads=4),
@@ -41,20 +37,18 @@ dataset = dict(
         ],
     ),
     val=dict(
-        type="EpicKitchensSlidingDataset",
+        type="Ego4DSlidingDataset",
         ann_file=annotation_path,
         subset_name="val",
-        block_list=block_list,
+        block_list=None,
         class_map=class_map,
         data_path=data_path,
         filter_gt=False,
         # dataloader setting
         window_size=window_size,
-        fps=30,
-        feature_stride=16,
+        feature_stride=8,
         sample_stride=1,
-        offset_frames=8,
-        window_overlap_ratio=0.25,
+        window_overlap_ratio=0,
         pipeline=[
             dict(type="PrepareVideoInfo", format="mp4"),
             dict(type="mmaction.DecordInit", num_threads=4),
@@ -67,21 +61,19 @@ dataset = dict(
         ],
     ),
     test=dict(
-        type="EpicKitchensSlidingDataset",
+        type="Ego4DSlidingDataset",
         ann_file=annotation_path,
         subset_name="val",
-        block_list=block_list,
+        block_list=None,
         class_map=class_map,
         data_path=data_path,
         filter_gt=False,
         test_mode=True,
-        # epic-kitchens dataloader setting
+        # dataloader setting
         window_size=window_size,
-        fps=30,
-        feature_stride=16,
+        feature_stride=8,
         sample_stride=1,
-        offset_frames=8,
-        window_overlap_ratio=0.5,
+        window_overlap_ratio=0,
         pipeline=[
             dict(type="PrepareVideoInfo", format="mp4"),
             dict(type="mmaction.DecordInit", num_threads=4),
@@ -101,4 +93,5 @@ evaluation = dict(
     subset="val",
     tiou_thresholds=[0.1, 0.2, 0.3, 0.4, 0.5],
     ground_truth_filename=annotation_path,
+    top_k=[1, 5],
 )
