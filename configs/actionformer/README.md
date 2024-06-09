@@ -49,8 +49,8 @@ Self-attention based Transformer models have demonstrated impressive results for
 
 |    Features    | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |              Config              |                                                                                          Download                                                                                          |
 | :------------: | :-----: | :-----: | :-----: | :--------------------: | :------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   I3D (rgb)    |  53.50  |  39.04  |  19.69  |         34.01          | [config](multithumos_i3d_rgb.py) | [model](https://drive.google.com/file/d/1ufrZRt9uVu6_IJXPa-JdRK05vsc0UQXO/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1PGrIRfWOHPIofDdSNRQX4UglzBWvlVhO/view?usp=sharing) |
-| I3D (rgb+flow) |  60.16  |  44.99  |  24.55  |         39.18          |   [config](multithumos_i3d.py)   | [model](https://drive.google.com/file/d/1rBOoxuUR3tlzyQmWZGUtPXmsKUT7yLFm/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1-h_9g0HppsqnrvirVNoiZSTTuSWmmRxC/view?usp=sharing) |
+|   I3D (rgb)    |  53.52  |  39.05  |  19.69  |         34.02          | [config](multithumos_i3d_rgb.py) | [model](https://drive.google.com/file/d/1iZ1KeXDQJFLFKe24bCSIoJv6DmtBebSM/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Z2Or_d1aarXr7mjbVVJMnzsI5ieDlLed/view?usp=sharing) |
+| I3D (rgb+flow) |  60.18  |  45.01  |  24.56  |         39.19          |   [config](multithumos_i3d.py)   | [model](https://drive.google.com/file/d/1GvaxJdZhL01DYIWg3QWA5BXdm_rLor32/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1KGLz30nbBtwv235tZyPkr2SPvz79koq9/view?usp=sharing) |
 
 **Charades**
 

@@ -48,7 +48,7 @@ Before running the TAD experiments, go to [video-mamba-suite official repo](http
 
 |    Features     | Setting | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |                 Config                 |                                                                                          Download                                                                                          |
 | :-------------: | :-----: | :-----: | :-----: | :-----: | :--------------------: | :------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| InternVideo2-6B |   DBM   |  66.40  |  52.15  |  32.34  |         45.32          | [config](multithumos_internvideo6b.py) | [model](https://drive.google.com/file/d/1b_isRM9JDE0hN0ENW9GBopF5nqt6vgNM/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1EAL9jfzgh8CW1ssq8unBcCgSkwocm_yW/view?usp=sharing) |
+| InternVideo2-6B |   DBM   |  65.71  |  51.57  |  31.09  |         44.58          | [config](multithumos_internvideo6b.py) | [model](https://drive.google.com/file/d/111xCpVLazWIy0szsy2B3Q34D29gNIkSf/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1c7Er9n9ymAmeLdQNFJ3Wy20JTXskZ7cU/view?usp=sharing) |
 
 
 ## Train

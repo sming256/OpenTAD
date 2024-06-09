@@ -23,8 +23,8 @@ Temporal Action Localization (TAL) is a challenging task in video understanding 
 
 |    Features    | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |              Config              |                                                                                          Download                                                                                          |
 | :------------: | :-----: | :-----: | :-----: | :--------------------: | :------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   I3D (rgb)    |  53.55  |  38.38  |  20.60  |         33.91          | [config](multithumos_i3d_rgb.py) | [model](https://drive.google.com/file/d/1l2YnyNx_nYjGH-y-eEV62wsQ7DUR-qmo/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1YuTjv89l-A4mmUafuZVZtuKEQ22mUL29/view?usp=sharing) |
-| I3D (rgb+flow) |  60.30  |  44.92  |  25.45  |         39.32          |   [config](multithumos_i3d.py)   | [model](https://drive.google.com/file/d/1n1ZMSmn3mRmrF4CFYFoLTq8M3pRhtLcF/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1mc1JifZDfqfvX6cjChE8O3vKtgCf_TbC/view?usp=sharing) |
+|   I3D (rgb)    |  53.57  |  38.39  |  20.61  |         33.92          | [config](multithumos_i3d_rgb.py) | [model](https://drive.google.com/file/d/1xci9meo5Gb0XMUTo2fUt3d-sxBUlWefZ/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1oQKds1GFERu54nBdNBxRY_1wUnRlIrXy/view?usp=sharing) |
+| I3D (rgb+flow) |  60.05  |  44.86  |  25.59  |         39.26          |   [config](multithumos_i3d.py)   | [model](https://drive.google.com/file/d/1rfIDpTE0E2VOi4b4CpndlEntSdrnrEC2/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1pJfpR7Ssy2pucZSbQfLhbqHamwpzcnLW/view?usp=sharing) |
 
 **Epic-Kitchens-100**
 
