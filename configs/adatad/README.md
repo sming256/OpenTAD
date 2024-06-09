@@ -126,6 +126,26 @@ Please refer to [README.md](../../tools/prepare_data/ego4d/README.md#download-ra
 torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/ego4d/e2e_ego4d_internvideo_1800x4_192_adapter_lr4e-4.py
 ```
 
+## Multi-THUMOS Results
+
+Please refer to [README.md](../../tools/prepare_data/multi-thumos/README.md#download-raw-videos) to prepare the raw video of THUMOS.
+
+|   Backbone   | GPUs  | Setting | Frames | Img Size | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |                                  Config                                  |                                                                                          Download                                                                                          |
+| :----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :--------------------: | :----------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  VideoMAE-S  |   2   | AdaTAD  |  768   |   160    |  61.34  |  46.74  |  26.88  |         40.77          |  [config](multi_thumos/e2e_multithumos_videomae_s_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1Fto6mSOPDPiJ_aZBGj4hJAlB80jIQHoX/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1wkQMsmMPojTVcbAJc6F1JLeHj0V0qV50/view?usp=sharing) |
+|  VideoMAE-B  |   2   | AdaTAD  |  768   |   160    |  63.90  |  48.74  |  28.72  |         42.76          |  [config](multi_thumos/e2e_multithumos_videomae_b_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1BFqLFYThYP3tXMglMKvIQXov9jOWfDUz/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1o2FubV2KOTKIHpmqNRzKu0FOp7KEUZAf/view?usp=sharing) |
+|  VideoMAE-L  |   2   | AdaTAD  |  768   |   160    |  66.06  |  51.80  |  31.73  |         45.15          |  [config](multi_thumos/e2e_multithumos_videomae_l_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1rgp77wKWVWgJlC2yM8qhHCQxSpFb4tgR/view?usp=sharing)   \| [log](https://drive.google.com/file/d/19EgbRxgm66uuDyM-w6mpQtYuHdO_LeRS/view?usp=sharing) |
+|  VideoMAE-H  |   2   | AdaTAD  |  768   |   160    |  67.20  |  52.99  |  32.70  |         46.02          |  [config](multi_thumos/e2e_multithumos_videomae_h_768x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1Si-_eP0aEhJZ7uVcHvJtGnetmdkeH_Qs/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1xtixx9mtA0GBDufWml5t9cvOTN2T9_Od/view?usp=sharing) |
+| VideoMAEV2-g |   2   | AdaTAD  |  768   |   160    |  68.23  |  53.87  |  33.03  |         46.74          | [config](multi_thumos/e2e_multithumos_videomaev2_g_768x1_160_adapter.py) | [model](https://drive.google.com/file/d/15ri0cDo2dRHF1C3XnpbgpaiMF0TyhFD3/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1_L4sIjdz0BVfI5xNuLyRhUB5j715WkjV/view?usp=sharing) |
+| VideoMAEV2-g |   2   | AdaTAD  |  1536  |   224    |  71.11  |  55.83  |  34.86  |         48.73          | [config](multi_thumos/e2e_multithumos_videomaev2_g_768x2_224_adapter.py) | [model](https://drive.google.com/file/d/1GALzlQN1w-YjMbphpRmMd4qqqKCKF2cq/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1wvKTaj03gjLhPO7oFk8ePT9OEdN-k3b2/view?usp=sharing) |
+
+- To train the model on Multi-THUMOS, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/multi_thumos/e2e_multithumos_videomae_s_768x1_160_adapter.py
+```
+
+
 
 ## Citation
 
