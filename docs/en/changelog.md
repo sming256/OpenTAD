@@ -3,8 +3,7 @@
 ## v0.1.3
 
 Improvements
-- AdaTAD's results on Multi-THUMOS are released at [here](../../configs/adatad/README.md#multi-thumos-results). We achieve an amazing performance of 48.73% average mAP on Multi-THUMOS dataset.
-- AdaTAD's results on Charades are released at [here](../../configs/adatad/README.md#multi-thumos-results). We achieve an amazing performance of 37.56% average mAP on Multi-THUMOS dataset.
+- AdaTAD's results on Multi-THUMOS and Charades are released at [here](../../configs/adatad/README.md). We achieve an amazing performance of 48.73% average mAP on Multi-THUMOS dataset and 37.56% average mAP on Charades dataset.
 
 Bug Fixes
 - The annotation of MultiTHUMOS dataset is updated. We fix few wrong annotations, and manually remove those actions longer than the video duration. The corresponding results of ActionFormer and TemporalMaxer are also updated, which are very close to the previous results.
