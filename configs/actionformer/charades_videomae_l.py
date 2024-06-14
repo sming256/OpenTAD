@@ -1,24 +1,24 @@
 _base_ = [
-    "../_base_/datasets/charades/features_i3d_pad.py",  # dataset config
-    "../_base_/models/actionformer.py",  # model config
+    "../../_base_/datasets/charades/features_videomae_train_trunc_test_sw_s4.py",  # dataset config
+    "../../_base_/models/actionformer.py",  # model config
 ]
 
 model = dict(
     projection=dict(
         in_channels=1024,
-        arch=(2, 2, 6),
+        arch=(2, 2, 7),
         attn_cfg=dict(n_mha_win_size=-1),
         use_abs_pe=True,
-        max_seq_len=768,
+        max_seq_len=512,
         input_pdrop=0.3,
     ),
-    neck=dict(num_levels=7),
+    neck=dict(num_levels=8),
     rpn_head=dict(
         num_classes=157,
         prior_generator=dict(
             type="PointGenerator",
-            strides=[1, 2, 4, 8, 16, 32, 64],
-            regression_range=[(0, 4), (4, 8), (8, 16), (16, 32), (32, 64), (64, 128), (128, 10000)],
+            strides=[1, 2, 4, 8, 16, 32, 64, 128],
+            regression_range=[(0, 4), (4, 8), (8, 16), (16, 32), (32, 64), (64, 128), (128, 256), (256, 10000)],
         ),
     ),
 )
@@ -54,8 +54,7 @@ workflow = dict(
     checkpoint_interval=1,
     val_loss_interval=1,
     val_eval_interval=1,
-    val_start_epoch=7,
-    end_epoch=15,
+    val_start_epoch=8,
 )
 
-work_dir = "exps/charades/actionformer_i3d_rgb"
+work_dir = "exps/charades/actionformer_videomae_l"

@@ -128,7 +128,7 @@ torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=local
 
 ## Multi-THUMOS Results
 
-Please refer to [README.md](../../tools/prepare_data/multi-thumos/README.md#download-raw-videos) to prepare the raw video of THUMOS.
+Please refer to [README.md](../../tools/prepare_data/multi-thumos/README.md#download-raw-videos) to prepare the raw video of Multi-THUMOS.
 
 |   Backbone   | GPUs  | Setting | Frames | Img Size | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |                                  Config                                  |                                                                                          Download                                                                                          |
 | :----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :--------------------: | :----------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -145,15 +145,34 @@ Please refer to [README.md](../../tools/prepare_data/multi-thumos/README.md#down
 torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/multi_thumos/e2e_multithumos_videomae_s_768x1_160_adapter.py
 ```
 
+## Charades Results
+
+Please refer to [README.md](../../tools/prepare_data/charades/README.md#download-raw-videos) to prepare the raw video of Charades.
+
+|   Backbone   | GPUs  | Setting | Frames | Img Size | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |                              Config                               |                                                                                          Download                                                                                          |
+| :----------: | :---: | :-----: | :----: | :------: | :-----: | :-----: | :-----: | :--------------------: | :---------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|  VideoMAE-S  |   2   | AdaTAD  |  512   |   160    |  35.89  |  27.43  |  16.35  |         24.14          |  [config](charades/e2e_charades_videomae_s_512x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1VtXCR42q4YlFYk8-20rJm7YfPiTE399h/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1z3vthRtk_GGm5M-xjKK75MEbtYyCiczg/view?usp=sharing) |
+|  VideoMAE-B  |   2   | AdaTAD  |  512   |   160    |  40.84  |  31.75  |  20.05  |         27.99          |  [config](charades/e2e_charades_videomae_b_512x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1qCWRwP85cRGfrddIGytmYTojf6KjmX5O/view?usp=sharing)   \| [log](https://drive.google.com/file/d/14sS3TyFnJyWo-JbUWDVeIlysBlHS6EG7/view?usp=sharing) |
+|  VideoMAE-L  |   2   | AdaTAD  |  512   |   160    |  47.00  |  37.01  |  23.05  |         32.31          |  [config](charades/e2e_charades_videomae_l_512x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1bCtZSV1YU2NdsD3LzOCsTTt3RJJ5d4j5/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1jOFRTEevlk8BryzMGKFvXBqVgMw-zT8i/view?usp=sharing) |
+|  VideoMAE-H  |   2   | AdaTAD  |  512   |   160    |  48.76  |  38.80  |  24.85  |         33.94          |  [config](charades/e2e_charades_videomae_h_512x1_160_adapter.py)  | [model](https://drive.google.com/file/d/1Z-ejVI6Jy56uNvEDH1AiDlyToq0otH6A/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1BUylWQiyr_IyzjllhzEoY9ZJNner0q53/view?usp=sharing) |
+| VideoMAEV2-g |   4   | AdaTAD  |  512   |   160    |  53.72  |  42.91  |  27.69  |         37.56          | [config](charades/e2e_charades_videomaev2_g_512x1_160_adapter.py) | [model](https://drive.google.com/file/d/1yLdQ7CWWplletgZzAqQwR_4guSxshKON/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1RE5oaI5nOIAD6aly9OFJOUbP2ojMDDmy/view?usp=sharing) |
+
+- To train the model on Charades, you can run the following command.
+
+```bash
+torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/adatad/charades/e2e_charades_videomae_s_512x1_160_adapter.py
+```
 
 
 ## Citation
 
 ```latex
-@inproceedings{liu2023end,
-  title={End-to-End Temporal Action Detection with 1B Parameters Across 1000 Frames},
-  author={Liu, Shuming and Zhang, Chen-Lin and Zhao, Chen and Ghanem, Bernard},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  year={2024}
+@InProceedings{Liu_2024_CVPR,
+    author    = {Liu, Shuming and Zhang, Chen-Lin and Zhao, Chen and Ghanem, Bernard},
+    title     = {End-to-End Temporal Action Detection with 1B Parameters Across 1000 Frames},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {18591-18601}
 }
 ```

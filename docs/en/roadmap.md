@@ -1,7 +1,7 @@
 ## Roadmap
 
 ### Major Features
-- [ ] Release Ego4D configs.
+- [x] Release Ego4D configs.
 - [ ] Visualization tool.
 - [ ] Feature extraction code.
 - [ ] Detailed documentation.
