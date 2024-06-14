@@ -54,9 +54,10 @@ Self-attention based Transformer models have demonstrated impressive results for
 
 **Charades**
 
-| Features  | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |            Config             |                                                                                          Download                                                                                          |
-| :-------: | :-----: | :-----: | :-----: | :--------------------: | :---------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| I3D (rgb) |  29.42  |  21.76  |  12.78  |         19.39          | [config](charades_i3d_rgb.py) | [model](https://drive.google.com/file/d/1EFCNke077m4JC_6OMJZXEnaKW2UAgFpA/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1CuwGJ9m2YtvnKHsq9slkgtANoNEmbqVP/view?usp=sharing) |
+|  Features  | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |              Config              |                                                                                          Download                                                                                          |
+| :--------: | :-----: | :-----: | :-----: | :--------------------: | :------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| I3D (rgb)  |  31.33  |  23.07  |  13.60  |         20.60          |  [config](charades_i3d_rgb.py)   | [model](https://drive.google.com/file/d/1rb0bGyfAyZKjIE72i_qGde9HcoJHVHGl/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1sLnSbQSWLN1p1UWKS2E5M-YzsJLRq3WH/view?usp=sharing) |
+| VideoMAE-L |  38.87  |  29.67  |  17.52  |         26.04          | [config](charades_videomae_l.py) | [model](https://drive.google.com/file/d/1k2IJUXjJzLUcgurE8C_cZTaQotK5VVV0/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1vddl_wuKzBtkLemqAAzdAf8dHFvljuMn/view?usp=sharing) |
 
 **FineAction** with InternVideo classifier
 
