@@ -167,10 +167,12 @@ torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=local
 ## Citation
 
 ```latex
-@inproceedings{liu2023end,
-  title={End-to-End Temporal Action Detection with 1B Parameters Across 1000 Frames},
-  author={Liu, Shuming and Zhang, Chen-Lin and Zhao, Chen and Ghanem, Bernard},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  year={2024}
+@InProceedings{Liu_2024_CVPR,
+    author    = {Liu, Shuming and Zhang, Chen-Lin and Zhao, Chen and Ghanem, Bernard},
+    title     = {End-to-End Temporal Action Detection with 1B Parameters Across 1000 Frames},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {18591-18601}
 }
 ```
