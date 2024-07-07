@@ -23,7 +23,7 @@ dataset = dict(
             dict(type="LoadFeats", feat_format="npy"),
             dict(type="ConvertToTensor", keys=["feats", "gt_segments", "gt_labels"]),
             dict(type="RandomTrunc", trunc_len=pad_len, trunc_thresh=0.5, crop_ratio=[0.9, 1.0]),
-            dict(type="Rearrange", keys=["feats"], ops="t c-> c t"),
+            dict(type="Rearrange", keys=["feats"], ops="t c -> c t"),
             dict(type="Collect", inputs="feats", keys=["masks", "gt_segments", "gt_labels"]),
         ],
     ),
@@ -43,7 +43,7 @@ dataset = dict(
             dict(type="LoadFeats", feat_format="npy"),
             dict(type="ConvertToTensor", keys=["feats", "gt_segments", "gt_labels"]),
             dict(type="Padding", length=pad_len),
-            dict(type="Rearrange", keys=["feats"], ops="t c-> c t"),
+            dict(type="Rearrange", keys=["feats"], ops="t c -> c t"),
             dict(type="Collect", inputs="feats", keys=["masks", "gt_segments", "gt_labels"]),
         ],
     ),
@@ -64,12 +64,11 @@ dataset = dict(
             dict(type="LoadFeats", feat_format="npy"),
             dict(type="ConvertToTensor", keys=["feats"]),
             dict(type="Padding", length=pad_len),
-            dict(type="Rearrange", keys=["feats"], ops="t c-> c t"),
+            dict(type="Rearrange", keys=["feats"], ops="t c -> c t"),
             dict(type="Collect", inputs="feats", keys=["masks"]),
         ],
     ),
 )
-
 
 evaluation = dict(
     type="mAP",
