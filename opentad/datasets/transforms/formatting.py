@@ -247,10 +247,6 @@ class Padding:
         else:
             feats = results["feats"]
 
-        assert (
-            feats.shape[0] <= self.length
-        ), "feature length should be smaller than padding length, but now we have {}".format(results["feats"].shape)
-
         feat_len = feats.shape[0]
         if feat_len < self.length:
             pad = torch.ones((self.length - feat_len, feats.shape[1])) * self.pad_value
@@ -266,6 +262,19 @@ class Padding:
                 results["masks"] = torch.cat((results["masks"], pad_masks), dim=0)
             else:
                 results["masks"] = torch.cat((torch.ones(feat_len).bool(), pad_masks), dim=0)
+        else:
+            print(f"feature length {feat_len} is larger than padding length. Will be resized to {self.length}.")
+            results["snippet_stride"] = results["snippet_stride"] * feat_len / self.length
+            results["offset_frames"] = results["offset_frames"] * feat_len / self.length
+            new_feats = F.interpolate(
+                feats.permute(1, 0)[None],  # [b,c,t]
+                size=self.length,
+                mode="linear",
+                align_corners=False,
+            ).squeeze(0)
+            # new_feats [c,t]
+            results["feats"] = new_feats if self.channel_first else new_feats.permute(1, 0)
+            results["masks"] = torch.ones(self.length).bool()
         return results
 
 

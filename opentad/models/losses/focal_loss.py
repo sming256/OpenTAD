@@ -44,6 +44,9 @@ class FocalLoss(nn.Module):
 
         return loss
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}(alpha={self.alpha}, gamma={self.gamma})"
+
 
 def sigmoid_focal_loss(
     inputs: torch.Tensor,

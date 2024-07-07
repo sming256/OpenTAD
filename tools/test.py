@@ -10,7 +10,7 @@ import argparse
 import torch
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel
-from mmengine.config import Config
+from mmengine.config import Config, DictAction
 from opentad.models import build_detector
 from opentad.datasets import build_dataset, build_dataloader
 from opentad.cores import eval_one_epoch
@@ -24,6 +24,7 @@ def parse_args():
     parser.add_argument("--seed", type=int, default=42, help="random seed")
     parser.add_argument("--id", type=int, default=0, help="repeat experiment id")
     parser.add_argument("--not_eval", action="store_true", help="whether to not to eval, only do inference")
+    parser.add_argument("--cfg-options", nargs="+", action=DictAction, help="override settings")
     args = parser.parse_args()
     return args
 
@@ -33,6 +34,8 @@ def main():
 
     # load config
     cfg = Config.fromfile(args.config)
+    if args.cfg_options is not None:
+        cfg.merge_from_dict(args.cfg_options)
 
     # DDP init
     args.local_rank = int(os.environ["LOCAL_RANK"])
@@ -72,25 +75,27 @@ def main():
     model = DistributedDataParallel(model, device_ids=[args.local_rank], output_device=args.local_rank)
     logger.info(f"Using DDP with total {args.world_size} GPUS...")
 
-    # load checkpoint: args -> config -> best
-    if args.checkpoint != "none":
-        checkpoint_path = args.checkpoint
-    elif "test_epoch" in cfg.inference.keys():
-        checkpoint_path = os.path.join(cfg.work_dir, f"checkpoint/epoch_{cfg.inference.test_epoch}.pth")
-    else:
-        checkpoint_path = os.path.join(cfg.work_dir, "checkpoint/best.pth")
-    logger.info("Loading checkpoint from: {}".format(checkpoint_path))
-    device = f"cuda:{args.rank % torch.cuda.device_count()}"
-    checkpoint = torch.load(checkpoint_path, map_location=device)
-    logger.info("Checkpoint is epoch {}.".format(checkpoint["epoch"]))
+    if cfg.inference.load_from_raw_predictions:  # if load with saved predictions, no need to load checkpoint
+        logger.info(f"Loading from raw predictions: {cfg.inference.fuse_list}")
+    else:  # load checkpoint: args -> config -> best
+        if args.checkpoint != "none":
+            checkpoint_path = args.checkpoint
+        elif "test_epoch" in cfg.inference.keys():
+            checkpoint_path = os.path.join(cfg.work_dir, f"checkpoint/epoch_{cfg.inference.test_epoch}.pth")
+        else:
+            checkpoint_path = os.path.join(cfg.work_dir, "checkpoint/best.pth")
+        logger.info("Loading checkpoint from: {}".format(checkpoint_path))
+        device = f"cuda:{args.rank % torch.cuda.device_count()}"
+        checkpoint = torch.load(checkpoint_path, map_location=device)
+        logger.info("Checkpoint is epoch {}.".format(checkpoint["epoch"]))
 
-    # Model EMA
-    use_ema = getattr(cfg.solver, "ema", False)
-    if use_ema:
-        model.load_state_dict(checkpoint["state_dict_ema"])
-        logger.info("Using Model EMA...")
-    else:
-        model.load_state_dict(checkpoint["state_dict"])
+        # Model EMA
+        use_ema = getattr(cfg.solver, "ema", False)
+        if use_ema:
+            model.load_state_dict(checkpoint["state_dict_ema"])
+            logger.info("Using Model EMA...")
+        else:
+            model.load_state_dict(checkpoint["state_dict"])
 
     # AMP: automatic mixed precision
     use_amp = getattr(cfg.solver, "amp", False)

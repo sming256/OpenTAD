@@ -8,6 +8,7 @@ from .tridet_head import TriDetHead
 from .temporalmaxer_head import TemporalMaxerHead
 from .tem_head import TemporalEvaluationHead, GCNextTemporalEvaluationHead, LocalGlobalTemporalEvaluationHead
 from .vsgn_rpn_head import VSGNRPNHead
+from .dyn_head import TDynHead
 
 __all__ = [
     "AnchorGenerator",
@@ -23,4 +24,5 @@ __all__ = [
     "GCNextTemporalEvaluationHead",
     "LocalGlobalTemporalEvaluationHead",
     "VSGNRPNHead",
+    "TDynHead",
 ]

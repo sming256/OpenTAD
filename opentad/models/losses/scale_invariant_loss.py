@@ -59,3 +59,6 @@ class ScaleInvariantLoss(nn.Module):
             coef = self.alpha * pmask + (1 - self.alpha) * nmask
             loss = torch.sum(coef * loss * gt_iou_weights) / pred.shape[0]
         return loss, gt_ious
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(" f"pos_thresh={self.pos_thresh}, alpha={self.alpha})"

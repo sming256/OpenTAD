@@ -99,7 +99,7 @@ class TriDetProj(nn.Module):
         # mask: batch size, sequence length (bool)
 
         # trick, adding noise may slightly increases the variability between input features.
-        if self.input_noise > 0:
+        if self.training and self.input_noise > 0:
             noise = torch.randn_like(x) * self.input_noise
             x += noise
 

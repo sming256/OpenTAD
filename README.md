@@ -17,15 +17,15 @@ OpenTAD is an open-source temporal action detection (TAD) toolbox based on PyTor
 ## 🥳 What's New
 
 - A technical report of this library will be provided soon.
+- **[2024/07/17]** 🔥 We support [DyFADet (ECCV'24)](configs/dyfadet/). Thanks to the authors's effort!
 - **[2024/06/17]** 🔥 We rank 1st in the [Action Recognition](https://codalab.lisn.upsaclay.fr/competitions/776#results), [Action Detection](https://codalab.lisn.upsaclay.fr/competitions/707), and [Audio-Based Interaction Detection](https://codalab.lisn.upsaclay.fr/competitions/17921#results) tasks of the EPIC-KITCHENS-100 2024 Challenge, as well as 1st place in the [Moment Queries](https://eval.ai/web/challenges/challenge-page/1626/leaderboard/3913) task of the Ego4D 2024 Challenge by using OpenTAD! The technical report and code will be released soon!
-- **[2024/06/14]** 🔥 We release [version v0.3](docs/en/changelog.md), which brings many new features and improvements.
-- **[2024/04/17]** We release the AdaTAD, which can achieve average mAP of 42.90% on ActivityNet and 77.07% on THUMOS14.
-
+- **[2024/06/14]** We release [version v0.3](docs/en/changelog.md), which brings many new features and improvements.
+- **[2024/04/17]** We release the [AdaTAD (CVPR'24)](configs/adatad), which can achieve average mAP of 42.90% on ActivityNet and 77.07% on THUMOS14.
 
 ## 📖 Major Features
 
 - **Support SoTA TAD methods with modular design.** We decompose the TAD pipeline into different components, and implement them in a modular way. This design makes it easy to implement new methods and reproduce existing methods.
-- **Support multiple TAD datasets.** We support 8 TAD datasets, including ActivityNet-1.3, THUMOS-14, HACS, Ego4D-MQ, Epic-Kitchens-100, FineAction, Multi-THUMOS, Charades datasets.
+- **Support multiple TAD datasets.** We support 9 TAD datasets, including ActivityNet-1.3, THUMOS-14, HACS, Ego4D-MQ, EPIC-Kitchens-100, FineAction, Multi-THUMOS, Charades, and EPIC-Sounds Detection datasets.
 - **Support feature-based training and end-to-end training.** The feature-based training can easily be extended to end-to-end training with raw video input, and the video backbone can be easily replaced.
 - **Release various pre-extracted features.** We release the feature extraction code, as well as many pre-extracted features on each dataset.
 
@@ -54,6 +54,7 @@ OpenTAD is an open-source temporal action detection (TAD) toolbox based on PyTor
             <li><a href="configs/tridet">TriDet (CVPR'23)</a></li>
             <li><a href="configs/temporalmaxer">TemporalMaxer (arXiv'23)</a></li>
             <li><a href="configs/videomambasuite">VideoMambaSuite (arXiv'24)</a></li>
+            <li><a href="configs/dyfadet">DyFADet (ECCV'24)</a></li>
       </ul>
       </td>
       <td>

@@ -14,6 +14,7 @@ from .deformable_detr import DeformableDETR
 from .tadtr import TadTR
 from .vsgn import VSGN
 from .mamba import VideoMambaSuite
+from .dyfadet import DyFADet
 
 __all__ = [
     "BaseDetector",
@@ -29,6 +30,7 @@ __all__ = [
     "TriDet",
     "TemporalMaxer",
     "VideoMambaSuite",
+    "DyFADet",
     "DETR",
     "DeformableDETR",
     "TadTR",
