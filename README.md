@@ -17,7 +17,7 @@ OpenTAD is an open-source temporal action detection (TAD) toolbox based on PyTor
 ## 🥳 What's New
 
 - A technical report of this library will be provided soon.
-- **[2024/07/17]** 🔥 We support [DyFADet (ECCV'24)](configs/dyfadet/). Thanks to the authors's effort!
+- **[2024/07/07]** 🔥 We support [DyFADet (ECCV'24)](configs/dyfadet/). Thanks to the authors's effort!
 - **[2024/06/17]** 🔥 We rank 1st in the [Action Recognition](https://codalab.lisn.upsaclay.fr/competitions/776#results), [Action Detection](https://codalab.lisn.upsaclay.fr/competitions/707), and [Audio-Based Interaction Detection](https://codalab.lisn.upsaclay.fr/competitions/17921#results) tasks of the EPIC-KITCHENS-100 2024 Challenge, as well as 1st place in the [Moment Queries](https://eval.ai/web/challenges/challenge-page/1626/leaderboard/3913) task of the Ego4D 2024 Challenge by using OpenTAD! The technical report and code will be released soon!
 - **[2024/06/14]** We release [version v0.3](docs/en/changelog.md), which brings many new features and improvements.
 - **[2024/04/17]** We release the [AdaTAD (CVPR'24)](configs/adatad), which can achieve average mAP of 42.90% on ActivityNet and 77.07% on THUMOS14.
