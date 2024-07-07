@@ -15,7 +15,7 @@ In this paper, we present a one-stage framework TriDet for temporal action detec
 
 | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |        Config         |                                                                                          Download                                                                                          |
 | :------: | :-----: | :------: | :------: | :------: | :-------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSP    |  54.84  |  37.46   |   7.98   |  36.51   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1qUDzT6xSIKOlx8cHJoYJL8S6eC_c4K3I/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1IANbg_ueEg-F75dkgute5BVkUNUUodzX/view?usp=sharing) |
+|   TSP    |  54.89  |  38.20   |   8.21   |  36.96   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/16MmZlFDBMjr9TK-nit6eKCksQYEASwHZ/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1WY6x9OeXDvaWRdHVc9-R8e5lUjWim020/view?usp=sharing) |
 
 **THUMOS-14**
 

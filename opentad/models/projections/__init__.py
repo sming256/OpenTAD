@@ -5,6 +5,7 @@ from .temporalmaxer_proj import TemporalMaxerProj
 from .vsgn_proj import VSGNPyramidProj
 from .mlp_proj import MLPPyramidProj
 from .mamba_proj import MambaProj
+from .dyne_proj import DynEProj
 
 __all__ = [
     "ConvSingleProj",
@@ -15,4 +16,5 @@ __all__ = [
     "VSGNPyramidProj",
     "MLPPyramidProj",
     "MambaProj",
+    "DynEProj",
 ]
