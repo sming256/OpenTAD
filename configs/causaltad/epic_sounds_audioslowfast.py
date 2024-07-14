@@ -10,6 +10,7 @@ model = dict(
         use_abs_pe=True,
         max_seq_len=6144,
         input_pdrop=0.2,
+        channel_expand=1,
     ),
     neck=dict(num_levels=7),
     rpn_head=dict(
