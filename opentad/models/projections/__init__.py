@@ -6,6 +6,7 @@ from .vsgn_proj import VSGNPyramidProj
 from .mlp_proj import MLPPyramidProj
 from .mamba_proj import MambaProj
 from .dyne_proj import DynEProj
+from .causal_proj import CausalProj
 
 __all__ = [
     "ConvSingleProj",
@@ -17,4 +18,5 @@ __all__ = [
     "MLPPyramidProj",
     "MambaProj",
     "DynEProj",
+    "CausalProj",
 ]
