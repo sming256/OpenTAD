@@ -69,7 +69,7 @@ def get_backbone_optim_groups(cfg, model, logger):
     # custom_name_list
     if "custom" in cfg.keys():
         custom_name_list = [d["name"] for d in cfg["custom"]]
-        custom_params_list = [[]] * len(custom_name_list)
+        custom_params_list = [[] for _ in custom_name_list]
     else:
         custom_name_list = []
 
