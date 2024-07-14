@@ -101,7 +101,7 @@ class FPNIdentity(nn.Module):
             elif self.norm_type == "GN":
                 fpn_norm = nn.GroupNorm(num_channels=out_channels, **norm_cfg)
             elif self.norm_type == "LN":
-                fpn_norm = nn.LayerNorm(out_channels)
+                fpn_norm = nn.LayerNorm(out_channels, eps=1e-6)
             else:
                 assert self.norm_type is None
                 fpn_norm = nn.Identity()

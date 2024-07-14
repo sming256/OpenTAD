@@ -178,7 +178,7 @@ class MaskMambaBlock(nn.Module):
         else:
             self.downsample = None
 
-        self.norm = nn.LayerNorm(n_embd)
+        self.norm = nn.LayerNorm(n_embd, eps=1e-6)
 
         # drop path
         if drop_path_rate > 0.0:
