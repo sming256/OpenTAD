@@ -81,4 +81,4 @@ workflow = dict(
     val_start_epoch=30,
 )
 
-work_dir = "exps/thumos/causal_internvideo6b"
+work_dir = "exps/thumos/causal_internvideo2_6b"
