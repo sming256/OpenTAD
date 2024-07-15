@@ -55,4 +55,4 @@ workflow = dict(
     val_start_epoch=15,
 )
 
-work_dir = "exps/epic/causal_slowfast_verb"
+work_dir = "exps/epic_kitchens/causal_slowfast_verb"
