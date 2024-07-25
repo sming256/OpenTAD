@@ -112,10 +112,15 @@ class AnetSlidingDataset(SlidingWindowDataset):
         gt_segment = []
         gt_label = []
         for anno in video_info["annotations"]:
-            gt_start = int(anno["segment"][0] * fps)
-            gt_end = int(anno["segment"][1] * fps)
+            gt_start = float(anno["segment"][0] * fps)
+            gt_end = float(anno["segment"][1] * fps)
 
-            if (not self.filter_gt) or (gt_end - gt_start > thresh):
+            valid_gt = (
+                (gt_end - gt_start > thresh)  # duration > thresh (eg. 0.0)
+                and (gt_end - self.offset_frames > 0)  # end > 0
+                and (gt_start - self.offset_frames <= float(video_info["duration"]) * fps)  # start < video_length
+            )
+            if (not self.filter_gt) or valid_gt:
                 gt_segment.append([gt_start, gt_end])
                 if self.class_agnostic:
                     gt_label.append(0)

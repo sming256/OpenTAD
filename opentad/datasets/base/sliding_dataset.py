@@ -16,6 +16,7 @@ class SlidingWindowDataset:
         pipeline,  # data pipeline
         class_map,  # path of the class map, convert the class id to category name
         filter_gt=False,  # if True, filter out those gt has the scale smaller than 0.01
+        class_agnostic=False,  # if True, the class index will be replaced by 0
         block_list=None,  # some videos might be missed in the features or videos, we need to block them
         test_mode=False,  # if True, running on test mode with no annotation
         # for feature setting
@@ -38,6 +39,7 @@ class SlidingWindowDataset:
         self.subset_name = subset_name
         self.logger = logger.info if logger != None else print
         self.class_map = self.get_class_map(class_map)
+        self.class_agnostic = class_agnostic
         self.filter_gt = filter_gt
         self.test_mode = test_mode
         self.pipeline = Compose(pipeline)
