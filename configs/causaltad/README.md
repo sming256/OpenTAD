@@ -1,6 +1,6 @@
 # CausalTAD
 
-> [Harnessing Temporal Causality for Advanced Temporal Action Detection]()  
+> [Harnessing Temporal Causality for Advanced Temporal Action Detection](https://arxiv.org/abs/2407.17792)  
 > Shuming Liu, Lin Sui, Chen-Lin Zhang, Fangzhou Mu, Chen Zhao, Bernard Ghanem
 
 <!-- [ALGORITHM] -->
