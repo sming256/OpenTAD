@@ -297,7 +297,7 @@ def eval_one_epoch(
             for task in ["noun", "verb", "action"]:
                 evaluator = build_evaluator(
                     dict(
-                        type="EpicmAP",
+                        type="mAP_EPIC",
                         subset="val",
                         tiou_thresholds=[0.1, 0.2, 0.3, 0.4, 0.5],
                         prediction_filename=result_eval,
@@ -336,6 +336,8 @@ def main():
     # set random seed, create work_dir
     set_seed(args.seed)
     cfg_verb.work_dir = cfg_verb.work_dir + "_action"  # create new work_dir for action
+    cfg_verb.work_dir = cfg_verb.work_dir.replace("_verb_action", "_action")
+    cfg_verb.work_dir = cfg_verb.work_dir + "_submit" if args.submit else cfg_verb.work_dir
     cfg_verb = update_workdir(cfg_verb, args.id, torch.cuda.device_count())
     if args.rank == 0:
         create_folder(cfg_verb.work_dir)

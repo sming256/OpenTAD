@@ -1,6 +1,6 @@
 _base_ = [
-    "../../_base_/datasets/ego4d_mq/features_internvideo_train_trunc_test_sw_2048_s8.py",  # dataset config
-    "../../_base_/models/causaltad.py",  # model config
+    "../_base_/datasets/ego4d_mq/features_internvideo_train_trunc_test_sw_2048_s8.py",  # dataset config
+    "../_base_/models/causaltad.py",  # model config
 ]
 
 window_size = 2506

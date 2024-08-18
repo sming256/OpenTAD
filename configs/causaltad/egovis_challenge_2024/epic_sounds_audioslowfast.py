@@ -1,6 +1,6 @@
 _base_ = [
-    "../_base_/datasets/epic_sounds/features_slowfast_train_trunc_test_sw_s6_pad6144.py",  # dataset config
-    "../_base_/models/causaltad.py",  # model config
+    "../../_base_/datasets/epic_sounds/features_slowfast_train_trunc_test_sw_s6_pad6144.py",  # dataset config
+    "../../_base_/models/causaltad.py",  # model config
 ]
 
 model = dict(
