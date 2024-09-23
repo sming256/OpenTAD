@@ -55,6 +55,11 @@ torchrun --nnodes=1 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=local
 torchrun --nnodes=1 --nproc_per_node=4 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/test.py configs/adatad/anet/e2e_anet_videomaev2_g_192x4_224_adapter_internvideo2.py --checkpoint epoch_10_cba1017a.pth
 ```
 
+**[NEW]** We provide the following checkpoints which does not require external classifier but directly trains 200 classification head, for the convenience of zero-shot inference.
+|  Backbone  | GPUs  | Setting | Frames | Img Size | Classifier | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |                           Config                            |                                                                                          Download                                                                                          |
+| :--------: | :---: | :-----: | :----: | :------: | :--------: | :-----: | :------: | :------: | :------: | :---------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| VideoMAE-L |   4   | AdaTAD  |  768   |   224    |     x      |  59.00  |  39.96   |   9.15   |  39.15   | [config](anet/e2e_anet_videomae_l_192x4_224_adapter_cls.py) | [model](https://drive.google.com/file/d/1VYAvDrc7O7W4hDmUjjE6y32WmVNQ4ZR_/view?usp=sharing)   \| [log](https://drive.google.com/file/d/12BNxMKnigssPvzfX2s8skkVCCgvomwVE/view?usp=sharing) |
+
 ## THUMOS-14 Results
 
 Please refer to [README.md](../../tools/prepare_data/thumos/README.md#download-raw-videos) to prepare the raw video of THUMOS.
