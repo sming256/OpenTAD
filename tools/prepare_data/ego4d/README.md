@@ -22,11 +22,12 @@ Please put the downloaded feature under the path: `data/ego4d/features/`.
 
 We provide the following pre-extracted features for Ego4d-MQ:
 
-|   Feature    |                                                Url                                                 |  Backbone  |                  Feature Extraction Setting                  |
-| :----------: | :------------------------------------------------------------------------------------------------: | :--------: | :----------------------------------------------------------: |
-|    EgoVLP    | [Google Drive](https://drive.google.com/file/d/1_ys0fUX9FJlUeHBJ4-Fqxf-Ip3khalHf/view?usp=sharing) |   EgoVLP   | 30 fps,  snippet_stride=16, clip_length=16, frame_interval=1 |
-|   SlowFast   | [Google Drive](https://drive.google.com/file/d/1Im27Ga9JWhjIqp6L9mQyu1aMGjdo6iNV/view?usp=sharing) |  SlowFast  | 30 fps,  snippet_stride=16, clip_length=16, frame_interval=1 |
-| InternVideo1 | [Google Drive](https://drive.google.com/file/d/18oqhrSHBFrKIAGM2mWzZZZBIufwVSUQ5/view?usp=sharing) | VideoMAE-L | 30 fps,  snippet_stride=8, clip_length=16, frame_interval=1  |
+|   Feature    |                                                Url                                                 |    Backbone     |                  Feature Extraction Setting                  |
+| :----------: | :------------------------------------------------------------------------------------------------: | :-------------: | :----------------------------------------------------------: |
+|    EgoVLP    | [Google Drive](https://drive.google.com/file/d/1w38a5_Qpx_EbNN-zbpNJrB2UxHW3NruL/view?usp=sharing) |     EgoVLP      | 30 fps,  snippet_stride=16, clip_length=16, frame_interval=1 |
+|   SlowFast   | [Google Drive](https://drive.google.com/file/d/1Zs2tlpiQiXZNXK0qyoPzWwfQPQKOgXT2/view?usp=sharing) |    SlowFast     | 30 fps,  snippet_stride=16, clip_length=16, frame_interval=1 |
+| InternVideo1 | [Google Drive](https://drive.google.com/file/d/1xE6xbgLRxYat9X0z-K-OEZEqeWNsn7Ch/view?usp=sharing) |   VideoMAE-L    | 30 fps,  snippet_stride=8, clip_length=16, frame_interval=1  |
+| InternVideo2 |                                            Coming Soon                                             | InternVideo2-1B | 30 fps,  snippet_stride=8, clip_length=16, frame_interval=1  |
 
 ## Download Raw Videos
 
