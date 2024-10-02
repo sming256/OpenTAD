@@ -6,4 +6,4 @@ if [[ ! -d "${DATA_DIR}" ]]; then
 fi
 
 # download annotations for Epic-Kitchens-100
-gdown --folder https://drive.google.com/drive/folders/1l04vJnpZP8NE8B8yho0uAkWL0_0fdqE0 -O $DATA_DIR --folder
+gdown --folder https://drive.google.com/drive/folders/1aBd0WoUTU4ObM4J6lWOuCdyWuzvM3IZz -O $DATA_DIR --folder

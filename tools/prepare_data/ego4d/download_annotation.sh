@@ -6,4 +6,4 @@ if [[ ! -d "${DATA_DIR}" ]]; then
 fi
 
 # download annotations for Ego4D-MQ
-gdown https://drive.google.com/drive/folders/12DIU_htIlKOQINRwYCOK9bA57awJxHfA -O $DATA_DIR --folder
+gdown https://drive.google.com/drive/folders/1Yha2NmDL-llmcJ3t-vUBUj2EkfWmoBaN -O $DATA_DIR --folder

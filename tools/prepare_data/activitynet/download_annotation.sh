@@ -6,4 +6,4 @@ if [[ ! -d "${DATA_DIR}" ]]; then
 fi
 
 # download annotations for ActivityNet-1.3
-gdown https://drive.google.com/drive/folders/1HwLFaUdrTLkTcx0oKm_z9WPyQiD2moJU -O $DATA_DIR --folder
+gdown https://drive.google.com/drive/folders/1HpTc6FbYnm-s9tY4aZljjZnYnThICcNq -O $DATA_DIR --folder

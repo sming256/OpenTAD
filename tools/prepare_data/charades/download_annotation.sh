@@ -6,4 +6,4 @@ if [[ ! -d "${DATA_DIR}" ]]; then
 fi
 
 # download annotations for Charades
-gdown --folder https://drive.google.com/drive/folders/1oON5K5hSa5jexnB4IGdsW6qDB3w1I_QG -O $DATA_DIR --folder
+gdown --folder https://drive.google.com/drive/folders/1AOG2n_4X5_TipZXwEOLEJI2zJr7_7xiq -O $DATA_DIR --folder
