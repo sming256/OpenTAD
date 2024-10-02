@@ -30,7 +30,7 @@ Please put the downloaded video under the path: `data/charades/raw_data/`.
 
 You can download the raw video from [official website](https://prior.allenai.org/projects/charades), and then convert it to 30 fps.
 
-We also provide the converted videos with 30 fps at [Google Drive](https://drive.google.com/file/d/1g-RWMDmJFLRrdLKfYKiOmO4I8ylSoBPu/view?usp=sharing).
+We also provide the converted videos with 30 fps at [Google Drive](https://drive.google.com/file/d/10NiCMo5KJcTo0nCr2_hUYC1V4nzP06Eq/view?usp=sharing).
 
 ## Citation
 

@@ -28,6 +28,8 @@ Please put the downloaded video under the path: `data/epic_kitchens-100/raw_data
 
 You can download the raw video from [official website](https://github.com/epic-kitchens/epic-kitchens-download-scripts), then convert the videos into 30 FPS.
 
+> If you find difficulty in preparing the data, please email us at `shuming.liu@kaust.edu.sa`, and we will send you our processed videos.
+
 ## Citation
 
 ```BibTeX

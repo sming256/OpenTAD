@@ -39,6 +39,7 @@ python tools/prepare_data/ego4d/accurate_trim_MQ.py \
 ```
 You can also add `--part 0 --total 4` to the command to split and speed up the trimming process .
 
+> If you find difficulty in preparing the data, please email us at `shuming.liu@kaust.edu.sa` attaching the license agreement with Ego4D, and we will send you our processed videos.
 
 ## Citation
 

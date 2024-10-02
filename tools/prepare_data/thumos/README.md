@@ -34,7 +34,7 @@ We provide the following pre-extracted features for THUMOS14:
 
 Please put the downloaded video under the path: `data/thumos-14/raw_data/`.
 
-You can download the raw video from [official website](https://www.crcv.ucf.edu/THUMOS14/download.html), or download from this [Google Drive](https://drive.google.com/file/d/1cbwDvIk4DsM5uSZJpGDfjGu4ZeZhftgK/view?usp=sharing).
+You can download the raw video from [official website](https://www.crcv.ucf.edu/THUMOS14/download.html), or download from this [Google Drive](https://drive.google.com/file/d/1oI1_xNpQ1yIUT92rlXuaqnvOzHXxMeui/view?usp=sharing).
 
 ## Citation
 
