@@ -16,29 +16,29 @@ Inspired by this insight, we propose leveraging the temporal causality of action
 
 | Features | Classifier | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |        Config         |                                                                                          Download                                                                                          |
 | :------: | :--------: | :-----: | :------: | :------: | :------: | :-------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSP    |    CUHK    |  55.62  |  38.51   |   9.40   |  37.46   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1U9vnuYllvn-uce1JhOTrOWUfxhHTfMJc/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1bPVe27CHTDFsny4o-BanJzlZf_FWwafx/view?usp=sharing) |
+|   TSP    |    CUHK    |  55.62  |  38.51   |   9.40   |  37.46   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1s9mzuOqc-KSoBg6xyEZgb-X5SzR5Y6i-/view?usp=sharing)   \| [log](https://drive.google.com/file/d/12hej5jRg_FX9v-ShT2epAvG83lxBv8NR/view?usp=sharing) |
 
 
 **THUMOS-14**
 
 | Features | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |         Config          |                                                                                          Download                                                                                          |
 | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   I3D    |  84.43  |  80.75  |  73.57  |  62.70  |  47.33  |  69.75   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/19e6JLDO08HUkadvOf8aTaMJ8IapRowv5/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1baXd9ZrlryefMJHEeBZvyKhbLSIY1V7w/view?usp=sharing) |
+|   I3D    |  84.43  |  80.75  |  73.57  |  62.70  |  47.33  |  69.75   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1P7O8RJp-gX_gBY2RQgYk9CZwHbdY2ef4/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1ImdvPnX56npu-ZqHFvm_Fxf7bY9x6Z-1/view?usp=sharing) |
 
 
 **Epic-Kitchens-100**
 
 | Subset | Features | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |             Config              |                                                                                          Download                                                                                          |
 | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-----------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  Noun  | SlowFast |  28.13  |  26.79  |  25.16  |  22.63  |  18.70  |  24.28   | [config](epic_slowfast_noun.py) | [model](https://drive.google.com/file/d/13wUifnPfDMga7Hi29l33JtDdhlbhKA5k/view?usp=sharing)   \| [log](https://drive.google.com/file/d/17NpOHgCS18otReaJw74rwTx3TlKeAWQJ/view?usp=sharing) |
-|  Verb  | SlowFast |  29.62  |  28.69  |  27.16  |  25.24  |  21.44  |  26.43   | [config](epic_slowfast_verb.py) | [model](https://drive.google.com/file/d/1WvbS8YQlb79KFIZWM0Tu-MDl3lETNQd2/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1DluggD1UQ1iz6B19j6L29aXNbhiqDBHC/view?usp=sharing) |
+|  Noun  | SlowFast |  28.13  |  26.79  |  25.16  |  22.63  |  18.70  |  24.28   | [config](epic_slowfast_noun.py) | [model](https://drive.google.com/file/d/186JsNtmsSYOe_HFIG6UvhOfAEt_xpeg5/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1k5lU-ArJ1h5Vnvz05azlMdJ0MpgBKv03/view?usp=sharing) |
+|  Verb  | SlowFast |  29.62  |  28.69  |  27.16  |  25.24  |  21.44  |  26.43   | [config](epic_slowfast_verb.py) | [model](https://drive.google.com/file/d/1icQcNStbjRvdiu71JpgU_h5WMgymbNNS/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1muFQYyB1__3NZrODwtu5fHAGkisspJa0/view?usp=sharing) |
 
 **Ego4D-MQ**
 
 |   Features   | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |             Config              |                                                                                          Download                                                                                          |
 | :----------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :-----------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| InternVideo1 |  37.68  |  35.28  |  32.23  |  29.49  |  26.29  |  32.19   | [config](ego4d_internvideo1.py) | [model](https://drive.google.com/file/d/1Uc1ZUJjB9gGdVzC6ej-ek5nlH7SY2VwR/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1za48RI__Ed0DUCHpLp5Wqp3s7BtikIKW/view?usp=sharing) |
-| InternVideo2 |  39.01  |  36.05  |  33.06  |  30.45  |  26.70  |  33.05   | [config](ego4d_internvideo2.py) | [model](https://drive.google.com/file/d/101--h23mBx7F3B8ezAabbuKlRbwB9vpj/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1A5oSrmh-kzF6vQr5J-maiUIB34ZsSk5o/view?usp=sharing) |
+| InternVideo1 |  37.68  |  35.28  |  32.23  |  29.49  |  26.29  |  32.19   | [config](ego4d_internvideo1.py) | [model](https://drive.google.com/file/d/1SC3XFSSwguJG8_8DhdYi8doB6W6Ayfne/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1BLTbyw_lSnWtjHZY1tZO_laF_Chgye_h/view?usp=sharing) |
+| InternVideo2 |  39.01  |  36.05  |  33.06  |  30.45  |  26.70  |  33.05   | [config](ego4d_internvideo2.py) | [model](https://drive.google.com/file/d/1U2k9RLHNiCDSlppAPUl5GADYmfKtQlZ0/view?usp=sharing)   \| [log](https://drive.google.com/file/d/14D-q6N7RiCgmRexFPiozjpa0BiaQGnlI/view?usp=sharing) |
 
 For our solution to Ego4D Challenge 2024 and EPIC-Kitchens Challenge 2024, please refer to [here](egovis_challenge_2024/README.md), including detailed challenge config and ensemble strategy.
 

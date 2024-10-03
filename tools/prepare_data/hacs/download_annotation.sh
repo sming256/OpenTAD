@@ -6,4 +6,4 @@ if [[ ! -d "${DATA_DIR}" ]]; then
 fi
 
 # download annotations for HACS-1.1
-gdown --folder https://drive.google.com/drive/folders/1K5tPK-HYkKHYFsvkOydAGCnM9R5Nrrqx -O $DATA_DIR --folder
+gdown --folder https://drive.google.com/drive/folders/1G0fv3CXDQLsoJgaSyBbIi0_KGu6cKjH2 -O $DATA_DIR --folder

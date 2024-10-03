@@ -19,12 +19,12 @@ We provide the following pre-extracted features for ActivityNet:
 
 |     Feature     |                                                                Url                                                                 |       Backbone        |                  Feature Extraction Setting                  |
 | :-------------: | :--------------------------------------------------------------------------------------------------------------------------------: | :-------------------: | :----------------------------------------------------------: |
-|  tsp_unresize   |                 [Google Drive](https://drive.google.com/file/d/1INw4tKjSoPL6_9uiB_RCOQ-fyOrA3uOi/view?usp=sharing)                 |   TSP (r2plus1d-34)   | 15 fps,  snippet_stride=16, clip_length=16, frame_interval=1 |
-|  tsn_unresize   |                 [Google Drive](https://drive.google.com/file/d/137GfkCoH4Uro_i5kz0d35J1YOx8ftsm6/view?usp=sharing)                 |   TSN (two stream)    |                                                              |
-|  slowfast_r50   |                 [Google Drive](https://drive.google.com/file/d/1zwxW8R-EZceEWOQyPOMoJSI-Aaz8cR4r/view?usp=sharing)                 |  SlowFast-R50-8x8x1   |      snippet_stride=8, clip_length=32, frame_interval=1      |
-|  slowfast_r101  |                 [Google Drive](https://drive.google.com/file/d/1U--V_eGi_MYeRp0HdNQG0CJDpKWLyFzT/view?usp=sharing)                 |  SlowFast-R101-8x8x1  |      snippet_stride=8, clip_length=32, frame_interval=1      |
-|   videomae_b    |                 [Google Drive](https://drive.google.com/file/d/1rsnZXUi4EVuDXYWJy9p11crPGt3Ex18W/view?usp=sharing)                 | VideoMAE-Base-16x4x1  |      snippet_stride=8, clip_length=16, frame_interval=4      |
-|   videomae_l    |                 [Google Drive](https://drive.google.com/file/d/1lwb7jy3nHNelmTfRAeztKVZoVzwj5BXx/view?usp=sharing)                 | VideoMAE-Large-16x4x1 |      snippet_stride=8, clip_length=16, frame_interval=4      |
+|  tsp_unresize   |                 [Google Drive](https://drive.google.com/file/d/1lJZh9H6U7fSPhQkx8aNDLJ1ddqfBfSwp/view?usp=sharing)                 |   TSP (r2plus1d-34)   | 15 fps,  snippet_stride=16, clip_length=16, frame_interval=1 |
+|  tsn_unresize   |                 [Google Drive](https://drive.google.com/file/d/1PHWBVJrUAMUiHHd7SKQCezpp_i7gAHR3/view?usp=sharing)                 |   TSN (two stream)    |                                                              |
+|  slowfast_r50   |                 [Google Drive](https://drive.google.com/file/d/1iHFZwRfmb0hZ0NPvoEFQsHsg81bkn23E/view?usp=sharing)                 |  SlowFast-R50-8x8x1   |      snippet_stride=8, clip_length=32, frame_interval=1      |
+|  slowfast_r101  |                 [Google Drive](https://drive.google.com/file/d/1cXARVJKZNk6QCwjR3ZZJ1TgkNTZBC-b8/view?usp=sharing)                 |  SlowFast-R101-8x8x1  |      snippet_stride=8, clip_length=32, frame_interval=1      |
+|   videomae_b    |                 [Google Drive](https://drive.google.com/file/d/1y_FwHz-YwoymaPZOxszjrkkVXZXC5nxs/view?usp=sharing)                 | VideoMAE-Base-16x4x1  |      snippet_stride=8, clip_length=16, frame_interval=4      |
+|   videomae_l    |                 [Google Drive](https://drive.google.com/file/d/1YhldR2ruNljpZ3EDLYrzIc5gRrz4UbuW/view?usp=sharing)                 | VideoMAE-Large-16x4x1 |      snippet_stride=8, clip_length=16, frame_interval=4      |
 | internvideo2_6b | [Official Repo](https://github.com/OpenGVLab/video-mamba-suite/blob/main/video-mamba-suite/temporal-action-localization/README.md) |    InternVideo2-6B    |      snippet_stride=8, clip_length=16, frame_interval=1      |
 
 ## Download Raw Videos

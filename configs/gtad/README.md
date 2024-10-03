@@ -15,16 +15,16 @@ Temporal action detection is a fundamental yet challenging task in video underst
 
 | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |        Config         |                                                                                          Download                                                                                          |
 | :------: | :-----: | :------: | :------: | :------: | :-------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSN    |  50.19  |  35.04   |   8.11   |  34.18   | [config](anet_tsn.py) | [model](https://drive.google.com/file/d/1cyiTPZ73ud9-UxHFr7E4tkp7LEkM7_qE/view?usp=sharing)   \| [log](https://drive.google.com/file/d/10MfgZlIS8XIc0sffXnIOgOR7RIXTd5Ve/view?usp=sharing) |
-|   TSP    |  52.33  |  37.58   |   8.42   |  36.20   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1CoBygy7JM26Rz7RTzIgKk0negmCa5Ier/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1ZQo2SI1TZdPkNL80FcslyForVaFDGTlB/view?usp=sharing) |
+|   TSN    |  50.19  |  35.04   |   8.11   |  34.18   | [config](anet_tsn.py) | [model](https://drive.google.com/file/d/1Ljcr8-1zjDTKqJDR_AzNK64p5bpVfPGZ/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1lXAgMcBMbXsNU7pCJ-bftaM9Y3mV9Cjg/view?usp=sharing) |
+|   TSP    |  52.33  |  37.58   |   8.42   |  36.20   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/17B6w_e1qB-cAeW70NpYX3-jGVhAq8XVA/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1yPHSYwsAGlSjswsMkXmQhUyZGUaqnbcH/view?usp=sharing) |
 
 
 **THUMOS-14** with UtrimmedNet classifier
 
 | Features | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |         Config          |                                                                                          Download                                                                                          |
 | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSN    |  60.52  |  55.08  |  48.50  |  39.60  |  28.74  |  46.49   | [config](thumos_tsn.py) | [model](https://drive.google.com/file/d/1SCzVn2RuuIUQ3g2bktSukt0dmLR27ei0/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1VFID5LUY8p0mycYAOcjCWjNg9DkcdvEk/view?usp=sharing) |
-|   I3D    |  63.35  |  59.07  |  51.76  |  42.65  |  31.66  |  49.70   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1qW80nahmt671AUR58PABzyBdQYqP9gO1/view?usp=sharing)   \| [log](https://drive.google.com/file/d/12FvCQ3j0aP4qGvus0XJaNTJRxhcxIEa5/view?usp=sharing) |
+|   TSN    |  60.52  |  55.08  |  48.50  |  39.60  |  28.74  |  46.49   | [config](thumos_tsn.py) | [model](https://drive.google.com/file/d/10EJ_F3rPa-QgBWkbm1q7PIrlrPrNKUgt/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1c5fjDk5I0nmrzrczNraGn5NH0Gxll9S1/view?usp=sharing) |
+|   I3D    |  63.35  |  59.07  |  51.76  |  42.65  |  31.66  |  49.70   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1VolYZ15o0AHNddRa9IvJxqtxkE66fYEL/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1DSSry3MVMQt_7P-o8JVmo5IWoXjbIgvH/view?usp=sharing) |
 
 
 ## Train

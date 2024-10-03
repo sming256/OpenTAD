@@ -17,9 +17,9 @@ Please put the downloaded feature under the path: `data/epic_sounds/features/`.
 
 We provide the following pre-extracted features for EPIC-SOUNDS:
 
-|      Feature      |                               Url                               |              Backbone              |                Feature Extraction Setting                 |
-| :---------------: | :-------------------------------------------------------------: | :--------------------------------: | :-------------------------------------------------------: |
-| Auditory SlowFast | [Official Repo](https://github.com/ekazakos/auditory-slow-fast) | Auditory SlowFast (Epic Finetuned) | 30fps, snippet_stride=6, clip_length=32, frame_interval=1 |
+|      Feature      |                                                Url                                                 |              Backbone              |                Feature Extraction Setting                 |
+| :---------------: | :------------------------------------------------------------------------------------------------: | :--------------------------------: | :-------------------------------------------------------: |
+| Auditory SlowFast | [Google Drive](https://drive.google.com/file/d/1hTgzhsRzp1E4iRCUXdqXDdytEbz4VzmN/view?usp=sharing) | Auditory SlowFast (Epic Finetuned) | 30fps, snippet_stride=6, clip_length=32, frame_interval=1 |
 
 ## Citation
 

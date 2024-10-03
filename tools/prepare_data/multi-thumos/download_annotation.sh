@@ -6,4 +6,4 @@ if [[ ! -d "${DATA_DIR}" ]]; then
 fi
 
 # download annotations for Multi-THUMOS
-gdown --folder https://drive.google.com/drive/folders/1benWupqjUEqxsup514hopBX1mHU2nrmd -O $DATA_DIR --folder
+gdown --folder https://drive.google.com/drive/folders/1LtSwg5UhmWvZ5VEwqXQmNf36t-pWXXdU -O $DATA_DIR --folder

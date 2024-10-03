@@ -88,7 +88,7 @@ OpenTAD is an open-source temporal action detection (TAD) toolbox based on PyTor
 
 The detailed configs, results, and pretrained models of each method can be found in above folders.
 
-## 🛠️ Installation
+## 🛠️ Installation and Data Preparation
 
 Please refer to [install.md](docs/en/install.md) for installation and data preparation.
 

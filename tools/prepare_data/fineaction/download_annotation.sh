@@ -6,4 +6,4 @@ if [[ ! -d "${DATA_DIR}" ]]; then
 fi
 
 # download annotations for FineAction-1.3
-gdown --folder https://drive.google.com/drive/folders/1R2ji2InJONWzBfLaEmp2CiT3FHHiZSJI -O $DATA_DIR --folder
+gdown --folder https://drive.google.com/drive/folders/17qqYuADP1zAEhudxyNqJohSUSrVJz6UB -O $DATA_DIR --folder
