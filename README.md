@@ -90,8 +90,11 @@ The detailed configs, results, and pretrained models of each method can be found
 
 ## 🛠️ Installation and Data Preparation
 
-Please refer to [install.md](docs/en/install.md) for installation and data preparation.
+Please refer to [install.md](docs/en/install.md) for installation.
 
+## 📝 Data Preparation
+
+Please refer to [data.md](docs/en/data.md) for data preparation.
 
 ## 🚀 Usage
 
