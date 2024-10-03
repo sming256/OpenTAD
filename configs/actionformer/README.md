@@ -15,56 +15,56 @@ Self-attention based Transformer models have demonstrated impressive results for
 
 | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |        Config         |                                                                                          Download                                                                                          |
 | :------: | :-----: | :------: | :------: | :------: | :-------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSP    |  55.08  |  38.27   |   8.91   |  37.07   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1loC72F4U79jWfoRL9SB2rdk3xykBKqHN/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1YveGerbI1es51t2Ii7WZDgPlJy3lGBLf/view?usp=sharing) |
+|   TSP    |  55.08  |  38.27   |   8.91   |  37.07   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1CY-BAKjjYAt7t0-OASm66jPBkUzJnN6u/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1YkbeU0ldfJ0fSJGe70mM1GCfAzNv-Jmy/view?usp=sharing) |
 
 **THUMOS-14**
 
 | Features | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |         Config          |                                                                                          Download                                                                                          |
 | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   I3D    |  83.78  |  80.06  |  73.16  |  60.46  |  44.72  |  68.44   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/17oP-fMOjw6wwnaQWTlikWwoZoSkiIFkt/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1WJe98mKoXaP2X9Th-gKC8rw0JeKxfJkq/view?usp=sharing) |
+|   I3D    |  83.78  |  80.06  |  73.16  |  60.46  |  44.72  |  68.44   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1zTWLAerk5lZscOE-RZN9vuZ47MJCDno8/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1nYNK5WKkrbeQfJXdA2iKiCs5hWl1sd97/view?usp=sharing) |
 
 **HACS**
 
 | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |           Config           |                                                                                          Download                                                                                          |
 | :------: | :-----: | :------: | :------: | :------: | :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| SlowFast |  56.18  |  37.97   |  11.05   |  37.71   | [config](hacs_slowfast.py) | [model](https://drive.google.com/file/d/1IdxR5lyfXzk5wjl-8YDcH0Nw2BEDwzWz/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Eu2O9IKuR8XLeZ37OxCq7NjSUKPE-3Zw/view?usp=sharing) |
+| SlowFast |  56.18  |  37.97   |  11.05   |  37.71   | [config](hacs_slowfast.py) | [model](https://drive.google.com/file/d/1gga4G65qpnHbTuQtIleIZlMmn9sy8Kxq/view?usp=sharing)   \| [log](https://drive.google.com/file/d/15pJOJB6OjQ7PzEOBGEagcNXI5HFfycSM/view?usp=sharing) |
 
 **Epic-Kitchens-100**
 
 | Subset | Features | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |                  Config                  |                                                                                          Download                                                                                          |
 | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :--------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  Noun  | SlowFast |  25.78  |  24.73  |  22.83  |  20.84  |  17.45  |  22.33   | [config](epic_kitchens_slowfast_noun.py) | [model](https://drive.google.com/file/d/1RckzXf5W8oD_ARZw5dyYo03ZKVrU1n9-/view?usp=sharing)   \| [log](https://drive.google.com/file/d/18dVA27hWRBjM8lp4S12DscCkNJBqFrWp/view?usp=sharing) |
-|  Verb  | SlowFast |  27.68  |  26.79  |  25.62  |  24.06  |  20.48  |  24.93   | [config](epic_kitchens_slowfast_verb.py) | [model](https://drive.google.com/file/d/1-RLtnku727Fh39rihyGVxLCU5klTIvbn/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1w18Ccyi22ZHgM0ECx6rAKOXqFoO9L0Iq/view?usp=sharing) |
+|  Noun  | SlowFast |  25.78  |  24.73  |  22.83  |  20.84  |  17.45  |  22.33   | [config](epic_kitchens_slowfast_noun.py) | [model](https://drive.google.com/file/d/1TRXPMfTAEOR9Cl1rPyYTPN-uhly1b7M2/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Kz00NHSLCEWEG6WLtoxwdnjpxqm61Fy0/view?usp=sharing) |
+|  Verb  | SlowFast |  27.68  |  26.79  |  25.62  |  24.06  |  20.48  |  24.93   | [config](epic_kitchens_slowfast_verb.py) | [model](https://drive.google.com/file/d/1nox7XT6wEOciwwMxPBu91jgKgmyedMv-/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1gDwUMebJ_wO8n9gAlR07L-pMI6wnO3eG/view?usp=sharing) |
 
 **Ego4D-MQ**
 
 |  Features   | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |             Config             |                                                                                          Download                                                                                          |
 | :---------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :----------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  SlowFast   |  20.90  |  18.12  |  15.81  |  14.25  |  12.21  |  16.26   |  [config](ego4d_slowfast.py)   | [model](https://drive.google.com/file/d/1QMzpP281_XAz5woGmiLercBaUGVrdrv0/view?usp=sharing)   \| [log](https://drive.google.com/file/d/16oRGGq7LiiYCv7yeqG9TR2f6bS-3Fi6r/view?usp=sharing) |
-|   EgoVLP    |  27.79  |  24.97  |  22.37  |  19.25  |  16.25  |  22.13   |   [config](ego4d_egovlp.py)    | [model](https://drive.google.com/file/d/1c23BHCCuy7bOlyRkwXMSnTyeA3jRedGt/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Gu0uaW6ICcarL_wLcwiQTTSf6NqyQMjQ/view?usp=sharing) |
-| InternVideo |  32.59  |  30.28  |  27.53  |  25.09  |  22.13  |  27.52   | [config](ego4d_internvideo.py) | [model](https://drive.google.com/file/d/1Q25ZxXIlSi6vr5T4EX4Z75_Iq1uU8Pdi/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1_7Xm3_1Qg0MLXGW5Wx6XyfTTc0Pnn0dt/view?usp=sharing) |
+|  SlowFast   |  20.90  |  18.12  |  15.81  |  14.25  |  12.21  |  16.26   |  [config](ego4d_slowfast.py)   | [model](https://drive.google.com/file/d/1Z9xJbehxnt5-PWL3NMtTlINpLmY1vh5b/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1A3guHt6cxYLQC-99a4jQW3TzvLs9IwSJ/view?usp=sharing) |
+|   EgoVLP    |  27.79  |  24.97  |  22.37  |  19.25  |  16.25  |  22.13   |   [config](ego4d_egovlp.py)    | [model](https://drive.google.com/file/d/1ZYYi2si_YOZoZpquPJwD3-w-RizALInQ/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1VMBWxOC-Z0UwRB9vGnY9g0uyclya90Jf/view?usp=sharing) |
+| InternVideo |  32.59  |  30.28  |  27.53  |  25.09  |  22.13  |  27.52   | [config](ego4d_internvideo.py) | [model](https://drive.google.com/file/d/1QEgzjdxCdh1dNm7qBWexhKtxsIgW8kfv/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1mm1sviTNeLimJYijNZhSEPPZQiz2msSh/view?usp=sharing) |
 
 
 **MultiTHUMOS**
 
 |    Features    | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |              Config              |                                                                                          Download                                                                                          |
 | :------------: | :-----: | :-----: | :-----: | :--------------------: | :------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   I3D (rgb)    |  53.52  |  39.05  |  19.69  |         34.02          | [config](multithumos_i3d_rgb.py) | [model](https://drive.google.com/file/d/1iZ1KeXDQJFLFKe24bCSIoJv6DmtBebSM/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Z2Or_d1aarXr7mjbVVJMnzsI5ieDlLed/view?usp=sharing) |
-| I3D (rgb+flow) |  60.18  |  45.01  |  24.56  |         39.19          |   [config](multithumos_i3d.py)   | [model](https://drive.google.com/file/d/1GvaxJdZhL01DYIWg3QWA5BXdm_rLor32/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1KGLz30nbBtwv235tZyPkr2SPvz79koq9/view?usp=sharing) |
+|   I3D (rgb)    |  53.52  |  39.05  |  19.69  |         34.02          | [config](multithumos_i3d_rgb.py) | [model](https://drive.google.com/file/d/1h2zizpltrQ5SvYN5q8o8RXf9lfMabAKk/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NkEs_QUNZk-wEUqz28KskMyRrzHhF1K-/view?usp=sharing) |
+| I3D (rgb+flow) |  60.18  |  45.01  |  24.56  |         39.19          |   [config](multithumos_i3d.py)   | [model](https://drive.google.com/file/d/1h2zizpltrQ5SvYN5q8o8RXf9lfMabAKk/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1NkEs_QUNZk-wEUqz28KskMyRrzHhF1K-/view?usp=sharing) |
 
 **Charades**
 
 |  Features  | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |              Config              |                                                                                          Download                                                                                          |
 | :--------: | :-----: | :-----: | :-----: | :--------------------: | :------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| I3D (rgb)  |  31.33  |  23.07  |  13.60  |         20.60          |  [config](charades_i3d_rgb.py)   | [model](https://drive.google.com/file/d/1rb0bGyfAyZKjIE72i_qGde9HcoJHVHGl/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1sLnSbQSWLN1p1UWKS2E5M-YzsJLRq3WH/view?usp=sharing) |
-| VideoMAE-L |  38.87  |  29.67  |  17.52  |         26.04          | [config](charades_videomae_l.py) | [model](https://drive.google.com/file/d/1k2IJUXjJzLUcgurE8C_cZTaQotK5VVV0/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1vddl_wuKzBtkLemqAAzdAf8dHFvljuMn/view?usp=sharing) |
+| I3D (rgb)  |  31.33  |  23.07  |  13.60  |         20.60          |  [config](charades_i3d_rgb.py)   | [model](https://drive.google.com/file/d/1mWH4qEStWL6GNbvN7yA4wuVryyqkgA1W/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Lzhs3XVaOeyBDReBfqReQapraKLnbWvD/view?usp=sharing) |
+| VideoMAE-L |  38.87  |  29.67  |  17.52  |         26.04          | [config](charades_videomae_l.py) | [model](https://drive.google.com/file/d/1Ci6eCNyziwEdHbAcrxiJO3Dj7IabS7Hh/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1EwoCachEPjuVVQQvHUPSWAfcxcBVLst5/view?usp=sharing) |
 
 **FineAction** with InternVideo classifier
 
 |     Features      | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |                Config                |                                                                                         Download                                                                                          |
 | :---------------: | :-----: | :------: | :------: | :------: | :----------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  VideoMAE_H_K700  |  29.44  |  19.46   |   5.06   |  19.32   |  [config](fineaction_videomae_h.py)  | [model](https://drive.google.com/file/d/1uNQufJMf9U6Igv6w4J70xiEVqYUKteTE/view?usp=sharing)  \| [log](https://drive.google.com/file/d/1VAQbtZuvRiTk8oFS7EIF9ilOKm1165u-/view?usp=sharing) |
-| VideoMAEv2_g_K710 |  29.85  |  19.72   |   5.17   |  19.62   | [config](fineaction_videomaev2_g.py) | [model](https://drive.google.com/file/d/1o7HdsZIR-JufAGHD6cq-xRRIEX3IMlyY/view?usp=sharing)  \| [log](https://drive.google.com/file/d/1QenPC5OV9gI62wKkgbrdYyJpLSxP5awp/view?usp=sharing) |
+|  VideoMAE_H_K700  |  29.44  |  19.46   |   5.06   |  19.32   |  [config](fineaction_videomae_h.py)  | [model](https://drive.google.com/file/d/1MpFPQ_2Uu4ksEtHF1ScDAyyMPdU4Icfe/view?usp=sharing)  \| [log](https://drive.google.com/file/d/13EGNhiEMGCjb0I26_XoBOx-3OLF6KwP6/view?usp=sharing) |
+| VideoMAEv2_g_K710 |  29.85  |  19.72   |   5.17   |  19.62   | [config](fineaction_videomaev2_g.py) | [model](https://drive.google.com/file/d/1yss4xbieHjon5EA_wk91z90W65bmXoag/view?usp=sharing)  \| [log](https://drive.google.com/file/d/1lucPvEHh_asvMZQOzShq8tdOpC6cAak_/view?usp=sharing) |
 
 
 ## Train

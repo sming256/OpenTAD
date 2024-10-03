@@ -17,21 +17,21 @@ Temporal Action Localization (TAL) is a challenging task in video understanding 
 
 | Features | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |         Config          |                                                                                          Download                                                                                          |
 | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   I3D    |  83.17  |  79.09  |  71.66  |  61.72  |  46.00  |  68.33   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1Qh1CBphRbU0R07FRLk1nkQ_g53na6WLv/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1jQPUKp4X1amda1NJ2AuzK1SDxiT7pbxc/view?usp=sharing) |
+|   I3D    |  83.17  |  79.09  |  71.66  |  61.72  |  46.00  |  68.33   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1SabUwj3ztoR3_o8MHM3YAu05YTxA0dwj/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1t_pxF14q-og2DV0ESxBAHTjEwl3ytgpF/view?usp=sharing) |
 
 **MultiTHUMOS**
 
 |    Features    | mAP@0.2 | mAP@0.5 | mAP@0.7 | ave. mAP (0.1:0.9:0.1) |              Config              |                                                                                          Download                                                                                          |
 | :------------: | :-----: | :-----: | :-----: | :--------------------: | :------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   I3D (rgb)    |  53.57  |  38.39  |  20.61  |         33.92          | [config](multithumos_i3d_rgb.py) | [model](https://drive.google.com/file/d/1xci9meo5Gb0XMUTo2fUt3d-sxBUlWefZ/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1oQKds1GFERu54nBdNBxRY_1wUnRlIrXy/view?usp=sharing) |
-| I3D (rgb+flow) |  60.05  |  44.86  |  25.59  |         39.26          |   [config](multithumos_i3d.py)   | [model](https://drive.google.com/file/d/1rfIDpTE0E2VOi4b4CpndlEntSdrnrEC2/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1pJfpR7Ssy2pucZSbQfLhbqHamwpzcnLW/view?usp=sharing) |
+|   I3D (rgb)    |  53.57  |  38.39  |  20.61  |         33.92          | [config](multithumos_i3d_rgb.py) | [model](https://drive.google.com/file/d/1bMaLgSShB7G8DEkbqK4zzOFBisX7N4zN/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1E2xIdrCz30CEr1XU6uKa_inRTd1EGqmL/view?usp=sharing) |
+| I3D (rgb+flow) |  60.05  |  44.86  |  25.59  |         39.26          |   [config](multithumos_i3d.py)   | [model](https://drive.google.com/file/d/1YJ4WYG9XySq45yLXxMxgEEcJ3qv777pE/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1I213ECnp3m4GW3dXVSThnIEJeXsLocuM/view?usp=sharing) |
 
 **Epic-Kitchens-100**
 
 | Subset | Features | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |                  Config                  |                                                                                          Download                                                                                          |
 | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :--------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  Noun  | SlowFast |  25.46  |  24.35  |  22.55  |  20.32  |  17.08  |  21.96   | [config](epic_kitchens_slowfast_noun.py) | [model](https://drive.google.com/file/d/17Iuc5RHMje1BW8XnECIkeKX7q_BNvNXo/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1taY9F7x2avb0jTRsiGdwCNepuYQ9wi9u/view?usp=sharing) |
-|  Verb  | SlowFast |  28.64  |  27.84  |  25.59  |  23.60  |  19.69  |  25.07   | [config](epic_kitchens_slowfast_verb.py) | [model](https://drive.google.com/file/d/1OaECxAV_HS6WBTb30tZFFczhLziRVYdW/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1LUR5vfzAcTW5WzDB1u3GPZgOfQ0HOF_3/view?usp=sharing) |
+|  Noun  | SlowFast |  25.46  |  24.35  |  22.55  |  20.32  |  17.08  |  21.96   | [config](epic_kitchens_slowfast_noun.py) | [model](https://drive.google.com/file/d/1mghPd-Y08n_fzXlXAAZWNASGEw-0xpe6/view?usp=sharing)   \| [log](https://drive.google.com/file/d/17_UmbdTEGsYWClgEvi3lROBPDpes43ck/view?usp=sharing) |
+|  Verb  | SlowFast |  28.64  |  27.84  |  25.59  |  23.60  |  19.69  |  25.07   | [config](epic_kitchens_slowfast_verb.py) | [model](https://drive.google.com/file/d/1HMukmE3IR0Lr4EgEYIUOEXpNwKBizAOi/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1QKto-5vwW4zbr7Xn11PDxv4Q1aEhReMu/view?usp=sharing) |
 
 
 ## Train

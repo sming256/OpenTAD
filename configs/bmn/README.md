@@ -15,29 +15,29 @@ Temporal action proposal generation is an challenging and promising task which a
 
 | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |        Config         |                                                                                          Download                                                                                          |
 | :------: | :-----: | :------: | :------: | :------: | :-------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSN    |  50.97  |  34.98   |   8.35   |  34.21   | [config](anet_tsn.py) | [model](https://drive.google.com/file/d/1yWu05_BS2RuHnItIpFvKVieiYOGWbzNj/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1KtICNUOt_IVEWfSXqZ-6R_msKm40AaTU/view?usp=sharing) |
-|   TSP    |  52.90  |  37.30   |   9.67   |  36.40   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1sQQble7270Ja5Nx8kR5tApeJGGS42t6M/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1sxXjeIzEt0Nx_YZNj_tCcAsN9_TJe6xU/view?usp=sharing) |
+|   TSN    |  50.97  |  34.98   |   8.35   |  34.21   | [config](anet_tsn.py) | [model](https://drive.google.com/file/d/14uoPwmKMKsLWZKPQfk6G8hNy_q-PPJJP/view?usp=sharing)   \| [log](https://drive.google.com/file/d/14uoPwmKMKsLWZKPQfk6G8hNy_q-PPJJP/view?usp=sharing) |
+|   TSP    |  52.90  |  37.30   |   9.67   |  36.40   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1ck9fLmZt273ffBi5RDRfSNgUV6dgx8Sw/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1ditiS7zD_8BBJu0X_wylXg0-4wGBKghT/view?usp=sharing) |
 
 Use above checkpoints to evaluate the recall performance:
 
 | Features | AR@1  | AR@5  | AR@10 | AR@100 |  AUC  |            Config            |                                                                                         Download                                                                                          |
 | :------: | :---: | :---: | :---: | :----: | :---: | :--------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSN    | 33.58 | 49.16 | 56.53 | 75.34  | 67.23 | [config](anet_tsn_recall.py) | [model](https://drive.google.com/file/d/1yWu05_BS2RuHnItIpFvKVieiYOGWbzNj/view?usp=sharing)  \| [log](https://drive.google.com/file/d/1xT6T7s8tNcuVgItWXyF2gI2cCU6T993O/view?usp=sharing) |
-|   TSP    | 34.14 | 51.35 | 58.44 | 76.24  | 68.47 | [config](anet_tsp_recall.py) | [model](https://drive.google.com/file/d/1sQQble7270Ja5Nx8kR5tApeJGGS42t6M/view?usp=sharing)  \| [log](https://drive.google.com/file/d/12Q5vhXaH_YQoAxqtWFAzePAb5MfGGJ1Z/view?usp=sharing) |
+|   TSN    | 33.58 | 49.16 | 56.53 | 75.34  | 67.23 | [config](anet_tsn_recall.py) | [model](https://drive.google.com/file/d/14uoPwmKMKsLWZKPQfk6G8hNy_q-PPJJP/view?usp=sharing)  \| [log](https://drive.google.com/file/d/14uoPwmKMKsLWZKPQfk6G8hNy_q-PPJJP/view?usp=sharing) |
+|   TSP    | 34.14 | 51.35 | 58.44 | 76.24  | 68.47 | [config](anet_tsp_recall.py) | [model](https://drive.google.com/file/d/1ck9fLmZt273ffBi5RDRfSNgUV6dgx8Sw/view?usp=sharing)  \| [log](https://drive.google.com/file/d/10yqL15f0ouLE0sadwSwBBYdhuf3w0xml/view?usp=sharing) |
 
 
 **THUMOS-14** with UtrimmedNet classifier.
 
 | Features | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |         Config          |                                                                                          Download                                                                                          |
 | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSN    |  60.51  |  56.03  |  47.56  |  38.23  |  28.64  |  46.19   | [config](thumos_tsn.py) | [model](https://drive.google.com/file/d/14GANupLwRE4dAesyafeU4aGx-8c38ogd/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1DeDCLezP4rRZwq7ppPG5coA2ol0fSvkZ/view?usp=sharing) |
-|   I3D    |  64.99  |  60.70  |  54.54  |  44.11  |  34.16  |  51.70   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1aPl_jNOlbcr7Qc2DzNM10dRiMDfcSJ7V/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1TJGylck9Zhqew5IECeDjqwLNO8Zkq0QD/view?usp=sharing) |
+|   TSN    |  60.51  |  56.03  |  47.56  |  38.23  |  28.64  |  46.19   | [config](thumos_tsn.py) | [model](https://drive.google.com/file/d/1lh0kEurHX4l-ddd2edOKhtqSJsQFG5AB/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1H-nMqKrgZYioMBHXEFy0fqvkaZqYGpyT/view?usp=sharing) |
+|   I3D    |  64.99  |  60.70  |  54.54  |  44.11  |  34.16  |  51.70   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1cHQz9FY0rQgrW55Zl03sAsdcbnYB_EJR/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1iaZiSd52Wn8lIiLNkKqNDrI3n2NAMHuc/view?usp=sharing) |
 
 **HACS** with TCANet classifier.
 
 | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |             Config             |                                                                                          Download                                                                                          |
 | :------: | :-----: | :------: | :------: | :------: | :----------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| SlowFast |  52.64  |  36.18   |  11.46   |  35.78   | [config](hacs_slowfast_192.py) | [model](https://drive.google.com/file/d/1gLOmyu-zLi7Gpph2czH9bgiJCKyeUvsm/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1fMm1sjNtbgWNIcFmdRSpnvKfiXOmsLQ2/view?usp=sharing) |
+| SlowFast |  52.64  |  36.18   |  11.46   |  35.78   | [config](hacs_slowfast_192.py) | [model](https://drive.google.com/file/d/1mTpXnU9-WWTLgxsibczvxrUuurbXGdhR/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1SIBU_MrQEqDDlUC61OeK5Wmv70lqqKSf/view?usp=sharing) |
 
 
 ## Train

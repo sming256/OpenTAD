@@ -15,27 +15,27 @@ Recent proposed neural network-based Temporal Action Detection (TAD) models are 
 
 | Features |  Classifier  | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |        Config         |                                                                                          Download                                                                                          |
 | :------: | :----------: | :-----: | :------: | :------: | :------: | :-------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSP    | InternVideo1 |  58.19  |  39.30   |   8.63   |  38.62   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1RRiHR6mSJahlohINtl594VHQMuHiml34/view?usp=sharing)   \| [log](https://drive.google.com/file/d/16u9eIzhjiaBoRAgJ103PMJZDBy835QYc/view?usp=sharing) |
+|   TSP    | InternVideo1 |  58.19  |  39.30   |   8.63   |  38.62   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1_meLJtO0ogwD9ZH-RRSmYM2ugli1nXI8/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1wxRAjNJns-R9HX29X8e1DWJIBJOlj75n/view?usp=sharing) |
 
 
 **THUMOS-14**
 
 |   Features   | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |              Config              |                                                                                          Download                                                                                          |
 | :----------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| VideoMAEv2-g |  85.99  |  81.66  |  76.32  |  64.46  |  50.08  |  71.70   | [config](thumos_videomaev2_g.py) | [model](https://drive.google.com/file/d/169QGt_tEEeiDw9dwHnV7TvB11-Rh6TL4/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1eDf4UMuGvCePrWGUoVX2IyGb9UEIMXRU/view?usp=sharing) |
+| VideoMAEv2-g |  85.99  |  81.66  |  76.32  |  64.46  |  50.08  |  71.70   | [config](thumos_videomaev2_g.py) | [model](https://drive.google.com/file/d/1J4MFgfEIMFCFezYTSyJXQiKDFjiauvNs/view?usp=sharing)   \| [log](https://drive.google.com/file/d/158bbXKFqnRcXVVAR9JmCVhGgqiqD-ooR/view?usp=sharing) |
 
 
 **FineAction**
 
 |     Features      |  Classifier  | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |                Config                |                                                                                          Download                                                                                          |
 | :---------------: | :----------: | :-----: | :------: | :------: | :------: | :----------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| VideoMAEv2_g_K710 | InternVideo1 |  37.06  |  23.49   |   5.92   |  23.70   | [config](fineaction_videomaev2_g.py) | [model](https://drive.google.com/file/d/1ccbYyYGD8-BpELeBxZIV495kjKJeNm2W/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1hs9RgCdFnZuP1XXSgiNBmiIpyjXc2Rzp/view?usp=sharing) |
+| VideoMAEv2_g_K710 | InternVideo1 |  37.06  |  23.49   |   5.92   |  23.70   | [config](fineaction_videomaev2_g.py) | [model](https://drive.google.com/file/d/1-LaoGuwTztttQ1X7OQ81MCr0JUnNfABv/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1eEfOpyEus_rX_CRB3rfwcKdXviUEe0n5/view?usp=sharing) |
 
 **HACS**
 
 | Features | Classifier | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |           Config           |                                                                                          Download                                                                                          |
 | :------: | :--------: | :-----: | :------: | :------: | :------: | :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| SlowFast |   TCANet   |  58.09  |  40.03   |  11.96   |  39.45   | [config](hacs_slowfast.py) | [model](https://drive.google.com/file/d/1ts_oiAj5tD4e1CR4Fwr-JGcCVLbCurVy/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1OwpyP8qi31p_NCS1HRlAYwvdt6ytMVgF/view?usp=sharing) |
+| SlowFast |   TCANet   |  58.09  |  40.03   |  11.96   |  39.45   | [config](hacs_slowfast.py) | [model](https://drive.google.com/file/d/14OkLRoJRZ2KMeWA-7k7qAiHfUnh8euzx/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1hEoAK3SGswQo142xwf6kCR2P3Zb0nlcy/view?usp=sharing) |
 
 
 ## Train

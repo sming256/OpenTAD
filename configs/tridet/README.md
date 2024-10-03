@@ -15,26 +15,26 @@ In this paper, we present a one-stage framework TriDet for temporal action detec
 
 | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |        Config         |                                                                                          Download                                                                                          |
 | :------: | :-----: | :------: | :------: | :------: | :-------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSP    |  54.89  |  38.20   |   8.21   |  36.96   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/16MmZlFDBMjr9TK-nit6eKCksQYEASwHZ/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1WY6x9OeXDvaWRdHVc9-R8e5lUjWim020/view?usp=sharing) |
+|   TSP    |  54.89  |  38.20   |   8.21   |  36.96   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1q1DZtRZjR3ZfowDok6EP2bUzUCvy8DWS/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1koTVbUpjGXlmvq2hZA7gkryTuNoQdta4/view?usp=sharing) |
 
 **THUMOS-14**
 
 | Features | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |         Config          |                                                                                          Download                                                                                          |
 | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   I3D    |  84.46  |  81.05  |  73.41  |  62.58  |  46.51  |  69.60   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/18nQ2jJMJkkqeCfWzj-OfV0Hi_Ej3Y1lN/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1YLXoZoliAD1jLHa2Lxtct0EFtpgabesM/view?usp=sharing) |
+|   I3D    |  84.46  |  81.05  |  73.41  |  62.58  |  46.51  |  69.60   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/15jco5g0uHj5Kdjcl1oID4w75rKtsStze/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1n_NPRsknEFhfTrF3KxAWpmA7g2eZyd9J/view?usp=sharing) |
 
 **HACS**
 
 | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |           Config           |                                                                                          Download                                                                                          |
 | :------: | :-----: | :------: | :------: | :------: | :------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| SlowFast |  56.84  |  39.04   |  11.13   |  38.47   | [config](hacs_slowfast.py) | [model](https://drive.google.com/file/d/13e34x-kXRWTm9jNkvv61D10vRdBtRgZ_/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1RGwwtenzxiZ5IBw7SdF9V2bFNk5TBZq1/view?usp=sharing) |
+| SlowFast |  56.84  |  39.04   |  11.13   |  38.47   | [config](hacs_slowfast.py) | [model](https://drive.google.com/file/d/1-Vld4OIK4ZKt3E6dE4480YB3af2EiSmA/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1tOb-1PZnjweIlCZJIHWEta2xJsx77mtq/view?usp=sharing) |
 
 **Epic-Kitchens-100**
 
 | Subset | Features | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |                  Config                  |                                                                                          Download                                                                                          |
 | :----: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :--------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  Noun  | SlowFast |  24.95  |  23.76  |  22.22  |  20.00  |  16.63  |  21.51   | [config](epic_kitchens_slowfast_noun.py) | [model](https://drive.google.com/file/d/18F0Ruc9RJL9KLOjIEFvBGBQzXxNUkJgH/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1Tfi4KyKmnanO2F3rry1hIRDtlvKZDRTT/view?usp=sharing) |
-|  Verb  | SlowFast |  27.88  |  27.00  |  25.52  |  23.74  |  20.72  |  24.97   | [config](epic_kitchens_slowfast_verb.py) | [model](https://drive.google.com/file/d/1LIGCduQFPXKQl98s53h_feIYNLBsXkXd/view?usp=sharing)   \| [log](https://drive.google.com/file/d/10xZSt7r6T_tauqvc9UHi3bCiloZPATDp/view?usp=sharing) |
+|  Noun  | SlowFast |  24.95  |  23.76  |  22.22  |  20.00  |  16.63  |  21.51   | [config](epic_kitchens_slowfast_noun.py) | [model](https://drive.google.com/file/d/1aWoI64qKtLnUY5syFhzsIWuvU-5_AryM/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1w2DppHlX1KA4CFML87YGYU-CaU55t8Kx/view?usp=sharing) |
+|  Verb  | SlowFast |  27.88  |  27.00  |  25.52  |  23.74  |  20.72  |  24.97   | [config](epic_kitchens_slowfast_verb.py) | [model](https://drive.google.com/file/d/1CzDWCBAZKOcQEER5Pxz3mvR0tbVZnZb6/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1wri2jyeeWrmJ1KbVvBS14W3travZBnYp/view?usp=sharing) |
 
 
 ## Train

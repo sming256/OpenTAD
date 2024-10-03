@@ -15,16 +15,16 @@ Temporal action detection (TAD) with end-to-end training often suffers from the 
 
 |  E2E  | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |          Config           |                                                                                          Download                                                                                          |
 | :---: | :------: | :-----: | :------: | :------: | :------: | :-----------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| False |   TSP    |  54.91  |  38.90   |   9.09   |  37.73   |   [config](anet_tsp.py)   | [model](https://drive.google.com/file/d/1r7zLfIaLPHb_7ba6tPzjKE3_WpGtrnge/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1wc27fX4qWUBarzeXR2aDfQjvN25G72Uu/view?usp=sharing) |
-| True  |   TSP    |  55.82  |  40.12   |  10.30   |  38.76   | [config](e2e_anet_tsp.py) | [model](https://drive.google.com/file/d/1SJObHl-vB_0MSJCzRLWN_xJxF2aUnhSu/view?usp=sharing)   \| [log](https://drive.google.com/file/d/16t8A3doleSsTtZeJ4rc-hUML9_8gltT_/view?usp=sharing) |
-- To run the end-to-end experiments, please download the converted TSP-R(2+1d) model (ActivityNet pretrained) from [here](https://drive.google.com/file/d/1vFnMwl3tAiPtmYFWzHxP07q1AQsCzPPN/view?usp=sharing) and put it in the `./pretrained/` folder.
+| False |   TSP    |  54.91  |  38.90   |   9.09   |  37.73   |   [config](anet_tsp.py)   | [model](https://drive.google.com/file/d/1jW9nPPkB-Lc6mc9n3uH0oql4RfEzgeka/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1e-9UA2W4LQXTWA-TtivAmgZVANwK9HTc/view?usp=sharing) |
+| True  |   TSP    |  55.82  |  40.12   |  10.30   |  38.76   | [config](e2e_anet_tsp.py) | [model](https://drive.google.com/file/d/1Ut3tsLo4BYf18UYewp3CfBg6yr3UnxZo/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1k039Glcia9cLadEySHpgSsQCvY5vjUCw/view?usp=sharing) |
+- To run the end-to-end experiments, please download the converted TSP-R(2+1d) model (ActivityNet pretrained) from [here](https://drive.google.com/file/d/1Uw8oy9kTiW5E-txhKIqPpG4brNX9G9QM/view?usp=sharing) and put it in the `./pretrained/` folder.
 
 
 **THUMOS-14** with UtrimmedNet classifier
 
 |  E2E  | Features | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |         Config          |                                                                                          Download                                                                                          |
 | :---: | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| False |   I3D    |  67.74  |  64.22  |  58.23  |  49.19  |  38.41  |  55.56   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1sRPYxfD_jGmsa1jB4Kw2Z4bVVnnlxx3u/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1T4QHGOz5BZxHsH_vt8_u6aFYKHoZZeuY/view?usp=sharing) |
+| False |   I3D    |  67.74  |  64.22  |  58.23  |  49.19  |  38.41  |  55.56   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1QcbYDD2rcqMXwKwQeyncA9W4axsgPVbY/view?usp=sharing)   \| [log](https://drive.google.com/file/d/17oWCvDpG5NSNLrU0nurDaHb-7Eg1Nmc3/view?usp=sharing) |
 
 
 ## Train

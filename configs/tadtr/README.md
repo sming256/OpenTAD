@@ -14,11 +14,11 @@
 
 | Feature | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |         Config          |                                                                                          Download                                                                                          |
 | :-----: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   I3D   |  71.90  |  67.29  |  59.00  |  48.34  |  34.61  |  56.23   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1XIx_Xu0Xv836YZzO7MRfhDSlA8si48hU/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1vgFQZhZLatMgPfaW6BBa96s02zRud7zj/view?usp=sharing) |
+|   I3D   |  71.90  |  67.29  |  59.00  |  48.34  |  34.61  |  56.23   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1m0WXxLwF4zcAfd7Gdr3GtwV0j6K7aTYc/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1qAt2h_fnhuzfky4Jmw-vxUqUbbNwRY1c/view?usp=sharing) |
 
 |    Backbone    | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |                      Config                      |                                                                                          Download                                                                                          |
 | :------------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :----------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| E2E-SlowFasR50 |  64.47  |  59.49  |  53.11  |  44.08  |  33.50  |  50.93   | [config](e2e_thumos_tadtr_slowfast50_sw128s6.py) | [model](https://drive.google.com/file/d/1vxZauOM_LgRMMpYJefK_FUg3gpHBIz9k/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1CWcfqxALPPNVHoud8g9MnNRa14lDxh0o/view?usp=sharing) |
+| E2E-SlowFasR50 |  64.47  |  59.49  |  53.11  |  44.08  |  33.50  |  50.93   | [config](e2e_thumos_tadtr_slowfast50_sw128s6.py) | [model](https://drive.google.com/file/d/16iYYzhcstf91MIS-86UIvagjcpCd2bsr/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1GuoxGfeHCScHBOUiy4KhMmNPCO2vRMaS/view?usp=sharing) |
 
 
 ## Train

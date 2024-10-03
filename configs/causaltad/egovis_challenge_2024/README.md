@@ -26,10 +26,10 @@ torchrun --nnodes=1 --nproc_per_node=1 --rdzv_backend=c10d --rdzv_endpoint=local
 Results on the validation set are as follows:
 |         Features          | Ensemble | ave. mAP |                    Config                    |                                                                                          Download                                                                                          |
 | :-----------------------: | :------: | :------: | :------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|       InternVideo1        |    No    |  32.19   |      [config](../ego4d_internvideo1.py)      | [model](https://drive.google.com/file/d/1Uc1ZUJjB9gGdVzC6ej-ek5nlH7SY2VwR/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1za48RI__Ed0DUCHpLp5Wqp3s7BtikIKW/view?usp=sharing) |
-|       InternVideo2        |    No    |  33.05   |      [config](../ego4d_internvideo2.py)      | [model](https://drive.google.com/file/d/101--h23mBx7F3B8ezAabbuKlRbwB9vpj/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1A5oSrmh-kzF6vQr5J-maiUIB34ZsSk5o/view?usp=sharing) |
-| InternVideo1+InternVideo2 |    No    |  33.59   | [config](ego4d_internvideo1_internvideo2.py) | [model](https://drive.google.com/file/d/1D9P3_eDixdRkwHKbxaPx7CO70vSw8thO/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1S54Ni8-EMhP-yZAWC0h7kW5yYp6ZJYbA/view?usp=sharing) |
-| InternVideo1+InternVideo2 |   Yes    |  34.13   |         [config](ego4d_ensemble.py)          |                                                 [log](https://drive.google.com/file/d/1GGn2L-7fKkw2brgGWbe-qRBt5XLfwOP_/view?usp=sharing)                                                  |
+|       InternVideo1        |    No    |  32.19   |      [config](../ego4d_internvideo1.py)      | [model](https://drive.google.com/file/d/1SC3XFSSwguJG8_8DhdYi8doB6W6Ayfne/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1BLTbyw_lSnWtjHZY1tZO_laF_Chgye_h/view?usp=sharing) |
+|       InternVideo2        |    No    |  33.05   |      [config](../ego4d_internvideo2.py)      | [model](https://drive.google.com/file/d/1U2k9RLHNiCDSlppAPUl5GADYmfKtQlZ0/view?usp=sharing)   \| [log](https://drive.google.com/file/d/14D-q6N7RiCgmRexFPiozjpa0BiaQGnlI/view?usp=sharing) |
+| InternVideo1+InternVideo2 |    No    |  33.59   | [config](ego4d_internvideo1_internvideo2.py) | [model](https://drive.google.com/file/d/14CQFFclShQj6aaIFUHHUL2cE4ouLVGt2/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1xNf6BwI8eGtCfq3R2ZjS7lY_VUt4W5NS/view?usp=sharing) |
+| InternVideo1+InternVideo2 |   Yes    |  34.13   |         [config](ego4d_ensemble.py)          |                                                 [log](https://drive.google.com/file/d/1ZbVZrDhyEwcNFVI4RDkalcl3CaWVgEGz/view?usp=sharing)                                                  |
 
 **STEP4:** submit to [ego4d server](https://eval.ai/web/challenges/challenge-page/1626/leaderboard/3913)
 
@@ -66,8 +66,8 @@ Results on the validation set are as follows:
 
 | Evaluation |   Features   | mAP on Noun | mAP on Verb | mAP on Action |                                   Config                                   |                                                                                         Model                                                                                          |                                                                                          Log                                                                                          |
 | :--------: | :----------: | :---------: | :---------: | :-----------: | :------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  Separate  | InternVideo2 |    36.25    |    32.91    |       -       | [noun](epic_internvideo2_1b_noun.py), [verb](epic_internvideo2_1b_verb.py) | [noun](https://drive.google.com/file/d/1ntQ5DJwVgUOsAcoJNvohjOfCQ07XtHn5/view?usp=sharing), [verb](https://drive.google.com/file/d/1ubbTwumQEJ-79CH2d_D7ymbZgw0DoOeP/view?usp=sharing) | [noun](https://drive.google.com/file/d/1dnSbMsHZ4byCBV8CbuyF9sB67lTrk__R/view?usp=sharing),[verb](https://drive.google.com/file/d/1rVdMkUdDPd5rUsBGwhJPFVODrAnflcbu/view?usp=sharing) |
-|   Joint    | InternVideo2 |    34.72    |    26.87    |     28.86     |                                     -                                      |                                                                                         above                                                                                          |                                               [log](https://drive.google.com/file/d/1iJ3mNSSJHwcEbRXY55oZK5JJHnVbIf7_/view?usp=sharing)                                               |
+|  Separate  | InternVideo2 |    36.25    |    32.91    |       -       | [noun](epic_internvideo2_1b_noun.py), [verb](epic_internvideo2_1b_verb.py) | [noun](https://drive.google.com/file/d/1xXl6Z5GTDK6WQibxBQGxVrat_iNwbk7A/view?usp=sharing), [verb](https://drive.google.com/file/d/1ctunqj5jjmTJkw9mFpfdzsyS69l3Xd1g/view?usp=sharing) | [noun](https://drive.google.com/file/d/1j3vN5gLpnl7FBuDqA_YX49ij15ZH1TcT/view?usp=sharing),[verb](https://drive.google.com/file/d/1yauBT_4nXUdLo-dll226xC_Kh_sMPRfS/view?usp=sharing) |
+|   Joint    | InternVideo2 |    34.72    |    26.87    |     28.86     |                                     -                                      |                                                                                         above                                                                                          |                                               [log](https://drive.google.com/file/d/1GSjjmvLh7lFItS4Tc7rJ68Q7934siBRb/view?usp=sharing)                                               |
 
 **STEP3:** submit to [epic kitchens server](https://codalab.lisn.upsaclay.fr/competitions/707)
 
@@ -89,7 +89,7 @@ You should get the average mAP around 31.9\% of the action task on the test set.
 
 ## EPIC-Kitchens Audio-Based Interaction Detection
 
-**STEP1:** train the CausalTAD model with [Auditory-SlowFast features](https://github.com/epic-kitchens/C10-epic-sounds-detection?tab=readme-ov-file#features)
+**STEP1:** train the CausalTAD model with [Auditory-SlowFast features](../../../tools/prepare_data/epic_sounds/README.md#download-pre-extracted-features)
 ```
 torchrun --nnodes=1 --nproc_per_node=1 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/train.py configs/causaltad/egovis_challenge_2024/epic_sounds_audioslowfast.py
 ```
@@ -98,7 +98,7 @@ Results on the validation set are as follows:
 
 |     Features      | mAP@0.1 | mAP@0.2 | mAP@0.3 | mAP@0.4 | mAP@0.5 | ave. mAP |                 Config                 |                                                                                          Download                                                                                          |
 | :---------------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| Auditory-SlowFast |  16.98  |  15.73  |  14.72  |  12.35  |  10.44  |  14.04   | [config](epic_sounds_audioslowfast.py) | [model](https://drive.google.com/file/d/1xcnmfCFa4ZABKgICJM5itH-sComRoOVE/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1STy8tZmF50dk9JpR2RDxZTuCq5-FaICG/view?usp=sharing) |
+| Auditory-SlowFast |  16.98  |  15.73  |  14.72  |  12.35  |  10.44  |  14.04   | [config](epic_sounds_audioslowfast.py) | [model](https://drive.google.com/file/d/1RWDaLh_o0jHraJMQDZgG0sI73biXaP97/view?usp=sharing)   \| [log](https://drive.google.com/file/d/16gykV7zcMxi_PIZhEHwK8VufciZ7mDpJ/view?usp=sharing) |
 
 
 **STEP2:** submit to [epic kitchens server](https://codalab.lisn.upsaclay.fr/competitions/17921)

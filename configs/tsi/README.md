@@ -15,23 +15,23 @@ Despite the great progress in temporal action proposal generation, most state-of
 
 | Features | mAP@0.5 | mAP@0.75 | mAP@0.95 | ave. mAP |        Config         |                                                                                          Download                                                                                          |
 | :------: | :-----: | :------: | :------: | :------: | :-------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSN    |  49.76  |  33.01   |   9.03   |  32.88   | [config](anet_tsn.py) | [model](https://drive.google.com/file/d/1ErsNd6b9zlxSANmeVoIxDyYxcUOp-mp9/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1eQJTYpyu-i9vck7A012FC6p8lSwn_9zi/view?usp=sharing) |
-|   TSP    |  52.44  |  35.57   |   9.80   |  35.36   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/17U9ZhKGGz7w0SGZB6_EC2hqqFE0YIsKA/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1FoDQtL3w-pH-QDDyAtRv2kjnU3ad33LS/view?usp=sharing) |
+|   TSN    |  49.76  |  33.01   |   9.03   |  32.88   | [config](anet_tsn.py) | [model](https://drive.google.com/file/d/1urZz7O0kUyKFz77nKLfnwUPKpWIjJMI5/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1nBsbeckbhJhy3XRBUfcOPzc50Tlb3MXp/view?usp=sharing) |
+|   TSP    |  52.44  |  35.57   |   9.80   |  35.36   | [config](anet_tsp.py) | [model](https://drive.google.com/file/d/1HXUnrl2x4IFPFVKIFiRtEm_qpArMV2Fl/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1IqrksCpXYWecUMPwpyL4u42wrlcpn-6N/view?usp=sharing) |
 
 Use above checkpoints to evaluate the recall performance:
 
 | Features | AR@1  | AR@5  | AR@10 | AR@100 |  AUC  |            Config            |                                                                                          Download                                                                                          |
 | :------: | :---: | :---: | :---: | :----: | :---: | :--------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSN    | 32.53 | 49.64 | 57.18 | 76.45  | 68.31 | [config](anet_tsn_recall.py) | [model](https://drive.google.com/file/d/1ErsNd6b9zlxSANmeVoIxDyYxcUOp-mp9/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1nqfwC-YM6aGP4z9nbWiXZJosHAVjeBho/view?usp=sharing) |
-|   TSP    | 34.12 | 52.03 | 59.45 | 77.20  | 69.72 | [config](anet_tsp_recall.py) | [model](https://drive.google.com/file/d/17U9ZhKGGz7w0SGZB6_EC2hqqFE0YIsKA/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1GDneUY9Uu11kI9IKUKK_2G5Fn-P0gh-l/view?usp=sharing) |
+|   TSN    | 32.53 | 49.64 | 57.18 | 76.45  | 68.31 | [config](anet_tsn_recall.py) | [model](https://drive.google.com/file/d/1urZz7O0kUyKFz77nKLfnwUPKpWIjJMI5/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1aJpSzeRnWFcvuyufzwNhzCKg2tKHZkES/view?usp=sharing) |
+|   TSP    | 34.12 | 52.03 | 59.45 | 77.20  | 69.72 | [config](anet_tsp_recall.py) | [model](https://drive.google.com/file/d/1HXUnrl2x4IFPFVKIFiRtEm_qpArMV2Fl/view?usp=sharing)   \| [log](https://drive.google.com/file/d/14uWV75yTnXV3UEOeD8B4q2_9qbct4RVE/view?usp=sharing) |
 
 
 **THUMOS-14** with UtrimmedNet classifier
 
 | Features | mAP@0.3 | mAP@0.4 | mAP@0.5 | mAP@0.6 | mAP@0.7 | ave. mAP |         Config          |                                                                                          Download                                                                                          |
 | :------: | :-----: | :-----: | :-----: | :-----: | :-----: | :------: | :---------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   TSN    |  60.37  |  54.38  |  46.14  |  37.05  |  25.81  |  44.75   | [config](thumos_tsn.py) | [model](https://drive.google.com/file/d/1kdo-SkivVdiErhpnIlGQIYcRFl68G9b9/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1fscHNUKF0eSULu_w0ww1tiwqDBHwYIL_/view?usp=sharing) |
-|   I3D    |  62.56  |  57.00  |  50.22  |  40.18  |  30.17  |  48.03   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1ivTkvw_2a35iE1vv-u1oHABW4NxvVyTg/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1MrzMFdapaPZQjSab-3w05st_EK7suChA/view?usp=sharing) |
+|   TSN    |  60.37  |  54.38  |  46.14  |  37.05  |  25.81  |  44.75   | [config](thumos_tsn.py) | [model](https://drive.google.com/file/d/1wC1Plyb526FARC4_0PJXZYbCxt7bqDCF/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1dp9cv2aHk5Z00puZkKBN1ozVKEnNwD27/view?usp=sharing) |
+|   I3D    |  62.56  |  57.00  |  50.22  |  40.18  |  30.17  |  48.03   | [config](thumos_i3d.py) | [model](https://drive.google.com/file/d/1TBPf5ZrYD0LzfZwX627j-iGmZ3SI_tn7/view?usp=sharing)   \| [log](https://drive.google.com/file/d/1n8DFPno0UVPDFfwp6qt5a0jqAdKCGrYu/view?usp=sharing) |
 
 
 ## Train
