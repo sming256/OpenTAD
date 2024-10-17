@@ -31,7 +31,7 @@ We provide the following pre-extracted features for ActivityNet:
 
 Please put the downloaded video under the path: `data/activitynet-1.3/raw_data/`.
 
-You can download the raw video from [official website](https://docs.google.com/forms/d/e/1FAIpQLSeKaFq9ZfcmZ7W0B0PbEhfbTHY41GeEgwsa7WobJgGUhn4DTQ/viewform), which provides 7-day access for downloading.
+You can download the raw video from [official website](https://docs.google.com/forms/d/e/1FAIpQLSdxhNVeeSCwB2USAfeNWCaI9saVT6i2hpiiizVYfa3MsTyamg/viewform), which provides 7-day access for downloading.
 
 **[Update]** We have recently added a processed version of the ActivityNet-v1.3 videos to the folders above, named `Anet_videos_15fps_short256.zip`. The video has been converted by ffmpeg to 15 fps, and the shorter side of the video is resized to 256 pixels. In this codebase, all end-to-end ActivityNet experiments are based on this data.
 
