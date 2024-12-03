@@ -1,4 +1,5 @@
 import numpy as np
+from copy import deepcopy
 from .base import SlidingWindowDataset, PaddingDataset, filter_same_annotation
 from .builder import DATASETS
 
@@ -29,6 +30,7 @@ class EpicKitchensPaddingDataset(PaddingDataset):
         video_name, video_info, video_anno = self.data_list[index]
 
         if video_anno != {}:
+            video_anno = deepcopy(video_anno)  # avoid modify the original dict
             video_anno["gt_segments"] = video_anno["gt_segments"] - self.offset_frames
             video_anno["gt_segments"] = video_anno["gt_segments"] / self.snippet_stride
 
@@ -73,6 +75,7 @@ class EpicKitchensSlidingDataset(SlidingWindowDataset):
         video_name, video_info, video_anno, window_snippet_centers = self.data_list[index]
 
         if video_anno != {}:
+            video_anno = deepcopy(video_anno)  # avoid modify the original dict
             video_anno["gt_segments"] = video_anno["gt_segments"] - window_snippet_centers[0] - self.offset_frames
             video_anno["gt_segments"] = video_anno["gt_segments"] / self.snippet_stride
 

@@ -1,4 +1,5 @@
 import numpy as np
+from copy import deepcopy
 from .base import ResizeDataset, PaddingDataset, SlidingWindowDataset, filter_same_annotation
 from .builder import DATASETS
 
@@ -31,6 +32,9 @@ class AnetResizeDataset(ResizeDataset):
 
     def __getitem__(self, index):
         video_name, video_info, video_anno = self.data_list[index]
+
+        if video_anno != {}:
+            video_anno = deepcopy(video_anno)  # avoid modify the original dict
 
         results = self.pipeline(
             dict(
@@ -84,6 +88,7 @@ class AnetPaddingDataset(PaddingDataset):
         video_name, video_info, video_anno = self.data_list[index]
 
         if video_anno != {}:
+            video_anno = deepcopy(video_anno)  # avoid modify the original dict
             video_anno["gt_segments"] = video_anno["gt_segments"] - self.offset_frames
             video_anno["gt_segments"] = video_anno["gt_segments"] / self.snippet_stride
 
@@ -140,6 +145,7 @@ class AnetSlidingDataset(SlidingWindowDataset):
         video_name, video_info, video_anno, window_snippet_centers = self.data_list[index]
 
         if video_anno != {}:
+            video_anno = deepcopy(video_anno)  # avoid modify the original dict
             video_anno["gt_segments"] = video_anno["gt_segments"] - window_snippet_centers[0] - self.offset_frames
             video_anno["gt_segments"] = video_anno["gt_segments"] / self.snippet_stride
 
