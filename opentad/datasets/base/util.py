@@ -19,6 +19,7 @@ def filter_same_annotation(annotation):
     )
     return annotation
 
+
 if __name__ == "__main__":
     anno1 = dict(gt_segments=np.array([[3, 5], [3, 6], [3, 5]]), gt_labels=np.array([0, 1, 0]))
     print(filter_same_annotation(anno1))
@@ -31,3 +32,9 @@ if __name__ == "__main__":
     # output should be:
     # 'gt_segments': array([[3., 5.], [3., 6.], [3., 5.]], dtype=float32),
     # 'gt_labels': array([0, 1, 2], dtype=int32)}
+
+    anno3 = dict(gt_segments=np.array([[3, 5], [3, 5], [3, 5]]), gt_labels=np.array([0, 1, 1]))
+    print(filter_same_annotation(anno3))
+    # output should be:
+    # 'gt_segments': array([[3., 5.], [3., 5.]], dtype=float32),
+    # 'gt_labels': array([0, 1], dtype=int32)}
