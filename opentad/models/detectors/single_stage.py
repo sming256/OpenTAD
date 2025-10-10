@@ -109,7 +109,7 @@ class SingleStageDetector(BaseDetector):
 
             if num_classes == 1:
                 scores = scores.squeeze(-1)
-                labels = torch.zeros(scores.shape[0]).contiguous()
+                labels = torch.zeros(scores.shape[0], dtype=torch.long).contiguous()
             else:
                 pred_prob = scores.flatten()  # [N*class]
 
