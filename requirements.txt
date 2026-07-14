@@ -11,7 +11,7 @@ pytorchvideo
 
 ###### Requirements with Version Specifiers ######
 numpy==1.23.5
-gdown==5.1.0
+gdown==5.2.2
 
 ###### Custom Package Requirements ######
 opentad/models/utils/post_processing/nms 
